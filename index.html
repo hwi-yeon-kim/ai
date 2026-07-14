@@ -48,6 +48,7 @@
             justify-content: center;
             color: #adb5bd;
             font-size: 0.9rem;
+            overflow: hidden; /* 추가: 이미지가 둥근 테두리를 벗어나지 않게 함 */
         }
         .sidebar h1 {
             font-size: 1.5rem;
@@ -122,11 +123,23 @@
         }
         .badge {
             background: #e9ecef;
+            color: var(--text-color);
             padding: 0.2rem 0.5rem;
             border-radius: 4px;
             font-size: 0.8rem;
             font-weight: 500;
             margin-right: 0.5rem;
+            text-decoration: none;
+        }
+        a.badge {
+            background: #e1f0ff;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        a.badge:hover {
+            background: #cce5ff;
+            text-decoration: none;
         }
         .publication-title {
             font-weight: 600;
@@ -138,11 +151,6 @@
         .publication-venue {
             font-style: italic;
             margin-top: 0.2rem;
-        }
-        .publication-links a {
-            margin-right: 0.8rem;
-            font-size: 0.9rem;
-            font-weight: 500;
         }
         @media (max-width: 768px) {
             body {
@@ -172,11 +180,14 @@
 <body>
 
     <nav class="sidebar">
-        <div class="profile-img">[Profile Image]</div>
+        <!-- 프로필 이미지 수정 완료 -->
+        <div class="profile-img">
+            <img src="profile.jpg" alt="Hwiyeon Kim" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+        </div>
         <h1>Hwiyeon Kim</h1>
         <p>
             hwiyeon@hyundai.com<br>
-            <a href="#">LinkedIn</a> | <a href="#">Google Scholar</a>
+            <a href="https://linkedin.com">LinkedIn</a> | <a href="https://scholar.google.com/">Google Scholar</a>
         </p>
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
@@ -211,8 +222,8 @@
                 </div>
                 <div class="item-subtitle">Hyundai Motor Company | Infotainment Mobile Development Team</div>
                 <ul class="bullet-list">
-                    <li><strong>[Automotive Safety & Autonomous Tech]</strong> Engineered AI-driven post-crash safety interfaces and accident management guidelines, leading to a co-filed patent with the USPTO [PAT-5] and a publication at AutomotiveUI [A-2]. This R&D directly addresses critical driver safety and immediate accident response protocols in autonomous vehicles.</li>
-                    <li><strong>[Electric Vehicle (EV) Integration]</strong> Invented visualization methods for EV destination reachability based on real-time battery data, resulting in active patent applications [PAT-6, PAT-7]. This contributes to mitigating EV range anxiety, a critical factor for accelerating EV infrastructure adoption.</li>
+                    <li><strong>[Automotive Safety & Autonomous Tech]</strong> Engineered AI-driven post-crash safety interfaces and accident management guidelines, leading to a co-filed patent with the USPTO <a href="#patents" class="badge">PAT-5</a> and a publication at AutomotiveUI <a href="#publications" class="badge">A-2</a>. This R&D directly addresses critical driver safety and immediate accident response protocols in autonomous vehicles.</li>
+                    <li><strong>[Electric Vehicle (EV) Integration]</strong> Invented visualization methods for EV destination reachability based on real-time battery data, resulting in active patent applications <a href="#patents" class="badge">PAT-6</a>, <a href="#patents" class="badge">PAT-7</a>. This contributes to mitigating EV range anxiety, a critical factor for accelerating EV infrastructure adoption.</li>
                     <li><strong>[Data-Driven Mobility Innovation]</strong> Established quantitative data standards and developed an interactive spatio-temporal data visualization system (Awarded Excellence Award, 2026) to systematically translate complex vehicle log data into evidence-based engineering decisions.</li>
                 </ul>
             </div>
@@ -246,7 +257,7 @@
                 </div>
                 <div class="item-subtitle">Thyroscope INC.</div>
                 <ul class="bullet-list">
-                    <li><strong>[Digital Healthcare Innovation]</strong> Designed the interaction design for an AI-based predictive healthcare solution for thyroid disease. This R&D effort resulted in 2 Registered Patents for biomedical imaging and diagnostic guidance [PAT-2, PAT-3] and recognition as a Red Dot & IDEA Design Award Finalist, demonstrating a proven capability to advance public health technologies.</li>
+                    <li><strong>[Digital Healthcare Innovation]</strong> Designed the interaction design for an AI-based predictive healthcare solution for thyroid disease. This R&D effort resulted in 2 Registered Patents for biomedical imaging and diagnostic guidance <a href="#patents" class="badge">PAT-2</a>, <a href="#patents" class="badge">PAT-3</a> and recognition as a Red Dot & IDEA Design Award Finalist, demonstrating a proven capability to advance public health technologies.</li>
                 </ul>
             </div>
         </section>
@@ -263,8 +274,8 @@
                 <div class="item-subtitle">Ulsan National Institute of Science and Technology (UNIST)</div>
                 <ul class="bullet-list">
                     <li><strong>Research Topic:</strong> Human-Computer Interaction, Visualization Thumbnails | <strong>Advisor:</strong> Sungahn Ko</li>
-                    <li><strong>[Technology Commercialization]</strong> Invented a novel system for data-driven visualization thumbnails. This academic R&D successfully translated into commercial industry application [PAT-1].</li>
-                    <li><strong>[Academic Excellence]</strong> Conducted high-impact HCI research resulting in 4 peer-reviewed publications in top-tier international venues (including IEEE TVCG and IEEE VIS) [J-1, J-2, C-1, C-2].</li>
+                    <li><strong>[Technology Commercialization]</strong> Invented a novel system for data-driven visualization thumbnails. This academic R&D successfully translated into commercial industry application <a href="#patents" class="badge">PAT-1</a>.</li>
+                    <li><strong>[Academic Excellence]</strong> Conducted high-impact HCI research resulting in 4 peer-reviewed publications in top-tier international venues (including IEEE TVCG and IEEE VIS) <a href="#publications" class="badge">J-1</a>, <a href="#publications" class="badge">J-2</a>, <a href="#publications" class="badge">C-1</a>, <a href="#publications" class="badge">C-2</a>.</li>
                 </ul>
             </div>
 
@@ -285,41 +296,41 @@
             <h2>Patents</h2>
             
             <h3>Registered Patents & Technology Transfer</h3>
-            <div class="item">
-                <span class="badge">PAT-3</span> <strong>A Method, an Imaging Device and a Recording Medium for Acquiring a Lateral Image for Eye Protrusion Analysis</strong><br>
+            <div class="item" id="PAT-3">
+                <a class="badge" href="https://www.patentguru.com/KR102477699B1" target="_blank">PAT-3</a> <strong>A Method, an Imaging Device and a Recording Medium for Acquiring a Lateral Image for Eye Protrusion Analysis</strong><br>
                 <span class="item-meta">Inventors: Gyubo Shin, Jaemin Park, Jongchan Kim, Yoonwon Tak, Hwiyeon Kim, Eunyoung Shim | Assignee: Thyroscope INC. (No. 1024776990000)</span>
             </div>
             
-            <div class="item">
-                <span class="badge">PAT-2</span> <strong>A Method for Guiding a Visit to a Hospital for Treatment of Active Thyroid-Associated Ophthalmopathy and Performing the Same</strong><br>
+            <div class="item" id="PAT-2">
+                <a class="badge" href="https://patents.google.com/?q=(A+Method+for+Guiding+a+Visit+to+a+Hospital+for+Treatment+of+Active+Thyroid-Associated+Ophthalmopathy+and+Performing+the+Same)" target="_blank">PAT-2</a> <strong>A Method for Guiding a Visit to a Hospital for Treatment of Active Thyroid-Associated Ophthalmopathy and Performing the Same</strong><br>
                 <span class="item-meta">Inventors: Hwiyeon Kim, Yoonwon Tak, Eunyoung Sim, Gyubo Shin, Jaemin Park | Assignee: Thyroscope INC. (No. 1029214450000)</span>
             </div>
 
-            <div class="item">
-                <span class="badge">PAT-1</span> <strong>Method and apparatus for generating thumbnail images</strong><br>
+            <div class="item" id="PAT-1">
+                <a class="badge" href="https://patents.google.com/?q=(Method+and+apparatus+for+generating+thumbnail+images)&inventor=Sungahn+Ko" target="_blank">PAT-1</a> <strong>Method and apparatus for generating thumbnail images</strong><br>
                 <span class="item-meta">Inventors: Sungahn Ko, Hwiyeon Kim | Assignee: UNIST (No. 1024243420000)</span><br>
                 <span class="item-meta"><em>*Technology Transfer & Commercialization Success (Transferred to Upit Korea Co., Ltd.)</em></span>
             </div>
 
             <h3>Pending Patent Applications</h3>
-            <div class="item">
+            <div class="item" id="PAT-7">
                 <span class="badge">PAT-7</span> <strong>Method and Apparatus for Route Management and Vehicle Interlocking Control to Support Scheduled Departure</strong><br>
-                <span class="item-meta">Inventor: Hwiyeon Kim | Assignee: Hyundai Motor Company</span>
+                <span class="item-meta">Inventor: Hwiyeon Kim | Assignee: Hyundai Motor Company (In Preparation for Filing)</span>
             </div>
 
-            <div class="item">
-                <span class="badge">PAT-6</span> <strong>Method and Apparatus for Visualizing Destination Reachability Based on Electric Vehicle Battery Information During Route Search</strong><br>
+            <div class="item" id="PAT-6">
+                <a class="badge" href="https://patents.google.com/?q=KR1020260116848" target="_blank">PAT-6</a> <strong>Method and Apparatus for Visualizing Destination Reachability Based on Electric Vehicle Battery Information During Route Search</strong><br>
                 <span class="item-meta">Inventor: Hwiyeon Kim | Assignee: Hyundai Motor Company (No. KR1020260116848)</span>
             </div>
 
-            <div class="item">
-                <span class="badge">PAT-5</span> <strong>Method for Providing Guide for Managing Accident and Vehicle Implementing the Same</strong><br>
+            <div class="item" id="PAT-5">
+                <a class="badge" href="https://patents.google.com/?q=KR1020250192604" target="_blank">PAT-5</a> <strong>Method for Providing Guide for Managing Accident and Vehicle Implementing the Same</strong><br>
                 <span class="item-meta">Inventors: Yeonju Cho, Youngwang Park, Hwiyeon Kim | Assignee: Hyundai Motor Company (No. KR1020250192604)</span><br>
                 <span class="item-meta"><em>*Co-filed internationally with the U.S. Patent and Trademark Office (USPTO)</em></span>
             </div>
 
-            <div class="item">
-                <span class="badge">PAT-4</span> <strong>Multimodal Route Guidance System</strong><br>
+            <div class="item" id="PAT-4">
+                <a class="badge" href="https://patents.google.com/?q=KR1020260103550" target="_blank">PAT-4</a> <strong>Multimodal Route Guidance System</strong><br>
                 <span class="item-meta">Inventors: Yeonju Cho, Hwiyeon Kim | Assignee: Hyundai Motor Company (No. KR1020240197153)</span>
             </div>
         </section>
@@ -329,40 +340,40 @@
             <h2>Publications</h2>
             
             <h3>Peer-Reviewed Journal Articles</h3>
-            <div class="item">
-                <div class="publication-title"><span class="badge">J-2</span> Towards visualization thumbnail designs that entice reading data-driven articles</div>
+            <div class="item" id="J-2">
+                <div class="publication-title"><a class="badge" href="https://pure.kaist.ac.kr/en/publications/towards-visualization-thumbnail-designs-that-entice-reading-data-" target="_blank">J-2</a> Towards visualization thumbnail designs that entice reading data-driven articles</div>
                 <div class="publication-authors">Hwiyeon Kim, Joohee Kim, Yunha Han, Hwajung Hong, Oh-Sang Kwon, Young-Woo Park, Niklas Elmqvist, Sungahn Ko, Bum Chul Kwon</div>
                 <div class="publication-venue">IEEE Transactions on Visualization and Computer Graphics (Invited & Presented at IEEE VIS 2024)</div>
             </div>
 
-            <div class="item">
-                <div class="publication-title"><span class="badge">J-1</span> HisVA: A visual analytics system for studying history</div>
+            <div class="item" id="J-1">
+                <div class="publication-title"><a class="badge" href="https://www.semanticscholar.org/paper/HisVA%3A-A-Visual-Analytics-System-for-Studying-Han-Parsad/dc4902fafe27d24e8bc26a239a0dbc227b00bbbf" target="_blank">J-1</a> HisVA: A visual analytics system for studying history</div>
                 <div class="publication-authors">Dongyun Han, Gorakh Parsad, Hwiyeon Kim, Jaekyom Shim, Oh-Sang Kwon, Kyung A Son, Jooyoung Lee, Isaac Cho, Sungahn Ko</div>
                 <div class="publication-venue">IEEE Transactions on Visualization and Computer Graphics 2021</div>
             </div>
 
             <h3>Top-Tier Conference Proceedings</h3>
-            <div class="item">
-                <div class="publication-title"><span class="badge">C-2</span> Wait, let's think about your purchase again: A study on interventions for supporting self-controlled online purchases</div>
+            <div class="item" id="C-2">
+                <div class="publication-title"><a class="badge" href="https://www.bckwon.com/pdf/purchase.pdf" target="_blank">C-2</a> Wait, let's think about your purchase again: A study on interventions for supporting self-controlled online purchases</div>
                 <div class="publication-authors">Yunha Han, Hwiyeon Kim, Hyeshin Chu, Joohee Kim, Hyunwook Lee, Seunghyeong Choe, Dooyoung Jung, Dongil Chung, Bum Chul Kwon, Sungahn Ko</div>
                 <div class="publication-venue">Proceedings of the Web Conference 2021</div>
             </div>
 
-            <div class="item">
-                <div class="publication-title"><span class="badge">C-1</span> Thumbnails for data stories: A survey of current practices</div>
+            <div class="item" id="C-1">
+                <div class="publication-title"><a class="badge" href="https://www.semanticscholar.org/paper/Thumbnails-for-Data-Stories%3A-A-Survey-of-Current-Kim-Oh/25a3504ff7660800648caacaa6281311c58fa8e3" target="_blank">C-1</a> Thumbnails for data stories: A survey of current practices</div>
                 <div class="publication-authors">Hwiyeon Kim, Juyoung Oh, Yunha Han, Sungahn Ko, Matthew Brehmer, Bum Chul Kwon</div>
                 <div class="publication-venue">IEEE Visualization Conference (VIS) 2019</div>
             </div>
             
             <h3>Archived / Poster Papers</h3>
-            <div class="item">
-                <div class="publication-title"><span class="badge">A-2</span> Post-Crash UX: An Empirical Study on Multi-modal Interfaces for Immediate Driver Response</div>
+            <div class="item" id="A-2">
+                <div class="publication-title"><a class="badge" href="https://scholar.google.com/scholar?q=Post-Crash+UX%3A+An+Empirical+Study+on+Multi-modal+Interfaces+for+Immediate+Driver+Response" target="_blank">A-2</a> Post-Crash UX: An Empirical Study on Multi-modal Interfaces for Immediate Driver Response</div>
                 <div class="publication-authors">Yeonju Cho, Hwiyeon Kim, Minseo Ku, Suyeon Yu, Jieun Lee</div>
                 <div class="publication-venue">Adjunct Proceedings of the 17th International Conference on Automotive User Interfaces and Interactive Vehicular Applications</div>
             </div>
 
-            <div class="item">
-                <div class="publication-title"><span class="badge">A-1</span> An Empirical Study on the Relationship Between the Number of Coordinated Views and Visual Analysis</div>
+            <div class="item" id="A-1">
+                <div class="publication-title"><a class="badge" href="https://arxiv.org/abs/2204.09524" target="_blank">A-1</a> An Empirical Study on the Relationship Between the Number of Coordinated Views and Visual Analysis</div>
                 <div class="publication-authors">Juyoung Oh, Chunggi Lee, Hwiyeon Kim, Kihwan Kim, Osang Kwon, Eric D Ragan, Bum Chul Kwon, Sungahn Ko</div>
                 <div class="publication-venue">arXiv preprint arXiv:2204.09524</div>
             </div>
