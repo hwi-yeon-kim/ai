@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDP API Demo: Turning a CLI-Only Product into a Self-Serve GUI Funnel | Hwiyeon Kim</title>
+    <link rel="stylesheet" href="case-study.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <a href="../index.html#portfolio" class="back-link">Back to Portfolio</a>
+        <p class="sidebar-name">Hwiyeon Kim</p>
+        <p>Product Designer &amp; Data Analyst</p>
+        <ul class="nav-links">
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#problem">Problem &amp; Context</a></li>
+            <li><a href="#process">Process &amp; Approach</a></li>
+            <li><a href="#solution">Solution &amp; Design</a></li>
+            <li><a href="#impact">Impact &amp; Outcome</a></li>
+            <li><a href="#reflection">Reflection</a></li>
+        </ul>
+    </aside>
+
+    <main class="content">
+        <header class="project-header">
+            <img class="project-thumbnail" src="../portfolio/4.png" alt="Upstage IDP API self-serve demo interface">
+            <p class="eyebrow">Self-Serve Product Funnel Design</p>
+            <h1>IDP API Demo: Turning a CLI-Only Product into a Self-Serve GUI Funnel</h1>
+            <p class="tagline">Redesigning an internal QA tool into a public, self-serve demo that funnels homepage visitors directly into product trial and signup.</p>
+            <div class="meta-row">
+                <div class="meta-item">
+                    <span class="label">Organization</span>
+                    <span class="value">Upstage Inc. — Document Intelligence Team</span>
+                </div>
+                <div class="meta-item">
+                    <span class="label">Role</span>
+                    <span class="value">Product Designer — Stakeholder &amp; End-User Interviews, UX Design, Onboarding Strategy</span>
+                </div>
+            </div>
+        </header>
+
+        <section id="overview">
+            <h2>Overview</h2>
+            <p>Upstage's Intelligent Document Processing (IDP) OCR API had no GUI of its own — the only demo tool that existed was built for internal model QA, and every prospective customer had to go through a manual, multi-step process just to try it. I redesigned that internal tool into a public, self-serve demo embedded directly on the homepage, removing the login/token-issuance steps entirely, based on interviews with both internal stakeholders and real API customers. The redesigned demo drove homepage visitors directly into product trial and signup, and cut the customer-to-purchase process from 4 manual steps to 2.</p>
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-number">40.47%</div>
+                    <div class="stat-label">Demo visitors who uploaded an image</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4 &rarr; 2</div>
+                    <div class="stat-label">Customer-to-purchase steps</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2 wks</div>
+                    <div class="stat-label">Cut from first contact to signed usage</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="problem">
+            <h2>Problem &amp; Context</h2>
+            <p>The product had recently pivoted from selling bespoke, GUI-based extraction software directly to financial/insurance clients (with low-code customization) to selling the same core OCR capability as a CLI-first API on a self-serve SaaS platform — a shift from white-glove, one-on-one delivery to broad, self-service adoption. The only existing demo tool, however, had been built purely for internal model QA: it exposed technical parameters (model version selectors, confidence thresholds, box-color settings) and internal jargon (e.g., "파싱"/parsing) that meant nothing to an evaluating customer, and getting access to it required a manual request-to-CX-then-token-issuance flow — a process built for a small number of high-touch leads, not for a product now trying to let anyone try it in seconds.</p>
+        </section>
+
+        <section id="process">
+            <h2>Process &amp; Approach</h2>
+            <div class="role-pills">
+                <span class="role-pill">In-Depth Interviews (IDI)</span>
+                <span class="role-pill">Stakeholder Mapping</span>
+                <span class="role-pill">Wireframe Teardown</span>
+                <span class="role-pill">Customer Interview</span>
+                <span class="role-pill">Funnel Redesign</span>
+            </div>
+            <p>Conducted in-depth interviews (~40 minutes each, with a CX manager present) with three internal stakeholder teams — Biz (frontline promotion and demo operation), Ops (customer inquiries and token issuance), and Marketing (customer analysis and demo guide creation) — to map the existing demo-delivery process and its pain points. Separately reviewed the existing internal demo's UX directly (a wireframe teardown) to pinpoint two concrete usability failures: unintuitive internal-QA terminology and interface, and a core "upload image" action that was hidden and hard to find despite being the single most support-requested step. Complemented this with an actual API customer interview (a Closed Beta Test customer) to understand real purchase-evaluation behavior — customers benchmark competing APIs' performance before buying, purchase decisions involve non-developer stakeholders (PMs, designers) as much as engineers, and some customers reverse-engineer new use cases (e.g., a masking feature) directly from raw API response data. Synthesized all three inputs into a purpose-to-strategy map and redefined the target user from "customers with active purchase intent" to "anyone with interest," collapsing the funnel from a manual 3-step, CX-gated flow ("homepage &rarr; token issuance/login &rarr; demo") into a 1-step self-serve flow ("homepage demo, no login or token required").</p>
+            <div class="comparison-grid">
+                <div class="comparison-cell">
+                    <div class="comp-label">Old: 3-Step CX-Gated Flow</div>
+                    <div class="stage-flow">
+                        <div class="stage">Homepage</div>
+                        <div class="stage-arrow">&rarr;</div>
+                        <div class="stage">Token Issuance / Login</div>
+                        <div class="stage-arrow">&rarr;</div>
+                        <div class="stage">Demo</div>
+                    </div>
+                </div>
+                <div class="comparison-cell to-be">
+                    <div class="comp-label">New: 1-Step Self-Serve Flow</div>
+                    <div class="stage-flow">
+                        <div class="stage">Homepage Demo — No Login Required</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solution">
+            <h2>Solution &amp; Design</h2>
+            <p>Redesigned the demo interface around extraction-result visualization instead of internal QA controls: an example-image gallery to convey the technology's context and suggest new business use cases, an image viewer with zoom/rotate (designed for the demo's small embedded footprint rather than a full screen) so users could compare the source document against the extracted output side by side, and a simplified results panel with a Text/JSON toggle and one-click download in place of the old model-selection and confidence-threshold controls. Embedded this redesigned demo directly on the product homepage with CTA buttons, a free-trial popup, and platform links funneling visitors into SaaS console signup, paired with a free-credit incentive (30,000 KRW of OCR credits for new Upstage Console signups) to convert first-time trial into an active account.</p>
+            <div class="comparison-grid">
+                <div class="comparison-cell">
+                    <div class="comp-label">Old: Internal QA Tool</div>
+                    <ul>
+                        <li>Model version selectors, confidence thresholds, box-color settings</li>
+                        <li>Internal QA jargon (e.g., "파싱"/parsing)</li>
+                        <li>"Upload image" hidden and hard to find</li>
+                        <li>Manual CX request &amp; token issuance to access</li>
+                    </ul>
+                </div>
+                <div class="comparison-cell to-be">
+                    <div class="comp-label">New: Public Self-Serve Demo</div>
+                    <ul>
+                        <li>Example-image gallery for context and use-case ideas</li>
+                        <li>Zoom/rotate image viewer for side-by-side comparison</li>
+                        <li>Text/JSON results toggle with one-click download</li>
+                        <li>Embedded on homepage — no login or token required</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="impact">
+            <h2>Impact &amp; Outcome</h2>
+            <p>40.47% of homepage visitors who reached the demo uploaded an image to try it, confirming strong interest in hands-on evaluation over passive browsing. Of the visitors who engaged with the demo, each funnel exit point converted at a meaningfully high rate:</p>
+            <div class="bar-chart">
+                <div class="bar-row">
+                    <span class="bar-label">Free-trial popup</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
+                    <span class="bar-value">43.3%</span>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">CTA button</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:73%;"></div></div>
+                    <span class="bar-value">31.8%</span>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Platform links</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:57%;"></div></div>
+                    <span class="bar-value">24.7%</span>
+                </div>
+            </div>
+            <p class="highlight-box">On the sales side, collapsing the manual CX-assignment and back-and-forth negotiation process into a self-serve "try &rarr; check pricing &rarr; buy" flow reduced the customer-to-purchase process from <strong>4 steps to 2</strong>, cutting <strong>up to 2 weeks</strong> off the time from first contact to signed usage.</p>
+        </section>
+
+        <section id="reflection">
+            <h2>Reflection</h2>
+            <p>As the first person to own this API product's demo experience, I initially underweighted the need for a GUI at all — the primary user of an API is a developer, and developers can just call the endpoint directly. The interviews corrected that assumption: developers used the GUI demo to visually sanity-check model quality before writing code, and non-technical stakeholders used it to build internal buy-in for the purchase. This project also reinforced the value of shipping in short, scoped cycles (core functionality first, then visual polish, then marketing/branding) once cross-team scope started growing mid-project, to protect the delivery timeline without cutting quality.</p>
+        </section>
+    </main>
+
+</body>
+</html>

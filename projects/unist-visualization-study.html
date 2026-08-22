@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designing Visualization Thumbnails: A Reader Preference Study Across 4 Chart Design Types | Hwiyeon Kim</title>
+    <link rel="stylesheet" href="case-study.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <a href="../index.html#portfolio" class="back-link">Back to Portfolio</a>
+        <p class="sidebar-name">Hwiyeon Kim</p>
+        <p>Product Designer &amp; Data Analyst</p>
+        <ul class="nav-links">
+            <li><a href="#video">Presentation Video</a></li>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#problem">Problem &amp; Context</a></li>
+            <li><a href="#process">Process &amp; Approach</a></li>
+            <li><a href="#solution">Solution &amp; Design</a></li>
+            <li><a href="#impact">Impact &amp; Outcome</a></li>
+            <li><a href="#reflection">Reflection</a></li>
+        </ul>
+    </aside>
+
+    <main class="content">
+        <header class="project-header">
+            <img class="project-thumbnail" src="../portfolio/8.png" alt="Visualization thumbnail design study stimulus examples">
+            <p class="eyebrow">Peer-Reviewed Research — 1st Author</p>
+            <h1>Designing Visualization Thumbnails: A Reader Preference Study Across 4 Chart Design Types</h1>
+            <p class="tagline">A 161-participant reader preference experiment turning untested practitioner intuition into statistically validated thumbnail design guidance.</p>
+            <div class="meta-row">
+                <div class="meta-item">
+                    <span class="label">Organization</span>
+                    <span class="value">UNIST (Ulsan National Institute of Science and Technology)</span>
+                </div>
+                <div class="meta-item">
+                    <span class="label">Role</span>
+                    <span class="value">1st Author — Study Design, Data Collection &amp; Analysis (Contribution &ge;70%)</span>
+                </div>
+                <div class="meta-item">
+                    <span class="label">Recognition</span>
+                    <span class="value">IEEE VIS 2019 short paper + extended journal paper in IEEE TVCG, presented at IEEE VIS 2023</span>
+                </div>
+            </div>
+        </header>
+
+        <section id="video">
+            <h2>Presentation Video</h2>
+            <div class="video-embed">
+                <iframe src="https://www.youtube.com/embed/0zHERZNI6NY" title="IEEE VIS 2023 presentation: Towards Visualization Thumbnail Designs that Entice Reading Data-driven Articles" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section id="overview">
+            <h2>Overview</h2>
+            <p>News media increasingly embed charts directly into article thumbnails, but there had been no research into what makes these "visualization thumbnails" effective. As first author on this project, I ran a 3-step empirical study — a survey of real news thumbnails, a practitioner interview study, and a 161-participant reader preference experiment — to answer a concrete design question: which visualization thumbnail designs actually work, and why? The results were published as two peer-reviewed IEEE papers, replacing untested practitioner intuition with statistically validated, reader-tested design guidance.</p>
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-number">161</div>
+                    <div class="stat-label">Participants analyzed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Peer-reviewed IEEE papers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">p = .0018</div>
+                    <div class="stat-label">Chi-squared test significance</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="problem">
+            <h2>Problem &amp; Context</h2>
+            <p>Visualization thumbnails were a fast-growing design pattern across major U.S. news outlets — FiveThirtyEight, The Wall Street Journal Graphics, and The New York Times' "The Upshot" among them — but many were difficult to read: some cropped charts so heavily, or shrank text so much, that they became illegible, while others stripped away nearly all chart context in favor of a photo. Interviews with 6 industry practitioners confirmed that even the people making these design choices lacked a reliable answer: their goals (preserving brand identity, catching the reader's eye in a crowded social feed, reflecting an article's unique commissioned artwork) were clear, but they conceded there were "no hard and fast rules of thumb," and two of the six admitted they avoided visualization in thumbnails altogether, preferring photos, because charts felt "cold, intimidating, or inaccessible" to readers. This gap between design intuition and actual reader behavior — compounded by the fact that thumbnail design is often handed off to designers or social-media producers who weren't involved in writing the article — defined the research question.</p>
+        </section>
+
+        <section id="process">
+            <h2>Process &amp; Approach</h2>
+            <div class="role-pills">
+                <span class="role-pill">Design Convention Survey</span>
+                <span class="role-pill">Practitioner Interviews</span>
+                <span class="role-pill">Between-Subjects Experiment</span>
+                <span class="role-pill">Chi-Squared Testing</span>
+                <span class="role-pill">Thurstonian Preference Modeling</span>
+                <span class="role-pill">Thematic Coding</span>
+            </div>
+            <h3>Step 1 — Design Convention Survey</h3>
+            <p>Collected an initial corpus of 139 news articles published between Nov 1–Dec 31, 2018 from 7 major outlets, narrowing to a final set of 67 thumbnails after excluding articles with no visualization in the thumbnail (48) and rare, non-axis-based chart types like maps and pie charts (24, analyzed separately). Three of the paper's co-authors independently coded each thumbnail against a chart-component taxonomy, reaching 96% agreement (Fleiss' Kappa = 0.75) after iterative discussion. This surfaced two dominant strategies by outlet type — online-native outlets like FiveThirtyEight and WSJ rebuild thumbnails from scratch, while traditional outlets like The New York Times and The Economist mostly crop or resize the original chart. Complemented this with structured interviews with 6 industry practitioners to surface design intent and pain points directly from the people building these thumbnails.</p>
+            <table class="funnel-table">
+                <thead>
+                    <tr><th>Stage</th><th>Count</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Initial corpus (Nov 1–Dec 31, 2018, 7 outlets)</td><td>139</td></tr>
+                    <tr><td class="drop-rate">Excluded — no visualization in thumbnail</td><td class="drop-rate">&minus;48</td></tr>
+                    <tr><td class="drop-rate">Excluded — non-axis-based (maps, pie charts)</td><td class="drop-rate">&minus;24</td></tr>
+                    <tr><td>Final coded thumbnail set</td><td>67</td></tr>
+                </tbody>
+            </table>
+            <figure class="case-figure">
+                <img src="../images/unist-visualization-study-1.png" alt="Annotated chart-component taxonomy diagram labeling Chart Title, Axis, Legend, Data Label, Highlight, and HRO on a market-cap line chart example">
+                <figcaption>The chart-component taxonomy used to code the 67-thumbnail survey corpus.</figcaption>
+            </figure>
+            <h3>Step 2 — Design Space Definition</h3>
+            <p>Distilled the survey findings into 4 representative thumbnail design types based on chart-component treatment: <strong>Resized</strong> (a straight scale-down of the original chart), <strong>GNRD</strong> (Graphics Not Related to Data — axis information stripped out, a photo composited on for artistic effect), <strong>Highlight</strong> (a specific data range emphasized with a colored highlight block and large data labels), and <strong>HRO</strong> (Human-Recognizable Objects — icons or logos inserted onto a simplified chart as a visual legend). Built a controlled stimulus set — 4 design types × 4 real news articles = 16 thumbnails — and validated its design quality with 9 practitioners at a data journalism conference workshop before running the main study.</p>
+            <div class="card-grid">
+                <div class="info-card">
+                    <div class="info-card-title">Resized</div>
+                    <p>A straight scale-down of the original chart, with no other alteration.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-title">GNRD (Graphics Not Related to Data)</div>
+                    <p>Axis information stripped out, a photo composited on for artistic effect.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-title">Highlight</div>
+                    <p>A specific data range emphasized with a colored highlight block and large data labels.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-title">HRO (Human-Recognizable Objects)</div>
+                    <p>Icons or logos inserted onto a simplified chart as a visual legend.</p>
+                </div>
+            </div>
+            <figure class="case-figure">
+                <img src="../images/unist-visualization-study-2.png" alt="Two news-feed app mockups annotated with GNRD, Highlight, HRO, and Resized labels pointing to real news article thumbnails">
+                <figcaption>The 4 design types as they appear on real news article thumbnails.</figcaption>
+            </figure>
+            <figure class="case-figure">
+                <img src="../images/unist-visualization-study-3.png" alt="Grid of the 16-thumbnail controlled stimulus set: 4 design types (Resized, GNRD, Highlight, HRO) across 4 news topics">
+                <figcaption>The full controlled stimulus set — 4 design types × 4 real news articles = 16 thumbnails.</figcaption>
+            </figure>
+            <h3>Step 3 — Reader Preference Experiment</h3>
+            <p>Recruited 237 participants through Prolific and excluded those who failed data-quality checks, leaving 161 for analysis. Each participant viewed one design-type condition (between-subjects), clicked the thumbnail they most wanted to read, and wrote a free-text explanation of their choice. A 2,000-iteration Monte Carlo simulation confirmed selections were not significantly affected by thumbnail position (p &lt; .05).</p>
+            <table class="funnel-table">
+                <thead>
+                    <tr><th>Stage</th><th>Count</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Recruited via Prolific</td><td>237</td></tr>
+                    <tr><td class="drop-rate">Excluded — failed consistency check</td><td class="drop-rate">&minus;40</td></tr>
+                    <tr><td class="drop-rate">Excluded — topic-preference-only reasoning</td><td class="drop-rate">&minus;36</td></tr>
+                    <tr><td>Final analyzed sample</td><td>161</td></tr>
+                </tbody>
+            </table>
+            <div class="bar-chart">
+                <div class="bar-row">
+                    <span class="bar-label">Resized</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:51%;"></div></div>
+                    <span class="bar-value">27</span>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">GNRD</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:55%;"></div></div>
+                    <span class="bar-value">29</span>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Highlight</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
+                    <span class="bar-value">53</span>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">HRO</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:98%;"></div></div>
+                    <span class="bar-value">52</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="solution">
+            <h2>Solution &amp; Design</h2>
+            <p>Analyzed the results against two research questions — which design types readers actually want to click and why, and what role each thumbnail component plays — through three complementary methods: statistical significance testing (a chi-squared test confirmed design type significantly affects thumbnail preference: χ² = 14.975, df = 3, N = 161, p = .0018), Thurstonian preference modeling (a paired-comparison model quantifying exactly how much more preferred Highlight and HRO designs were), and thematic coding of all 261 free-text choice explanations, independently coded by three authors and reconciled to 95.8% agreement (Fleiss' Kappa = 0.26).</p>
+            <figure class="case-figure">
+                <img src="../images/unist-visualization-study-4.png" alt="Histogram of Thurstonian preference-modeling results showing preference distributions for Resized, GNRD, HRO, and Highlight design types, with significant-difference brackets">
+                <figcaption>Thurstonian preference modeling: distribution of preference scores by design type.</figcaption>
+            </figure>
+            <div class="comparison-grid">
+                <div class="comparison-cell">
+                    <div class="comp-label">Objective Coding (Chart Components)</div>
+                    <p>96% agreement, Fleiss' Kappa = 0.75</p>
+                </div>
+                <div class="comparison-cell to-be">
+                    <div class="comp-label">Subjective Coding (Choice-Reason Themes)</div>
+                    <p>95.8% agreement, Fleiss' Kappa = 0.26</p>
+                </div>
+            </div>
+            <p>The thematic coding mapped cleanly onto a two-category model of thumbnail component roles: GNRDs, HROs, and highlights function as "inviting" components that draw the reader's eye, while axes, implicit legends, and data labels function as "interpretable" components that convey the article's actual content — with a data label paired with a highlight, or an implicit legend paired with an HRO, able to do both jobs at once.</p>
+            <figure class="case-figure">
+                <img src="../images/unist-visualization-study-5.png" alt="Venn diagram of the two-category component-role model: an Inviting circle (GNRDs, HROs, Highlights) overlapping an Interpretable circle (Axis Components, Chart Title, Implicit Legends, Data Labels)">
+                <figcaption>The two-category model: inviting vs. interpretable thumbnail components.</figcaption>
+            </figure>
+            <figure class="case-figure">
+                <img src="../images/unist-visualization-study-6.png" alt="Table of Inviting (48%) and Interpretable (52%) theme categories with representative participant quotes for each theme">
+                <figcaption>Thematic coding themes within the Inviting and Interpretable categories, with representative participant quotes.</figcaption>
+            </figure>
+            <p class="highlight-box"><strong>Design suggestion 1:</strong> pairing a summarized chart with descriptive text — a chart title or one standout data-label number — makes a thumbnail meaningfully more interpretable.<br><strong>Design suggestion 2:</strong> adding highlights or visual embellishments makes a thumbnail more inviting and click-worthy, though GNRDs and HROs carry a documented risk of misleading readers about the underlying data and should be used with that trade-off in mind.</p>
+        </section>
+
+        <section id="impact">
+            <h2>Impact &amp; Outcome</h2>
+            <p>The chi-squared test confirmed that thumbnail design type has a statistically significant effect on reader preference (χ² = 14.975, df = 3, N = 161, p = .0018). Thurstonian preference modeling showed Highlight and HRO thumbnails were preferred over Resized and GNRD thumbnails with 99.5%–99.7% probability across all four pairwise comparisons.</p>
+            <p>Thematic coding of the 261 free-text choice explanations found inviting (48%) and interpretable (52%) as the two consistent drivers of preference overall, with a clear split by design type: image-centric designs were chosen primarily for visual appeal, while chart-centric designs were chosen primarily for the information they conveyed.</p>
+            <figure class="case-figure">
+                <img src="../images/unist-visualization-study-7.png" alt="Four-column table of thematic coding results per design type (Resized 43 comments, GNRD 52, Highlight 89, HRO 77), each with an interpretable/inviting split and a theme-count breakdown">
+                <figcaption>Thematic coding breakdown of choice-reason comments by design type.</figcaption>
+            </figure>
+            <div class="bar-chart">
+                <div class="bar-row">
+                    <span class="bar-label">GNRD — inviting-driven</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
+                    <span class="bar-value">60%</span>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">HRO — inviting-driven</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:88%;"></div></div>
+                    <span class="bar-value">53%</span>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Highlight — interpretable-driven</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
+                    <span class="bar-value">60%</span>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Resized — interpretable-driven</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:85%;"></div></div>
+                    <span class="bar-value">51%</span>
+                </div>
+            </div>
+            <p>These findings were published as two peer-reviewed IEEE papers — an IEEE VIS 2019 short paper on the survey methodology and a significantly extended IEEE Transactions on Visualization and Computer Graphics journal paper covering the full study, which I presented at IEEE VIS 2023 — turning previously untested practitioner intuition into statistically defensible, reader-tested, peer-reviewed design guidance.</p>
+        </section>
+
+        <section id="reflection">
+            <h2>Reflection</h2>
+            <p>This project sits at the most quantitative end of my portfolio — the goal wasn't to validate a single product decision, but to produce generalizable, statistically defensible design guidance through a formal between-subjects experiment, carried all the way through peer review. Three lessons stood out. First, qualitative coding done by more than one person needs explicit process rules, not just a shared taxonomy: I set three personal rules to keep the lead coder's opinion from dominating group consensus (state your own read last, always discuss disagreement even over a single dissenting vote, and majority-rule any comment the group can't agree on, excluding it from the final consensus). Second, not all coding tasks deserve the same reliability bar — our objective chart-component classification reached 96% agreement (Fleiss' Kappa = 0.75), while our open-ended, subjective thematic coding of choice-reasons settled for a lower but still meaningful 95.8% agreement (Kappa = 0.26); reporting both honestly, rather than picking whichever number looked better, mattered more than hitting one universal threshold. Third, experimental realism has to be tuned deliberately — an early version of the stimulus set held the article fixed and varied only the chart element, which produced near-identical-looking conditions and felt artificial in review; switching to the final design (one design type per article, varied across four different articles) better matched how readers actually encounter thumbnails across a real newspaper site, and produced more natural, ecologically valid choices.</p>
+        </section>
+    </main>
+
+</body>
+</html>

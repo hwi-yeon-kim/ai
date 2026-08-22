@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glandy: Thyroid Healthcare App Improvement & Launch | Hwiyeon Kim</title>
+    <link rel="stylesheet" href="case-study.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <a href="../index.html#portfolio" class="back-link">Back to Portfolio</a>
+        <p class="sidebar-name">Hwiyeon Kim</p>
+        <p>Product Designer &amp; Data Analyst</p>
+        <ul class="nav-links">
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#problem">Problem &amp; Context</a></li>
+            <li><a href="#process">Process &amp; Approach</a></li>
+            <li><a href="#solution">Solution &amp; Design</a></li>
+            <li><a href="#impact">Impact &amp; Outcome</a></li>
+            <li><a href="#reflection">Reflection</a></li>
+        </ul>
+    </aside>
+
+    <main class="content">
+        <header class="project-header">
+            <img class="project-thumbnail" src="../portfolio/6.png" alt="Glandy thyroid healthcare app screens">
+            <p class="eyebrow">Data-Driven Product Launch &amp; Improvement</p>
+            <h1>Glandy: Thyroid Healthcare App Improvement &amp; Launch</h1>
+            <p class="tagline">Redesigning a habit-formation healthcare app for thyroid patients through user research and Google Analytics funnel analysis.</p>
+            <div class="meta-row">
+                <div class="meta-item">
+                    <span class="label">Organization</span>
+                    <span class="value">Thyroscope</span>
+                </div>
+                <div class="meta-item">
+                    <span class="label">Role</span>
+                    <span class="value">Product Designer</span>
+                </div>
+                <div class="meta-item">
+                    <span class="label">Recognition</span>
+                    <span class="value">Red Dot &amp; IDEA Design Award Finalist (2022)</span>
+                </div>
+            </div>
+        </header>
+
+        <section id="overview">
+            <h2>Overview</h2>
+            <p>Glandy is a habit-formation healthcare app for thyroid patients that combines resting-heart-rate tracking, diagnostic surveys, and a medication diary to help users manage a chronic condition day to day. During the paid beta, users were confused by basic functions and lacked motivation to complete daily tracking tasks. I led user interviews and GA funnel analysis to redefine the product around real disease-management needs, restructured the core app experience into three purpose-built tabs, and separately fixed a signup funnel that was losing more than half of new downloads — lifting download-to-signup conversion by 18.6 percentage points within two weeks of shipping.</p>
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-number">+18.6pp</div>
+                    <div class="stat-label">Download-to-signup conversion lift</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Redesigned purpose-built tabs</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">57</div>
+                    <div class="stat-label">Post-launch survey respondents</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="problem">
+            <h2>Problem &amp; Context</h2>
+            <p>The beta app generated frequent user-voice complaints about locating basic functions ("Where do I go to edit the survey?") and lacked motivation for daily-tracking features users didn't understand the purpose of ("Why do I need to measure my heart rate every day?"). The company's existing feature definitions were business-driven rather than grounded in what hypothyroidism/hyperthyroidism patients actually needed at each stage of managing their condition, and it was unclear whether the app's paid-beta feature set reflected what users actually wanted to use. Separately, a marketing campaign was driving app downloads, but a large share of new users dropped off before completing signup, wasting acquisition spend.</p>
+        </section>
+
+        <section id="process">
+            <h2>Process &amp; Approach</h2>
+            <div class="role-pills">
+                <span class="role-pill">In-Depth Interviews (IDI)</span>
+                <span class="role-pill">Persona Definition</span>
+                <span class="role-pill">User Journey Mapping</span>
+                <span class="role-pill">Google Analytics Funnel Analysis</span>
+            </div>
+            <p>Conducted in-depth interviews (IDI) with 5 beta users who had used the service for 3+ months (ages 26–50, mix of hypothyroidism and hyperthyroidism diagnoses) to surface real disease-management scenarios and pain points. Synthesized findings into 2 target personas differentiated by underlying motivation (emotional encouragement vs. professional/clinical trust) and mapped a 6-stage user journey (pre-diagnosis → immediately post-diagnosis → in treatment → complications → prognosis monitoring → cured) to define which features the app needed at each stage. Post-launch, surveyed 57 in-app community users on feature usage, then ran follow-up IDIs with the 5 respondents who volunteered. Separately, used Google Analytics funnel analysis to quantify drop-off at each step of the signup flow, isolating exactly where and how much of the funnel was leaking.</p>
+            <div class="stage-flow">
+                <div class="stage">Pre-Diagnosis</div>
+                <div class="stage-arrow">&rarr;</div>
+                <div class="stage">Immediately Post-Diagnosis</div>
+                <div class="stage-arrow">&rarr;</div>
+                <div class="stage">In Treatment</div>
+                <div class="stage-arrow">&rarr;</div>
+                <div class="stage">Complications</div>
+                <div class="stage-arrow">&rarr;</div>
+                <div class="stage">Prognosis Monitoring</div>
+                <div class="stage-arrow">&rarr;</div>
+                <div class="stage">Cured</div>
+            </div>
+            <h3>Signup Funnel Analysis</h3>
+            <table class="funnel-table">
+                <thead>
+                    <tr>
+                        <th>Step</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Funnel entry</td><td>99.5%</td></tr>
+                    <tr><td>Tapped "Back" before login</td><td class="drop-rate">62.5%</td></tr>
+                    <tr><td>Reached login</td><td>46%</td></tr>
+                    <tr><td>Tapped "Back" from login</td><td class="drop-rate">32.9%</td></tr>
+                    <tr><td>Reached signup</td><td>64.2%</td></tr>
+                    <tr><td>Tapped "Back" from signup</td><td class="drop-rate">70.6%</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="solution">
+            <h2>Solution &amp; Design</h2>
+            <p>Restructured the app's information architecture from overlapping, ambiguous functions into three purpose-built tabs: <strong>Home</strong> (daily essential routine — heart rate graph, diagnostic survey, daily medication check), <strong>Records</strong> (weekly health tracking — heart rate, medication achievement, weight), and <strong>Statistics</strong> (1+ month trends as a comprehensive report). Redesigned the resting-heart-rate widget from a single-day number into a 7-day trend chart (validated through internal usability testing and medical-expert input) and changed medication checking from a per-pill toggle to a single batch check-in by dose/time. Shipped 3 new features sourced directly from interview pain points: an eye-complication self-screening tool built with an ophthalmologist (selfie-based pre-diagnosis), an AI-assisted coaching report generated from lifestyle-survey and diagnostic data, and a peer community with expert columns.</p>
+            <p>For the signup funnel, formed a hypothesis from the GA data — users without an account tap the most visible "Login" button, then bounce because there's no visible path to sign-up — and shipped 3 minimal, targeted changes: rebalanced CTA button emphasis on the login/signup screen, collapsed the terms-agreement step into a single consent-and-continue button, and added Naver/Kakao social login alongside Apple/Google/email to reduce friction for the 40–50s segment (the group most likely to drop off), who showed low preference for email verification (18.75%).</p>
+            <div class="bar-chart">
+                <div class="bar-row">
+                    <span class="bar-label">40–50s segment &rarr; email verification</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:18.75%;"></div></div>
+                    <span class="bar-value">18.75%</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="impact">
+            <h2>Impact &amp; Outcome</h2>
+            <p>Download-to-signup conversion rose <strong>18.6 percentage points (28.1% → 46.7%)</strong> within roughly two weeks of shipping the signup-funnel changes.</p>
+            <div class="conversion-visual">
+                <div class="conv-bubble">
+                    <div class="conv-circle before">28.1%</div>
+                    <span class="conv-caption">Before</span>
+                </div>
+                <div class="conv-arrow">&rarr;</div>
+                <div class="conv-lift">+18.6pp</div>
+                <div class="conv-arrow">&rarr;</div>
+                <div class="conv-bubble">
+                    <div class="conv-circle after">46.7%</div>
+                    <span class="conv-caption">After (~2 weeks)</span>
+                </div>
+            </div>
+            <p>In the post-launch survey of 57 users, the redesigned core features matched actual usage: heart rate monitoring and the lifestyle/symptom survey ranked as the top two most-used features, validating the information-architecture decisions drawn from the interview findings.</p>
+            <div class="bar-chart">
+                <div class="bar-row">
+                    <span class="bar-label">Heart rate monitoring</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
+                    <span class="bar-value">20.3%</span>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Lifestyle &amp; symptom survey</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:89%;"></div></div>
+                    <span class="bar-value">18.1%</span>
+                </div>
+            </div>
+            <p>Qualitatively, users reported forming new health-monitoring habits and independently noticing correlations between their heart rate trends and thyroid blood test results after the redesign.</p>
+        </section>
+
+        <section id="reflection">
+            <h2>Reflection</h2>
+            <p>This project paired qualitative research (interviews, personas, journey mapping) with quantitative funnel analysis on the same product, applying each method where it was strongest — interviews to find the right features, funnel data to fix the right screen. The signup-funnel work in particular reflects a habit of forming a testable hypothesis from data before touching the UI, then verifying impact with a number after shipping.</p>
+        </section>
+    </main>
+
+</body>
+</html>
