@@ -61,7 +61,11 @@
 
         <section id="problem">
             <h2>Problem &amp; Context</h2>
-            <p>The product had recently pivoted from selling bespoke, GUI-based extraction software directly to financial/insurance clients (with low-code customization) to selling the same core OCR capability as a CLI-first API on a self-serve SaaS platform — a shift from white-glove, one-on-one delivery to broad, self-service adoption. The only existing demo tool, however, had been built purely for internal model QA: it exposed technical parameters (model version selectors, confidence thresholds, box-color settings) and internal jargon (e.g., "파싱"/parsing) that meant nothing to an evaluating customer, and getting access to it required a manual request-to-CX-then-token-issuance flow — a process built for a small number of high-touch leads, not for a product now trying to let anyone try it in seconds.</p>
+            <p>The product had recently pivoted from selling bespoke, GUI-based extraction software directly to financial/insurance clients (with low-code customization) to selling the same core OCR capability as a CLI-first API on a self-serve SaaS platform — a shift from white-glove, one-on-one delivery to broad, self-service adoption. The only existing demo tool, however, had been built purely for internal model QA, not for this new self-serve audience:</p>
+            <ul class="bullet-list">
+                <li>Exposed technical parameters (model version selectors, confidence thresholds, box-color settings) and internal jargon (e.g., "파싱"/parsing) that meant nothing to an evaluating customer</li>
+                <li>Access required a manual request-to-CX-then-token-issuance flow — a process built for a small number of high-touch leads, not for a product now trying to let anyone try it in seconds</li>
+            </ul>
         </section>
 
         <section id="process">
@@ -73,7 +77,31 @@
                 <span class="role-pill">Customer Interview</span>
                 <span class="role-pill">Funnel Redesign</span>
             </div>
-            <p>Conducted in-depth interviews (~40 minutes each, with a CX manager present) with three internal stakeholder teams — Biz (frontline promotion and demo operation), Ops (customer inquiries and token issuance), and Marketing (customer analysis and demo guide creation) — to map the existing demo-delivery process and its pain points. Separately reviewed the existing internal demo's UX directly (a wireframe teardown) to pinpoint two concrete usability failures: unintuitive internal-QA terminology and interface, and a core "upload image" action that was hidden and hard to find despite being the single most support-requested step. Complemented this with an actual API customer interview (a Closed Beta Test customer) to understand real purchase-evaluation behavior — customers benchmark competing APIs' performance before buying, purchase decisions involve non-developer stakeholders (PMs, designers) as much as engineers, and some customers reverse-engineer new use cases (e.g., a masking feature) directly from raw API response data. Synthesized all three inputs into a purpose-to-strategy map and redefined the target user from "customers with active purchase intent" to "anyone with interest," collapsing the funnel from a manual 3-step, CX-gated flow ("homepage &rarr; token issuance/login &rarr; demo") into a 1-step self-serve flow ("homepage demo, no login or token required").</p>
+            <p>Conducted in-depth interviews (~40 minutes each, with a CX manager present) with three internal stakeholder teams — Biz (frontline promotion and demo operation), Ops (customer inquiries and token issuance), and Marketing (customer analysis and demo guide creation) — to map the existing demo-delivery process and its pain points. A separate wireframe teardown of the existing internal demo's UX pinpointed three concrete usability failures:</p>
+            <ul class="bullet-list">
+                <li>Unintuitive internal-QA terminology and interface</li>
+                <li>A core "upload image" action that was hidden and hard to find, despite being the single most support-requested step</li>
+                <li>A configuration-heavy flow — four model-version selectors, a minimum-confidence slider, box-color settings — that forced users through detailed setup before they could see a single result</li>
+            </ul>
+            <p>This was complemented by an interview with an actual API customer — a Closed Beta Test customer, "Company I," who used the API's OCR to extract text from images for SEO-optimizing job postings — to understand real purchase-evaluation behavior:</p>
+            <ul class="bullet-list">
+                <li>Customers benchmark competing APIs' performance before buying, sometimes starting on a free tool (e.g., KakaoTalk's API) before switching to a paid plan as automation needs grow</li>
+                <li>Purchase decisions involve non-developer stakeholders (PMs, designers) as much as engineers</li>
+                <li>Some customers reverse-engineer new use cases — such as a masking feature built from OCR-based coordinate data — directly from raw API response data</li>
+            </ul>
+            <p>Synthesizing all three inputs into a purpose-to-strategy map redefined the target user from "customers with active purchase intent" to "anyone with interest," collapsing the funnel from a manual 3-step, CX-gated flow ("homepage &rarr; token issuance/login &rarr; demo") into a 1-step self-serve flow ("homepage demo, no login or token required").</p>
+            <div class="screen-compare">
+                <figure class="screen-compare-col">
+                    <span class="screen-compare-label as-is">As-Is</span>
+                    <img src="images/upstage-idp-demo-1.png" alt="Original internal demo wireframe with side-by-side OCR Results and Parsing Results panels, per-model confidence scores, a sample-image dropdown, and a plain download button">
+                    <figcaption>Raw OCR/parsing output panels built for internal QA, not for a customer evaluating the product.</figcaption>
+                </figure>
+                <figure class="screen-compare-col">
+                    <span class="screen-compare-label as-is">As-Is</span>
+                    <img src="images/upstage-idp-demo-2.png" alt="Wireframe showing the image-upload and configuration panel tucked behind a collapsed arrow toggle, with four model-version dropdowns, a minimum-confidence slider, box-color settings, and a Get Result button">
+                    <figcaption>The upload-and-configure panel — four model selectors, a confidence slider, box-color settings — sat behind a collapsed arrow, burying the demo's single most-requested action.</figcaption>
+                </figure>
+            </div>
             <div class="comparison-grid">
                 <div class="comparison-cell">
                     <div class="comp-label">Old: 3-Step CX-Gated Flow</div>
@@ -96,7 +124,7 @@
 
         <section id="solution">
             <h2>Solution &amp; Design</h2>
-            <p>Redesigned the demo interface around extraction-result visualization instead of internal QA controls: an example-image gallery to convey the technology's context and suggest new business use cases, an image viewer with zoom/rotate (designed for the demo's small embedded footprint rather than a full screen) so users could compare the source document against the extracted output side by side, and a simplified results panel with a Text/JSON toggle and one-click download in place of the old model-selection and confidence-threshold controls. Embedded this redesigned demo directly on the product homepage with CTA buttons, a free-trial popup, and platform links funneling visitors into SaaS console signup, paired with a free-credit incentive (30,000 KRW of OCR credits for new Upstage Console signups) to convert first-time trial into an active account.</p>
+            <p>Redesigned the demo around extraction-result visualization instead of internal QA controls — including an image viewer with zoom/rotate designed for the demo's small embedded footprint rather than a full screen. Embedded the redesigned demo directly on the product homepage with CTA buttons, a free-trial popup, and platform links funneling visitors into SaaS console signup, paired with a free-credit incentive (30,000 KRW of OCR credits for new Upstage Console signups) to convert first-time trial into an active account.</p>
             <div class="comparison-grid">
                 <div class="comparison-cell">
                     <div class="comp-label">Old: Internal QA Tool</div>
@@ -117,6 +145,10 @@
                     </ul>
                 </div>
             </div>
+            <figure class="case-figure">
+                <img src="images/upstage-idp-demo-3.png" alt="Shipped self-serve demo with an example-image gallery on the left, a receipt viewer with highlighted extracted fields in the center, and a Text/JSON results panel with a one-click Download button on the right">
+                <figcaption>The shipped demo: an example-image gallery, a viewer with highlighted extracted fields, and a Text/JSON results panel with one-click download — replacing the raw OCR/parsing panels shown above.</figcaption>
+            </figure>
         </section>
 
         <section id="impact">
@@ -125,17 +157,17 @@
             <div class="bar-chart">
                 <div class="bar-row">
                     <span class="bar-label">Free-trial popup</span>
-                    <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
+                    <div class="bar-track"><div class="bar-fill" style="width:43.3%;"></div></div>
                     <span class="bar-value">43.3%</span>
                 </div>
                 <div class="bar-row">
                     <span class="bar-label">CTA button</span>
-                    <div class="bar-track"><div class="bar-fill" style="width:73%;"></div></div>
+                    <div class="bar-track"><div class="bar-fill" style="width:31.8%;"></div></div>
                     <span class="bar-value">31.8%</span>
                 </div>
                 <div class="bar-row">
                     <span class="bar-label">Platform links</span>
-                    <div class="bar-track"><div class="bar-fill" style="width:57%;"></div></div>
+                    <div class="bar-track"><div class="bar-fill" style="width:24.7%;"></div></div>
                     <span class="bar-value">24.7%</span>
                 </div>
             </div>

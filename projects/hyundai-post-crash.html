@@ -41,6 +41,10 @@
                     <span class="label">Recognition</span>
                     <span class="value">Co-filed USPTO patent · Work-in-Progress paper, AutomotiveUI 2025</span>
                 </div>
+                <div class="meta-item">
+                    <span class="label">Paper</span>
+                    <span class="value"><a class="badge" href="papers/hyundai-post-crash.pdf" target="_blank">Post-Crash UX Paper (PDF)</a></span>
+                </div>
             </div>
         </header>
 
@@ -65,7 +69,53 @@
 
         <section id="problem">
             <h2>Problem &amp; Context</h2>
-            <p>The team was designing a new vehicle-system concept letting drivers handle minor accidents themselves (auto-notifying police/ambulance/insurance, collecting on-site information) but was split on two open design questions: an AI Chat-style interface vs. a step-by-step guided (Wizard) interface, and whether it should live on the in-vehicle display or the driver's mobile phone. Existing academic research on driver behavior focused almost entirely on accident <em>prevention</em> (risk perception, cognitive load in complex driving environments, trust in ADAS) and offered no evidence on how drivers want to be supported in the minutes immediately <em>after</em> a collision. With no reference concept and no usability research to draw on, design decisions were being made from individual team members' personal driving/accident experiences rather than evidence.</p>
+            <p>The team was designing a new vehicle-system concept letting drivers handle minor accidents themselves (auto-notifying police/ambulance/insurance, collecting on-site information), but ran into three blockers:</p>
+            <ul class="bullet-list">
+                <li>Split on two open design questions: an AI Chat-style interface vs. a step-by-step guided (Wizard) interface, and whether it should live on the in-vehicle display or the driver's mobile phone</li>
+                <li>Existing academic research on driver behavior focused almost entirely on accident <em>prevention</em> (risk perception, cognitive load in complex driving environments, trust in ADAS) and offered no evidence on how drivers want to be supported in the minutes immediately <em>after</em> a collision</li>
+                <li>With no reference concept and no usability research to draw on, design decisions were being made from individual team members' personal driving/accident experiences rather than evidence</li>
+            </ul>
+            <div class="scope-timeline-scroll">
+                <div class="scope-timeline">
+                    <span class="scope-timeline-label">While driving</span>
+                    <span class="scope-timeline-label strong">Accident occurs</span>
+                    <span class="scope-timeline-label strong">Accident handling completed</span>
+                    <span class="scope-timeline-label">Documentation</span>
+                    <div class="scope-timeline-track">
+                        <span class="scope-timeline-highlight" aria-hidden="true"></span>
+                        <span class="scope-timeline-node" style="left:12.5%" aria-hidden="true"></span>
+                        <span class="scope-timeline-node strong" style="left:37.5%" aria-hidden="true"></span>
+                        <span class="scope-timeline-node strong" style="left:62.5%" aria-hidden="true"></span>
+                        <span class="scope-timeline-node" style="left:87.5%" aria-hidden="true"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="scope-notes">
+                <div class="scope-note">
+                    <div class="scope-note-title">Previous Research Scope:</div>
+                    <ul class="bullet-list">
+                        <li>Accident prevention and driver-assist (ADAS) usability studies.</li>
+                    </ul>
+                </div>
+                <div class="scope-note current">
+                    <div class="scope-note-title">This Study Scope:</div>
+                    <ul class="bullet-list">
+                        <li>Minor accidents manageable by the driver, covering the entire post-accident process — from collision to report completion.</li>
+                    </ul>
+                </div>
+            </div>
+            <h3>Prior Research Review</h3>
+            <p>Previous studies mainly focused on risk perception and avoidance before accidents, but research on post-accident user behavior and interaction has been limited.</p>
+            <table class="data-table">
+                <thead>
+                    <tr><th>Authors</th><th>Research summary</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Sun et al. (2019)</td><td>Perception time and avoidance behavior differ by hazard type.</td></tr>
+                    <tr><td>Lundqvist (2019)</td><td>Cognitive load rises sharply in complex driving environments.</td></tr>
+                    <tr><td>Meiser et al. (2022)</td><td>System reliability and mental workload strongly affect user acceptance.</td></tr>
+                </tbody>
+            </table>
         </section>
 
         <section id="process">
@@ -77,15 +127,44 @@
                 <span class="role-pill">Chi-Square / Cramer's V</span>
                 <span class="role-pill">Thematic Coding</span>
             </div>
-            <p>Designed and ran a between-subjects lab experiment with 25 licensed drivers, screened by age, gender, education, driving experience/frequency, digital literacy, and prior accident history. Each session followed a 4-stage protocol: screening &rarr; pre-interview (on the participant's own accident experiences and pain points) &rarr; the experimental task (watching a realistic crash video in a physical driving-simulator rig, then handling the resulting accident-response flow, with both device options available and interface type — Wizard or Chat — assigned by participant group) &rarr; post-interview (device choice rationale and an interface-preference vote). Cognitive workload was measured quantitatively with the NASA-TLX scale; preference differences were tested for statistical significance using chi-square/Cramer's V, and open-ended interview responses were analyzed via thematic coding to surface qualitative themes.</p>
-            <div class="stage-flow">
-                <div class="stage">Screening</div>
+            <p>Designed and ran a between-subjects lab experiment with 25 licensed drivers, screened by age, gender, education, driving experience/frequency, digital literacy, and prior accident history. Each session followed a 4-stage protocol — screening, pre-interview, experimental task, and post-interview, detailed below — and combined three analysis methods:</p>
+            <ul class="bullet-list">
+                <li>Cognitive workload was measured quantitatively with the NASA-TLX scale</li>
+                <li>Preference differences were tested for statistical significance using chi-square/Cramer's V</li>
+                <li>Open-ended interview responses were analyzed via thematic coding to surface qualitative themes</li>
+            </ul>
+            <figure class="case-figure">
+                <img src="images/hyundai-post-crash-8.png" alt="Physical driving-simulator rig with steering wheel, pedals, a dashboard monitor showing a tunnel driving scene, a mounted tablet, and a vehicle-display screen used for the crash-response experimental task">
+                <figcaption>The physical driving-simulator rig: steering wheel and pedals, a dashboard monitor for the crash video, and a mounted vehicle-display/tablet for the accident-response task.</figcaption>
+            </figure>
+            <div class="stage-flow detailed">
+                <div class="stage">
+                    <div class="stage-title">Screening</div>
+                    <ul class="stage-desc">
+                        <li>Age, gender, education, driving experience/frequency, digital literacy, prior accident history</li>
+                    </ul>
+                </div>
                 <div class="stage-arrow">&rarr;</div>
-                <div class="stage">Pre-Interview</div>
+                <div class="stage">
+                    <div class="stage-title">Pre-Interview</div>
+                    <ul class="stage-desc">
+                        <li>Participant's own accident experiences and pain points</li>
+                    </ul>
+                </div>
                 <div class="stage-arrow">&rarr;</div>
-                <div class="stage">Experimental Task</div>
+                <div class="stage">
+                    <div class="stage-title">Experimental Task</div>
+                    <ul class="stage-desc">
+                        <li>Watch a realistic crash video in the driving-simulator rig, then handle the resulting accident-response flow (device and interface type assigned by group)</li>
+                    </ul>
+                </div>
                 <div class="stage-arrow">&rarr;</div>
-                <div class="stage">Post-Interview</div>
+                <div class="stage">
+                    <div class="stage-title">Post-Interview</div>
+                    <ul class="stage-desc">
+                        <li>Device choice rationale and an interface-preference vote</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
@@ -108,11 +187,19 @@
                     <p>The same underlying accident-response logic delivered through an AI assistant conversation — asking clarifying questions (e.g., "Is an ambulance needed?"), narrating automatic-reporting progress, and surfacing the same status information conversationally rather than as discrete screens.</p>
                 </div>
             </div>
+            <figure class="case-figure">
+                <img src="images/hyundai-post-crash-9.png" alt="Wizard UI four-screen flow: Accident Detected with selectable emergency agencies, Report Complete with next-step checklist, Collecting Accident Info with auto-processing status, and a final Incident Status summary screen">
+                <figcaption>Wizard UI: an explicit step-by-step flow from accident detection to a final incident-status summary.</figcaption>
+            </figure>
+            <figure class="case-figure">
+                <img src="images/hyundai-post-crash-10.png" alt="Chat UI four-screen flow: an AI Accident Response conversation showing Accident Detected, an AI accident summary with a clarifying ambulance question, live processing status, and a final Report Status/Incident Summary screen">
+                <figcaption>Chat UI: the same accident-response logic delivered as an AI assistant conversation.</figcaption>
+            </figure>
         </section>
 
         <section id="impact">
             <h2>Impact &amp; Outcome</h2>
-            <p>Across the 25 participants, device and interface preference were driven almost entirely by driving experience and accident history, not personal taste.</p>
+            <p>Across the 25 participants, device and interface preference were driven almost entirely by driving experience and accident history, not personal taste. Overall, mobile was the more preferred device (64% vs. 36% for the in-vehicle display), but that aggregate masked the sharper experience-based split below.</p>
             <h3>Device Preference by Driving Experience</h3>
             <div class="bar-chart">
                 <div class="bar-row">
@@ -156,7 +243,46 @@
                     <p>Wizard significantly higher than Chat (p = .005)</p>
                 </div>
             </div>
+            <h3>Key Insights</h3>
+            <div class="card-grid">
+                <div class="info-card">
+                    <div class="info-card-title">Interface Acceptance Varies by Driver Characteristics</div>
+                    <ul>
+                        <li>Driving experience, accident history, and trust in automation significantly influenced post-accident interface preference.</li>
+                        <li>Even for the same system, perceived usefulness, reliability, and convenience varied by user experience level and accident history.</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-title">Strengths of Wizard UI (Step-by-Step Guide)</div>
+                    <ul>
+                        <li>Advantageous for novice drivers.</li>
+                        <li>Clear procedural guidance and simple visual composition let users follow along even in a confusing accident situation.</li>
+                    </ul>
+                    <p class="quote-item">"In a shocking moment, simple and clear screens help me stay focused."<cite>— P27</cite></p>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-title">Strengths of Chat UI (Conversational Interface)</div>
+                    <ul>
+                        <li>Preferred by experienced drivers and those with a prior accident history.</li>
+                        <li>Conversational interaction provided psychological comfort, and automated-reporting features improved efficiency.</li>
+                        <li>Transparently surfacing insurance-filing and emergency-rescue progress increased users' sense of control.</li>
+                    </ul>
+                    <p class="quote-item">"Seeing the process in real time made me feel reassured and in control."<cite>— P09</cite></p>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-title">User Perception Gap: Trust vs. Anxiety Toward Automation</div>
+                    <ul>
+                        <li>Some users felt anxious that no human was involved in the automated process — e.g., resistance to the system handling things unilaterally without direct communication with the other driver.</li>
+                        <li>UX design needs to increase automation's "transparency" and "sense of participation."</li>
+                    </ul>
+                    <p class="quote-item">"It felt less trustworthy when humans weren't involved at all."<cite>— P23</cite></p>
+                </div>
+            </div>
             <p>The study was accepted as a Work-in-Progress paper at AutomotiveUI 2025 ("Post-Crash UX: Multi-Modal Interfaces for Immediate Driver Response"), and the underlying interface concepts were developed into a patent co-filed with the USPTO.</p>
+            <figure class="case-figure">
+                <img src="images/hyundai-post-crash-11.jpg" alt="AutomotiveUI 2025 conference poster titled Post-Crash UX: Multi-Modal Interfaces for Immediate Driver Response, showing the experiment environment, the three interface conditions, key findings, and design implications">
+                <figcaption>The Work-in-Progress paper poster presented at AutomotiveUI 2025.</figcaption>
+            </figure>
         </section>
 
         <section id="reflection">

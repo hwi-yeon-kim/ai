@@ -61,16 +61,21 @@
 
         <section id="problem">
             <h2>Problem &amp; Context</h2>
-            <p>The MyData service's valid-subscriber count and daily average users both declined for three of the four months following its January 2022 launch. Two root causes emerged: an industry-wide lack of MyData UX references (most banks had launched quickly from a feature-supply perspective, with few validated "success cases" to learn from), and a mismatch between the app's one-size-fits-all design and BNK Kyungnam Bank's actual user base, which splits nearly evenly between a 40s–50s segment (51%) and a 20s–30s segment (35%) with meaningfully different asset-management contexts and goals. The conclusion driving the redesign: the service needed to be rebuilt around real users' asset-management scenarios rather than a supplier-side feature checklist.</p>
+            <p>The MyData service's valid-subscriber count and daily average users both declined for three of the four months following its January 2022 launch. Two root causes emerged:</p>
+            <ul class="bullet-list">
+                <li>An industry-wide lack of MyData UX references — most banks had launched quickly from a feature-supply perspective, with few validated "success cases" to learn from</li>
+                <li>A mismatch between the app's one-size-fits-all design and BNK Kyungnam Bank's actual user base, which splits nearly evenly between a 40s–50s segment (51%) and a 20s–30s segment (35%) with meaningfully different asset-management contexts and goals</li>
+            </ul>
+            <p>The conclusion driving the redesign: the service needed to be rebuilt around real users' asset-management scenarios rather than a supplier-side feature checklist.</p>
             <div class="bar-chart">
                 <div class="bar-row">
                     <span class="bar-label">40s–50s segment</span>
-                    <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
+                    <div class="bar-track"><div class="bar-fill" style="width:51%;"></div></div>
                     <span class="bar-value">51%</span>
                 </div>
                 <div class="bar-row">
                     <span class="bar-label">20s–30s segment</span>
-                    <div class="bar-track"><div class="bar-fill" style="width:69%;"></div></div>
+                    <div class="bar-track"><div class="bar-fill" style="width:35%;"></div></div>
                     <span class="bar-value">35%</span>
                 </div>
             </div>
@@ -85,29 +90,13 @@
                 <span class="role-pill">Persona Definition</span>
                 <span class="role-pill">5-Stage Journey Mapping</span>
             </div>
-            <p>Conducted desk research into generational asset-management trends using a third-party data insight report ("Generation Gap Analysis," Nov 2021) covering household financial assets and spare-money management plans by generation. Ran a competitive audit of 18 apps across four categories (5 banks, 6 fintech apps, 4 card-company apps, 3 securities apps) to map common core features (asset aggregation, expense analysis, specialized tools like financial calendars and life-event simulations) and category-specific differentiation patterns. Conducted user interviews to define two target personas — a single freelance designer in her early 30s and a married manufacturing worker in his 40s — and mapped each through a 5-stage journey (Aware &rarr; Start &rarr; Explore &rarr; Apply &rarr; Revisit) to surface stage-by-stage needs and pain points: both personas wanted simpler fixed-cost tracking, but differed on investment appetite (passive point/benefit tracking vs. active real-estate/stock investing) and both cited low-detail UI and hard-to-parse visualizations as reasons the existing service failed to sustain engagement.</p>
-            <div class="bar-chart">
-                <div class="bar-row">
-                    <span class="bar-label">Fintech apps</span>
-                    <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
-                    <span class="bar-value">6</span>
-                </div>
-                <div class="bar-row">
-                    <span class="bar-label">Banks</span>
-                    <div class="bar-track"><div class="bar-fill" style="width:83%;"></div></div>
-                    <span class="bar-value">5</span>
-                </div>
-                <div class="bar-row">
-                    <span class="bar-label">Card companies</span>
-                    <div class="bar-track"><div class="bar-fill" style="width:67%;"></div></div>
-                    <span class="bar-value">4</span>
-                </div>
-                <div class="bar-row">
-                    <span class="bar-label">Securities apps</span>
-                    <div class="bar-track"><div class="bar-fill" style="width:50%;"></div></div>
-                    <span class="bar-value">3</span>
-                </div>
-            </div>
+            <p>Combined three research methods to ground the redesign in real user needs:</p>
+            <ul class="bullet-list">
+                <li>Desk research into generational asset-management trends using a third-party data insight report ("Generation Gap Analysis," Nov 2021) covering household financial assets and spare-money management plans by generation</li>
+                <li>A competitive audit of 18 apps across four categories (5 banks, 6 fintech apps, 4 card-company apps, 3 securities apps) to map common core features (asset aggregation, expense analysis, specialized tools like financial calendars and life-event simulations) and category-specific differentiation patterns</li>
+                <li>User interviews to define two target personas — a single freelance designer in her early 30s and a married manufacturing worker in his 40s — mapped through a 5-stage journey (Aware &rarr; Start &rarr; Explore &rarr; Apply &rarr; Revisit) to surface stage-by-stage needs and pain points</li>
+            </ul>
+            <p>Both personas wanted simpler fixed-cost tracking, but differed on investment appetite (passive point/benefit tracking vs. active real-estate/stock investing) — and both cited low-detail UI and hard-to-parse visualizations as reasons the existing service failed to sustain engagement.</p>
             <div class="stage-flow">
                 <div class="stage">Aware</div>
                 <div class="stage-arrow">&rarr;</div>
@@ -119,11 +108,281 @@
                 <div class="stage-arrow">&rarr;</div>
                 <div class="stage">Revisit</div>
             </div>
+            <h3>Persona-Based User Journey Maps</h3>
+            <p>Mapped each persona's thoughts and behavior across all five stages, capturing verbatim reactions from the interviews to keep pain points (in red) and neutral-to-positive observations (in blue) traceable back to a specific screen and moment.</p>
+            <div class="persona-block">
+                <div class="persona-summary">
+                    <div class="persona-summary-main">
+                        <div class="persona-name">Somi Yang <span class="persona-meta">(F, 32, Single, Designer)</span></div>
+                        <p class="persona-scenario"><strong>Scenario:</strong> Now in her second year at her job, Somi recently watched an asset-management video on YouTube and set herself a goal &mdash; save 100 million KRW in seed money &mdash; but now that she's trying to actually start, managing her assets feels overwhelming.</p>
+                    </div>
+                    <div class="persona-expectations">
+                        <div class="persona-expectations-title">Expectations</div>
+                        <ul>
+                            <li>Goal-based saving, framed around hitting a target</li>
+                            <li>Expense management focused on fixed costs</li>
+                            <li>A clean, well-designed UI, like a diary app</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="persona-journey-scroll">
+                    <table class="persona-journey-table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Aware</th>
+                                <th>Start</th>
+                                <th>Explore</th>
+                                <th>Apply</th>
+                                <th>Revisit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Behavior</th>
+                                <td>
+                                    <ul><li>Notices "My Assets" under the 3rd tab; taps it.</li></ul>
+                                </td>
+                                <td>
+                                    <ul><li>Links savings, subscription savings, investments, Pay points, card, and carrier.</li></ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>Checks the asset-overview graph.</li>
+                                        <li>Scrolls through linked institutions and products.</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>Explores the calendar's Monthly/History tabs.</li>
+                                        <li>Checks Statistics/Budget, spending ranks, upcoming payments.</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul><li>Drops in occasionally, not often.</li></ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Thoughts / Feelings</th>
+                                <td>
+                                    <ul>
+                                        <li>"My Assets? What's this?"</li>
+                                        <li><span class="quote-positive">"Signup right away? Is this run by a vendor?"</span></li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li><span class="quote-pain">"Nice to link it all at once, but</span> I keep losing track of what I picked."</li>
+                                        <li>"Too much text, too small, too many terms &mdash; <span class="quote-pain">uncomfortable.</span>"</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>"Nice graph, but the labels don't match &mdash; <span class="quote-pain">confusing.</span>"</li>
+                                        <li><span class="quote-positive">"This isn't My Assets home! Back again?"</span></li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>"Lots of delivery orders &mdash; <span class="quote-pain">show the total, not just the count.</span>"</li>
+                                        <li><span class="quote-pain">"Nice to see upcoming payments.</span> Wish it broke down fixed costs too."</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul><li><span class="quote-positive">"Not enough here to keep me coming back."</span></li></ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="persona-block">
+                <div class="persona-summary">
+                    <div class="persona-summary-main">
+                        <div class="persona-name">Wonsik Nam <span class="persona-meta">(M, 42, Married, Manufacturing)</span></div>
+                        <p class="persona-scenario"><strong>Scenario:</strong> Now in his N-teenth year on the job, Wonsik dotes on his son. Between a loan, education costs, childcare, and a steady stream of small social-obligation expenses, his fixed costs have grown large enough that they're starting to worry him.</p>
+                    </div>
+                    <div class="persona-expectations">
+                        <div class="persona-expectations-title">Expectations</div>
+                        <ul>
+                            <li>Expense management focused on fixed costs</li>
+                            <li>A clear view of his current assets</li>
+                            <li>Paying down his loan and growing his investments</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="persona-journey-scroll">
+                    <table class="persona-journey-table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Aware</th>
+                                <th>Start</th>
+                                <th>Explore</th>
+                                <th>Apply</th>
+                                <th>Revisit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Behavior</th>
+                                <td>
+                                    <ul><li>Sees his own bank has MyData too; taps it.</li></ul>
+                                </td>
+                                <td>
+                                    <ul><li>Links checking, card, insurance, carrier, and investments.</li></ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>Checks total assets and investment breakdown.</li>
+                                        <li>Thinks about how to manage his assets.</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>Browses the calendar, checks the Statistics tab.</li>
+                                        <li>Tries Budget, sees little value, drops off.</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul><li>Checks stats once or twice, then reverts to old habits.</li></ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Thoughts / Feelings</th>
+                                <td>
+                                    <ul><li>"Must be a vendor service &mdash; why redirect elsewhere?"</li></ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li><span class="quote-pain">"Nice to link it all at once</span> &mdash; might register everything."</li>
+                                        <li>"Choosing institutions is awkward, too many terms &mdash; a bit <span class="quote-positive">suspicious.</span> Text's too small."</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li><span class="quote-pain">"Looks clean, actually."</span></li>
+                                        <li><span class="quote-pain">"Top of the screen's cluttered</span> &mdash; I skip past it."</li>
+                                        <li>"<span class="quote-positive">Not sure</span> what counts as assets vs. liabilities."</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>"Memo's decent, not sure what I'd use it for."</li>
+                                        <li><span class="quote-pain">"Spending rank is nice</span> &mdash; wish fixed costs were more detailed."</li>
+                                        <li>"How do I set a budget? Daily or cumulative? Under-explained."</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul><li><span class="quote-positive">"I'll just keep my own notes &mdash; looks nice but feels empty."</span></li></ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <h3>Segment Comparison: 2030s vs. 40s&ndash;50s Investment Behavior</h3>
+            <p>To ground the two personas in the app's actual user split, I compared what the 20s&ndash;30s (direct-investing-heavy) and 40s&ndash;50s (mixed direct/indirect investing) segments shared versus where they diverged &mdash; separating observations common to both from ones specific to a single segment.</p>
+            <div class="segment-table-scroll">
+                <table class="segment-table">
+                    <thead>
+                        <tr>
+                            <th class="segment-row-label">Primary users</th>
+                            <th class="segment-col-a">20s&ndash;30s &mdash; Direct-investing-heavy</th>
+                            <th class="segment-col-b">40s&ndash;50s &mdash; Mixed direct/indirect investing</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Common ground</th>
+                            <td colspan="2">
+                                <strong>Investing</strong> &mdash; Low use of deposit/savings-account management; high interest in direct investing.<br>
+                                <strong>Spending</strong> &mdash; <mark class="hl">high share of food/dining spend</mark>; <mark class="hl">high interest in expense management</mark>.
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Character</th>
+                            <td>
+                                <ul>
+                                    <li>Mostly early-career professionals (1&ndash;2 person households)</li>
+                                    <li>Still building a feel for asset management; heavy media consumption</li>
+                                    <li>Goal: personal <mark class="hl">wealth accumulation</mark></li>
+                                    <li>High interest in retirement planning (FIRE-oriented)</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>Mostly dual-income married couples (3&ndash;4 person households)</li>
+                                    <li>More personal investing experience and access to information</li>
+                                    <li>Goal: <mark class="hl">growing assets</mark> for the family</li>
+                                    <li>Tend to already have a retirement plan</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Investment</th>
+                            <td>
+                                <ul>
+                                    <li><mark class="hl">Small-amount investing</mark> is the default</li>
+                                    <li>Active in newer trends (crypto, NFTs)</li>
+                                    <li>High interest in home ownership</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li><mark class="hl">Diversified across bonds, stocks, pensions, insurance, funds</mark></li>
+                                    <li>Conservative toward newer investment types</li>
+                                    <li>Growing share of other assets (car, real estate)</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Spending</th>
+                            <td>
+                                <ul>
+                                    <li>Actively invests in and spends on themselves</li>
+                                    <li><mark class="hl">Heavy daily use of simple payment</mark> (Pay apps, points)</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>Active household spending (education, childcare)</li>
+                                    <li>Mostly credit cards; <mark class="hl">simple payment only when there's a discount</mark></li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>Reading across the table surfaced three concrete opportunity &rarr; hypothesis pairs that shaped the redesign:</p>
+            <div class="insight-board">
+                <div class="insight-pair">
+                    <span class="insight-source">From: shared interest in expense management</span>
+                    <div class="note-card opportunity"><span class="note-label">Opportunity</span>Interest in tracking fixed costs and spending categories is high across both segments.</div>
+                    <div class="note-card hypothesis"><span class="note-label">Hypothesis</span>What if fixed-cost and spending-category data were delivered as a report, with challenges layered on top?</div>
+                </div>
+                <div class="insight-pair">
+                    <span class="insight-source">From: "growing assets" goal (40s&ndash;50s) &amp; small-amount investing habit (20s&ndash;30s)</span>
+                    <div class="note-card opportunity"><span class="note-label">Opportunity</span>Users want to understand their current assets and build a plan to grow them.</div>
+                    <div class="note-card hypothesis"><span class="note-label">Hypothesis</span>What if the app helped users see their current assets clearly and set up a plan to grow them further?</div>
+                </div>
+                <div class="insight-pair">
+                    <span class="insight-source">From: diverse investment &amp; simple-payment usage (20s&ndash;30s)</span>
+                    <div class="note-card opportunity"><span class="note-label">Opportunity</span>Users want to register diverse assets &mdash; investments, Pay balances, and more &mdash; to plan ahead.</div>
+                    <div class="note-card hypothesis"><span class="note-label">Hypothesis</span>What if users could register their full mix of assets to build a forward-looking management plan?</div>
+                </div>
+            </div>
         </section>
 
         <section id="solution">
             <h2>Solution &amp; Design</h2>
-            <p>Redefined the redesign strategy around three principles: focus on the common problems both personas raised (asset visibility, expense management) instead of an exhaustive feature list; organize assets by how a user can actually use them (liquid/spendable, locked/committed, borrowed) rather than by raw account-type categories; and layer in generation-specific emphasis (asset accumulation tools for users in their 20s–30s, debt repayment and investment-management tools for users in their 40s–50s). Simplified the navigation from multiple ambiguous tabs down to just Home and Personal Info, and restructured the information hierarchy to show an overview first with details available on demand. To document the reasoning behind these decisions in the absence of a mature persona practice at the company, I also authored three named service personas ("the meticulous, considerate asset manager," "the fast and accurate reporter," "the steady pacemaker") tying each redesigned screen back to a specific user-facing promise.</p>
+            <p>Redefined the redesign strategy around three principles:</p>
+            <ul class="bullet-list">
+                <li>Focus on the common problems both personas raised (asset visibility, expense management) instead of an exhaustive feature list</li>
+                <li>Organize assets by how a user can actually use them (liquid/spendable, locked/committed, borrowed) rather than by raw account-type categories</li>
+                <li>Layer in generation-specific emphasis (asset accumulation tools for users in their 20s–30s, debt repayment and investment-management tools for users in their 40s–50s)</li>
+            </ul>
+            <p>Simplified the navigation from multiple ambiguous tabs down to just Home and Personal Info, and restructured the information hierarchy to show an overview first with details available on demand. To document the reasoning behind these decisions in the absence of a mature persona practice at the company, I also authored three named service personas ("the meticulous, considerate asset manager," "the fast and accurate reporter," "the steady pacemaker") tying each redesigned screen back to a specific user-facing promise.</p>
             <div class="comparison-grid">
                 <div class="comparison-cell">
                     <div class="comp-label">Redesigned Screen</div>
@@ -143,6 +402,45 @@
                         <li>Goal amount/date, progress %, required monthly pace &amp; linked products replacing a low-usability budget tool</li>
                     </ul>
                 </div>
+            </div>
+            <h3>My Assets Home</h3>
+            <div class="screen-compare">
+                <figure class="screen-compare-col">
+                    <span class="screen-compare-label as-is">As-Is</span>
+                    <img src="images/bnk-mydata-redesign-home-as-is.png" alt="As-is MY자산 home screen with a top spending-insight banner, an unlabeled asset pie chart split into card balance and cash, and a plain list of linked bank accounts">
+                    <figcaption>An unlabeled asset pie chart and a flat account list, with no sense of what's actually usable.</figcaption>
+                </figure>
+                <figure class="screen-compare-col">
+                    <span class="screen-compare-label to-be">To-Be</span>
+                    <img src="images/bnk-mydata-redesign-home-to-be.png" alt="Redesigned Assets home screen showing a single total balance, Recent Activity and Upcoming Schedule cards, and an Available/Locked/Borrowed funds breakdown">
+                    <figcaption>Assets regrouped into Available, Locked, and Borrowed funds, with recent activity and upcoming payments surfaced up front.</figcaption>
+                </figure>
+            </div>
+            <h3>Spending Report</h3>
+            <div class="screen-compare">
+                <figure class="screen-compare-col">
+                    <span class="screen-compare-label as-is">As-Is</span>
+                    <img src="images/bnk-mydata-redesign-spending-report-as-is.png" alt="As-is statistics tab showing a single month's spending as a plain pie chart broken down by category, led by online shopping at 64%">
+                    <figcaption>A single month's category pie chart, with no trend or fixed-cost context.</figcaption>
+                </figure>
+                <figure class="screen-compare-col">
+                    <span class="screen-compare-label to-be">To-Be</span>
+                    <img src="images/bnk-mydata-redesign-spending-report-to-be.png" alt="Redesigned Spending Report showing a 6-month spending trend bar chart, a fixed-cost ratio bar, per-category fixed-cost breakdown, and a top-spending-category callout for food and dining">
+                    <figcaption>A 6-month spending trend, a fixed-cost ratio, and a top-3 category ranking replace the single pie chart.</figcaption>
+                </figure>
+            </div>
+            <h3>Money-Saving Challenge</h3>
+            <div class="screen-compare">
+                <figure class="screen-compare-col">
+                    <span class="screen-compare-label as-is">As-Is</span>
+                    <img src="images/bnk-mydata-redesign-challenge-as-is.png" alt="As-is budget tab showing a monthly budget marked as over-used, a cumulative spending bar exceeding the target, and per-category budget bars shown in red overrun">
+                    <figcaption>A budget tool that only flags overspending, with no goal or pacing guidance.</figcaption>
+                </figure>
+                <figure class="screen-compare-col">
+                    <span class="screen-compare-label to-be">To-Be</span>
+                    <img src="images/bnk-mydata-redesign-challenge-to-be.png" alt="Redesigned Money-Saving Challenge screen with a goal progress ring at 63% toward a $100,000 target, the required monthly saving pace, a projected early-completion date, and a linked savings product">
+                    <figcaption>A savings-goal challenge with progress, required monthly pace, and a linked product to act on it.</figcaption>
+                </figure>
             </div>
         </section>
 

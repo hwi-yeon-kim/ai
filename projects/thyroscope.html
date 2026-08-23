@@ -65,7 +65,12 @@
 
         <section id="problem">
             <h2>Problem &amp; Context</h2>
-            <p>The beta app generated frequent user-voice complaints about locating basic functions ("Where do I go to edit the survey?") and lacked motivation for daily-tracking features users didn't understand the purpose of ("Why do I need to measure my heart rate every day?"). The company's existing feature definitions were business-driven rather than grounded in what hypothyroidism/hyperthyroidism patients actually needed at each stage of managing their condition, and it was unclear whether the app's paid-beta feature set reflected what users actually wanted to use. Separately, a marketing campaign was driving app downloads, but a large share of new users dropped off before completing signup, wasting acquisition spend.</p>
+            <p>The beta app surfaced three distinct problems, uncovered through user-voice complaints and internal review:</p>
+            <ul class="bullet-list">
+                <li>Users struggled to locate basic functions ("Where do I go to edit the survey?") and lacked motivation for daily-tracking features whose purpose they didn't understand ("Why do I need to measure my heart rate every day?")</li>
+                <li>The company's existing feature definitions were business-driven rather than grounded in what hypothyroidism/hyperthyroidism patients actually needed at each stage of managing their condition — leaving it unclear whether the paid-beta feature set reflected what users actually wanted to use</li>
+                <li>Separately, a marketing campaign was driving app downloads, but a large share of new users dropped off before completing signup, wasting acquisition spend</li>
+            </ul>
         </section>
 
         <section id="process">
@@ -76,22 +81,125 @@
                 <span class="role-pill">User Journey Mapping</span>
                 <span class="role-pill">Google Analytics Funnel Analysis</span>
             </div>
-            <p>Conducted in-depth interviews (IDI) with 5 beta users who had used the service for 3+ months (ages 26–50, mix of hypothyroidism and hyperthyroidism diagnoses) to surface real disease-management scenarios and pain points. Synthesized findings into 2 target personas differentiated by underlying motivation (emotional encouragement vs. professional/clinical trust) and mapped a 6-stage user journey (pre-diagnosis → immediately post-diagnosis → in treatment → complications → prognosis monitoring → cured) to define which features the app needed at each stage. Post-launch, surveyed 57 in-app community users on feature usage, then ran follow-up IDIs with the 5 respondents who volunteered. Separately, used Google Analytics funnel analysis to quantify drop-off at each step of the signup flow, isolating exactly where and how much of the funnel was leaking.</p>
-            <div class="stage-flow">
-                <div class="stage">Pre-Diagnosis</div>
-                <div class="stage-arrow">&rarr;</div>
-                <div class="stage">Immediately Post-Diagnosis</div>
-                <div class="stage-arrow">&rarr;</div>
-                <div class="stage">In Treatment</div>
-                <div class="stage-arrow">&rarr;</div>
-                <div class="stage">Complications</div>
-                <div class="stage-arrow">&rarr;</div>
-                <div class="stage">Prognosis Monitoring</div>
-                <div class="stage-arrow">&rarr;</div>
-                <div class="stage">Cured</div>
+            <p>Combined four research methods to redefine the product and fix the signup funnel:</p>
+            <ul class="bullet-list">
+                <li>In-depth interviews (IDI) with 5 beta users who had used the service for 3+ months (ages 26–50, mix of hypothyroidism and hyperthyroidism diagnoses) surfaced real disease-management scenarios and pain points</li>
+                <li>Findings were synthesized into 2 target personas differentiated by underlying motivation (emotional encouragement vs. professional/clinical trust), then mapped onto a user journey across pre-diagnosis, right-after-diagnosis, under-treatment, prognosis-monitoring, and full-recovery stages — with complications branching off under-treatment and a relapse path looping back to pre-diagnosis — to define which features the app needed at each stage</li>
+                <li>Post-launch, 57 in-app community users were surveyed on feature usage, followed by IDIs with the 5 respondents who volunteered</li>
+                <li>Separately, Google Analytics funnel analysis quantified drop-off at each step of the signup flow, isolating exactly where and how much of the funnel was leaking</li>
+            </ul>
+            <h3>User Research: In-Depth Interviews</h3>
+            <p>To deeply understand personal experiences in thyroid disease management, conducted in-depth interviews with beta users who had used the app for over three months. Participants (N=5) were selected based on disease type, treatment duration, gender, and age to capture diverse perspectives.</p>
+            <div class="participant-row">
+                <div class="participant-card">
+                    <span class="participant-avatar" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"></circle><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7"></path></svg></span>
+                    <span class="participant-meta">M, 26</span>
+                    <span class="participant-condition">Hypothyroidism</span>
+                </div>
+                <div class="participant-card">
+                    <span class="participant-avatar" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"></circle><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7"></path></svg></span>
+                    <span class="participant-meta">F, 27</span>
+                    <span class="participant-condition">Hypothyroidism</span>
+                </div>
+                <div class="participant-card">
+                    <span class="participant-avatar" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"></circle><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7"></path></svg></span>
+                    <span class="participant-meta">F, 31</span>
+                    <span class="participant-condition">Hyperthyroidism</span>
+                </div>
+                <div class="participant-card">
+                    <span class="participant-avatar" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"></circle><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7"></path></svg></span>
+                    <span class="participant-meta">F, 33</span>
+                    <span class="participant-condition">Hyperthyroidism</span>
+                </div>
+                <div class="participant-card">
+                    <span class="participant-avatar" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"></circle><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7"></path></svg></span>
+                    <span class="participant-meta">F, 50</span>
+                    <span class="participant-condition">Hyperthyroidism</span>
+                </div>
             </div>
+            <h3>Key Insights</h3>
+            <div class="insight-list">
+                <div class="insight-item">
+                    <div class="insight-title">Anxiety about the condition leads to interest in heart rate tracking</div>
+                    <ul class="bullet-list">
+                        <li>Although the app included a heart rate feature, most users preferred to check it via <strong>wearable device apps</strong>.</li>
+                        <li>Some users manually <strong>logged heart rate trends</strong> in personal notebooks.</li>
+                    </ul>
+                </div>
+                <div class="insight-item">
+                    <div class="insight-title">Complex and varied medication routines</div>
+                    <ul class="bullet-list">
+                        <li><strong>Long-term medication adherence</strong> was described as the most challenging aspect.</li>
+                        <li>The beta version did not support complex routines like <strong>fasting periods or dosage adjustments</strong>.</li>
+                    </ul>
+                </div>
+                <div class="insight-item">
+                    <div class="insight-title">Fatigue from one-way data entry without feedback</div>
+                    <ul class="bullet-list">
+                        <li>As a chronic condition, thyroid disease requires continuous management, and users sought more actionable feedback.</li>
+                        <li>Some users questioned the purpose of data collection.</li>
+                    </ul>
+                    <blockquote class="quote-item">&ldquo;It feels like the app is collecting data for the company, not for me.&rdquo;</blockquote>
+                </div>
+            </div>
+            <h3>User Journey Map</h3>
+            <p class="journey-subtitle">Structuring essential app features by disease-cycle stage</p>
+            <div class="journey-map">
+                <div class="journey-timeline-scroll">
+                    <div class="journey-timeline">
+                        <span class="journey-timeline-label">Pre-Diagnosis<span class="journey-timeline-sub">(Suspected Onset)</span></span>
+                        <span class="journey-timeline-label strong">Right After Diagnosis<span class="journey-timeline-sub">(After Hospital Visit)</span><span class="journey-timeline-tag">Novice Users</span></span>
+                        <span class="journey-timeline-label">Under Treatment</span>
+                        <span class="journey-timeline-label strong">Prognosis Monitoring<span class="journey-timeline-tag">Active Users</span></span>
+                        <span class="journey-timeline-label">Full Recovery</span>
+                        <div class="journey-timeline-track">
+                            <span class="journey-timeline-highlight" aria-hidden="true"></span>
+                            <span class="journey-timeline-node" style="left:10%" aria-hidden="true"></span>
+                            <span class="journey-timeline-node strong" style="left:30%" aria-hidden="true"></span>
+                            <span class="journey-timeline-node" style="left:50%" aria-hidden="true"></span>
+                            <span class="journey-timeline-node strong" style="left:70%" aria-hidden="true"></span>
+                            <span class="journey-timeline-node" style="left:90%" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="journey-stage-notes">
+                    <div class="journey-stage-note">
+                        <div class="journey-stage-note-title">Pre-Diagnosis</div>
+                        <ul>
+                            <li>Check symptoms via diagnostic survey</li>
+                            <li>Hospital visit</li>
+                        </ul>
+                    </div>
+                    <div class="journey-stage-note">
+                        <div class="journey-stage-note-title">Right After Diagnosis</div>
+                        <ul>
+                            <li>Register medication</li>
+                            <li>Gain information from medical columns</li>
+                        </ul>
+                    </div>
+                    <div class="journey-stage-note">
+                        <div class="journey-stage-note-title">Under Treatment</div>
+                        <ul>
+                            <li>Medication habit management</li>
+                            <li>Community</li>
+                        </ul>
+                        <div class="journey-stage-callout">&rarr; Complications: Eye disease record / management</div>
+                    </div>
+                    <div class="journey-stage-note">
+                        <div class="journey-stage-note-title">Prognosis Monitoring</div>
+                        <ul>
+                            <li>Heart rate &amp; lifestyle-survey tracking for self-management</li>
+                            <li>Community: share information, resolve concerns, empathize</li>
+                        </ul>
+                    </div>
+                    <div class="journey-stage-note">
+                        <div class="journey-stage-note-title">Full Recovery</div>
+                    </div>
+                </div>
+            </div>
+            <p class="journey-relapse-note">&#8617; <strong>Relapse:</strong> Full Recovery can loop back to Pre-Diagnosis if symptoms return.</p>
             <h3>Signup Funnel Analysis</h3>
-            <table class="funnel-table">
+            <table class="data-table">
                 <thead>
                     <tr>
                         <th>Step</th>
@@ -111,14 +219,59 @@
 
         <section id="solution">
             <h2>Solution &amp; Design</h2>
-            <p>Restructured the app's information architecture from overlapping, ambiguous functions into three purpose-built tabs: <strong>Home</strong> (daily essential routine — heart rate graph, diagnostic survey, daily medication check), <strong>Records</strong> (weekly health tracking — heart rate, medication achievement, weight), and <strong>Statistics</strong> (1+ month trends as a comprehensive report). Redesigned the resting-heart-rate widget from a single-day number into a 7-day trend chart (validated through internal usability testing and medical-expert input) and changed medication checking from a per-pill toggle to a single batch check-in by dose/time. Shipped 3 new features sourced directly from interview pain points: an eye-complication self-screening tool built with an ophthalmologist (selfie-based pre-diagnosis), an AI-assisted coaching report generated from lifestyle-survey and diagnostic data, and a peer community with expert columns.</p>
-            <p>For the signup funnel, formed a hypothesis from the GA data — users without an account tap the most visible "Login" button, then bounce because there's no visible path to sign-up — and shipped 3 minimal, targeted changes: rebalanced CTA button emphasis on the login/signup screen, collapsed the terms-agreement step into a single consent-and-continue button, and added Naver/Kakao social login alongside Apple/Google/email to reduce friction for the 40–50s segment (the group most likely to drop off), who showed low preference for email verification (18.75%).</p>
+            <p>Restructured the app's information architecture and shipped new capabilities directly from interview pain points:</p>
+            <ul class="bullet-list">
+                <li>Reorganized overlapping, ambiguous functions into three purpose-built tabs: <strong>Home</strong> (daily essential routine — heart rate graph, diagnostic survey, daily medication check), <strong>Records</strong> (weekly health tracking — heart rate, medication achievement, weight), and <strong>Statistics</strong> (1+ month trends as a comprehensive report)</li>
+                <li>Redesigned the resting-heart-rate widget from a single-day number into a 7-day trend chart (validated through internal usability testing and medical-expert input)</li>
+                <li>Changed medication checking from a per-pill toggle to a single batch check-in by dose/time</li>
+                <li>Shipped 3 new features: an eye-complication self-screening tool built with an ophthalmologist (selfie-based pre-diagnosis), an AI-assisted coaching report generated from lifestyle-survey and diagnostic data, and a peer community with expert columns</li>
+            </ul>
+            <p>For the signup funnel, formed a hypothesis from the GA data — users without an account tap the most visible "Login" button, then bounce because there's no visible path to sign-up — and shipped 3 minimal, targeted changes:</p>
+            <ul class="bullet-list">
+                <li>Rebalanced CTA button emphasis on the login/signup screen</li>
+                <li>Collapsed the terms-agreement step into a single consent-and-continue button</li>
+                <li>Added Naver/Kakao social login alongside Apple/Google/email to reduce friction for the 40–50s segment (the group most likely to drop off), who showed low preference for email verification (18.75%)</li>
+            </ul>
             <div class="bar-chart">
                 <div class="bar-row">
                     <span class="bar-label">40–50s segment &rarr; email verification</span>
                     <div class="bar-track"><div class="bar-fill" style="width:18.75%;"></div></div>
                     <span class="bar-value">18.75%</span>
                 </div>
+            </div>
+            <h3>Home Screen Redesign</h3>
+            <div class="screen-compare">
+                <figure class="screen-compare-col">
+                    <span class="screen-compare-label as-is">As-Is</span>
+                    <img src="images/thyroscope-home-as-is.png" alt="As-is Glandy home screen">
+                    <ul class="screen-compare-notes">
+                        <li>Insufficient consideration of user needs — no way to check heart-rate trends</li>
+                        <li>Unclear visual priority between medication and symptom-survey elements</li>
+                        <li>Lack of motivation for logging, no feedback loop</li>
+                    </ul>
+                </figure>
+                <figure class="screen-compare-col">
+                    <span class="screen-compare-label to-be">To-Be</span>
+                    <img src="images/thyroscope-home-to-be.png" alt="Redesigned Glandy home screen">
+                    <ul class="screen-compare-notes">
+                        <li>Resting heart rate monitoring surfaced as a trend chart</li>
+                        <li>Symptom survey &amp; daily log combined into one glanceable flow</li>
+                        <li>Medication schedule management with reminders and progress</li>
+                    </ul>
+                </figure>
+            </div>
+            <h3>Daily Medication Check Redesign</h3>
+            <div class="screen-compare">
+                <figure class="screen-compare-col">
+                    <span class="screen-compare-label as-is">As-Is</span>
+                    <img src="images/thyroscope-medication-check-as-is.png" alt="As-is medication check flow">
+                    <figcaption>Per-pill toggle buried inside a separate detail screen for each medication.</figcaption>
+                </figure>
+                <figure class="screen-compare-col">
+                    <span class="screen-compare-label to-be">To-Be</span>
+                    <img src="images/thyroscope-medication-check-to-be.png" alt="Redesigned medication check flow">
+                    <figcaption>Single batch check-in by dose/time, reachable directly from Home.</figcaption>
+                </figure>
             </div>
         </section>
 
@@ -142,13 +295,59 @@
             <div class="bar-chart">
                 <div class="bar-row">
                     <span class="bar-label">Heart rate monitoring</span>
-                    <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
+                    <div class="bar-track"><div class="bar-fill" style="width:20.3%;"></div></div>
                     <span class="bar-value">20.3%</span>
                 </div>
                 <div class="bar-row">
                     <span class="bar-label">Lifestyle &amp; symptom survey</span>
-                    <div class="bar-track"><div class="bar-fill" style="width:89%;"></div></div>
+                    <div class="bar-track"><div class="bar-fill" style="width:18.1%;"></div></div>
                     <span class="bar-value">18.1%</span>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Medication diary</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:15.9%;"></div></div>
+                    <span class="bar-value">15.9%</span>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Expert columns</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:13.0%;"></div></div>
+                    <span class="bar-value">13.0%</span>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Blood-test record</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:7.2%;"></div></div>
+                    <span class="bar-value">7.2%</span>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">Health report</span>
+                    <div class="bar-track"><div class="bar-fill" style="width:4.3%;"></div></div>
+                    <span class="bar-value">4.3%</span>
+                </div>
+            </div>
+            <h3>Post-Launch Interviews: Feature Follow-Up</h3>
+            <p>Ran follow-up in-depth interviews with the 5 survey respondents who volunteered, focusing on the two most-used features to understand what made them valuable day-to-day.</p>
+            <div class="screen-quote">
+                <img src="images/thyroscope-heart-rate-monitoring.png" alt="Redesigned heart rate monitoring screen">
+                <ul class="quote-list">
+                    <li class="quote-item">&ldquo;Showing not just weekly but monthly trends makes me want to keep wearing my watch!&rdquo;</li>
+                    <li class="quote-item">&ldquo;I've always been curious about the relationship between resting heart rate and thyroid disease, and I love how it's explained clearly.&rdquo;</li>
+                </ul>
+            </div>
+            <div class="screen-quote">
+                <img src="images/thyroscope-medication-progress.png" alt="Redesigned weekly medication adherence screen">
+                <ul class="quote-list">
+                    <li class="quote-item">&ldquo;I really love the comments that help me reflect on my behavior.&rdquo;</li>
+                    <li class="quote-item">&ldquo;I love the feeling of managing and checking things on my own!&rdquo;</li>
+                </ul>
+            </div>
+            <div class="insight-list">
+                <div class="insight-item">
+                    <div class="insight-title">Confirmed that users perceive the most important features as intended by design</div>
+                    <blockquote class="quote-item">&ldquo;When my blood test results were bad, my heart rate records were high, and when my heart rate was low, my blood levels improved. After seeing the correlation between heart rate and thyroid levels with my own eyes, I felt Glandi was truly helpful.&rdquo;</blockquote>
+                </div>
+                <div class="insight-item">
+                    <div class="insight-title">Found that surveys and medication shifted from "obligatory activities" to "useful tools"</div>
+                    <blockquote class="quote-item">&ldquo;After using the app, I developed a habit of checking my health. Through the lifestyle survey, I learned about eating habits I wasn't aware of, and now I'm more careful.&rdquo;</blockquote>
                 </div>
             </div>
             <p>Qualitatively, users reported forming new health-monitoring habits and independently noticing correlations between their heart rate trends and thyroid blood test results after the redesign.</p>
