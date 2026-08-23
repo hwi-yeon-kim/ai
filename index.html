@@ -12,6 +12,9 @@
             --border-color: #e9ecef;
             --meta-color: #6c757d;
         }
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             line-height: 1.6;
@@ -130,6 +133,8 @@
             font-weight: 500;
             margin-right: 0.5rem;
             text-decoration: none;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
         a.badge {
             background: #e1f0ff;
@@ -195,6 +200,195 @@
             font-size: 0.9rem;
             margin-top: 0.2rem;
         }
+        section h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0 0 0.5rem 0;
+        }
+        .item-summary {
+            margin-top: 0.5rem;
+            margin-bottom: 0;
+        }
+
+        /* Journey diagram */
+        .journey-caption {
+            color: var(--meta-color);
+            font-size: 0.9rem;
+            margin-top: -0.5rem;
+        }
+        .journey-diagram-scroll {
+            overflow-x: auto;
+            margin: 1.5rem 0 0.75rem;
+        }
+        .journey-svg {
+            display: block;
+            width: 100%;
+            min-width: 700px;
+            height: auto;
+        }
+        .journey-line {
+            stroke: var(--primary-color);
+            stroke-width: 3;
+        }
+        .journey-axis-break {
+            stroke: var(--meta-color);
+            stroke-width: 2;
+        }
+        .journey-arrow {
+            fill: var(--primary-color);
+        }
+        .journey-station-label {
+            fill: var(--text-color);
+            font-size: 13px;
+            font-weight: 600;
+            font-family: inherit;
+        }
+        .journey-station-sublabel {
+            fill: var(--meta-color);
+            font-size: 10px;
+            font-family: inherit;
+        }
+        .journey-marker-bg {
+            fill: #fff;
+        }
+        .journey-segment {
+            fill: none;
+            stroke-width: 6;
+            transition: transform 0.15s ease;
+            transform-box: fill-box;
+            transform-origin: center;
+        }
+        .journey-segment.patents { stroke: #b8860b; }
+        .journey-segment.publications { stroke: #0f7a7a; }
+        .journey-segment.awards { stroke: #b23a7a; }
+        .journey-segment.case-studies { stroke: #2f8f5b; }
+        .journey-tab-link {
+            cursor: pointer;
+        }
+        .journey-tab-link:hover .journey-segment,
+        .journey-tab-link:focus .journey-segment {
+            transform: scale(1.1);
+        }
+        .journey-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem 1.25rem;
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.5rem;
+            font-size: 0.8rem;
+            color: var(--meta-color);
+        }
+        .journey-legend li {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .journey-legend-swatch {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .journey-legend-swatch.patents { background: #b8860b; }
+        .journey-legend-swatch.publications { background: #0f7a7a; }
+        .journey-legend-swatch.awards { background: #b23a7a; }
+        .journey-legend-swatch.case-studies { background: #2f8f5b; }
+        .journey-popups {
+            position: relative;
+        }
+        .journey-popup {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.25s ease;
+            scroll-margin-top: 9999px;
+        }
+        .journey-popup:target {
+            grid-template-rows: 1fr;
+            margin-bottom: 1.5rem;
+        }
+        .journey-popup-inner {
+            overflow: hidden;
+        }
+        .journey-popup-body {
+            position: relative;
+            background: var(--light-bg);
+            border-radius: 6px;
+            padding: 1rem 1.25rem;
+        }
+        .journey-popup-title {
+            margin: 0 0 0.9rem;
+            padding-right: 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .journey-popup-category {
+            padding-top: 0.75rem;
+            border-top: 1px solid var(--border-color);
+        }
+        .journey-popup-category:first-of-type {
+            padding-top: 0;
+            border-top: none;
+        }
+        .journey-popup-category-label {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin: 0 0 0.35rem;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+        .journey-popup-category-text {
+            margin: 0 0 0.6rem;
+        }
+        .journey-popup-category > a.badge {
+            display: inline-block;
+        }
+        .journey-popup-close {
+            position: absolute;
+            top: 0.6rem;
+            right: 0.8rem;
+            color: var(--meta-color);
+            text-decoration: none;
+            font-size: 1.1rem;
+            line-height: 1;
+        }
+        .journey-popup-close:hover,
+        .journey-popup-close:focus {
+            color: var(--text-color);
+        }
+
+        /* Patents / Publications accordions */
+        details.item-accordion {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        details.item-accordion summary {
+            display: flex;
+            align-items: baseline;
+            gap: 0.6rem;
+            cursor: pointer;
+            list-style: none;
+        }
+        details.item-accordion summary::-webkit-details-marker {
+            display: none;
+        }
+        details.item-accordion summary::after {
+            content: '\2212';
+            margin-left: auto;
+            color: var(--meta-color);
+            font-size: 1rem;
+        }
+        details.item-accordion:not([open]) summary::after {
+            content: '+';
+        }
+        .accordion-title {
+            font-weight: 600;
+        }
+        .accordion-body {
+            margin-top: 0.6rem;
+        }
         @media (max-width: 768px) {
             body {
                 flex-direction: column;
@@ -237,12 +431,12 @@
         </p>
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
+            <li><a href="#portfolio">Projects</a></li>
             <li><a href="#employment">Employment</a></li>
             <li><a href="#education">Education</a></li>
             <li><a href="#patents">Patents</a></li>
             <li><a href="#publications">Publications</a></li>
             <li><a href="#awards">Awards & Recognitions</a></li>
-            <li><a href="#portfolio">Projects</a></li>
         </ul>
     </nav>
 
@@ -253,202 +447,207 @@
             <p>
                 Product Designer & Analyst with a dual background in Computer Science (M.S.) and Industrial Design, offering 6+ years of experience integrating user research, data analytics, and product strategy. Uniquely positioned to translate complex behavioral data into actionable UX solutions, utilizing SQL, Python, and funnel analytics to scale B2B platforms and drive user conversion rates. Recognized for architecting internal data dashboards and leading empirical user experiments that empower cross-functional teams to make evidence-based product decisions.
             </p>
-        </section>
 
-        <!-- EMPLOYMENT -->
-        <section id="employment">
-            <h2>Employment</h2>
-            
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">Product Designer & Data Analyst</span>
-                    <span class="item-date">May 2024 - Present</span>
-                </div>
-                <div class="item-subtitle">Hyundai Motor Company | Infotainment Mobile Development Team</div>
-                <ul class="bullet-list">
-                    <li><strong>[Global Product Localization]</strong> Streamlined the global onboarding and activation flow for connected car services across 4 major markets by unifying highly fragmented regional specifications.</li>
-                    <li><strong>[Automotive Safety & Autonomous Tech]</strong> Led empirical quantitative research on post-crash multimodal interfaces, conducting statistical validation to strategically map UI types (Wizard vs. AI Chat) to user expertise levels, resulting in a co-filed patent with the USPTO <a href="#patents" class="badge">PAT-5</a> and a publication at AutomotiveUI <a href="#publications" class="badge">A-2</a>. <a href="projects/hyundai-post-crash.html" class="badge">View Case Study →</a></li>
-                    <li><strong>[Data-Driven Mobility Innovation]</strong> Accelerated the UX analysis lifecycle by over 99% by engineering an internal user data dashboard (Awarded Excellence Award, 2026), empowering cross-functional teams to make evidence-based decisions independently.</li>
-                </ul>
-            </div>
+            <h3>My Multidisciplinary Journey</h3>
+            <p class="journey-caption">An interactive map of my career timeline — each stop's ring is divided among the kinds of output it produced (patents, publications, awards, case studies), in that fixed order. Select a stop to see a summary of each below, with links to view the full detail.</p>
+            <div class="journey-diagram-scroll">
+                <svg class="journey-svg" viewBox="0 0 820 100" role="group" aria-label="Career journey diagram, positioned to scale by year">
+                    <line class="journey-line" x1="70" y1="34" x2="108" y2="34"></line>
+                    <line class="journey-axis-break" x1="112" y1="26" x2="104" y2="42"></line>
+                    <line class="journey-axis-break" x1="124" y1="26" x2="116" y2="42"></line>
+                    <line class="journey-line" x1="120" y1="34" x2="790" y2="34"></line>
+                    <polygon class="journey-arrow" points="790,28 802,34 790,40"></polygon>
 
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">Product Designer</span>
-                    <span class="item-date">Feb 2023 - Apr 2024</span>
-                </div>
-                <div class="item-subtitle">Upstage INC. | Document Intelligence Team</div>
-                <ul class="bullet-list">
-                    <li><strong>[Enterprise AI Adoption]</strong> Designed and launched a GUI-based Intelligent Document Processing (IDP) API demo, successfully converting 40.47% of homepage traffic into active trial users.</li>
-                    <li><strong>[User Research & Iteration]</strong> Synthesized qualitative feedback with product usage data from in-depth stakeholder interviews and closed-beta testing to identify edge-case requirements and inform strategic pivots.</li>
-                </ul>
-            </div>
+                    <!-- B.S., UNIST: awards -->
+                    <text class="journey-station-label" x="70" y="70" text-anchor="middle">B.S.</text>
+                    <text class="journey-station-sublabel" x="70" y="84" text-anchor="middle">UNIST · 2014–2019</text>
+                    <circle class="journey-marker-bg" cx="70" cy="34" r="16"></circle>
+                    <a class="journey-tab-link" href="#pop-bs">
+                        <title>B.S., UNIST (2014–2019) — view details</title>
+                        <circle class="journey-segment awards" cx="70" cy="34" r="12"></circle>
+                    </a>
 
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">Product Designer</span>
-                    <span class="item-date">Jun 2022 - Dec 2022</span>
-                </div>
-                <div class="item-subtitle">BNK Kyungnam Bank | Digital Strategy Department</div>
-                <ul class="bullet-list">
-                    <li><strong>[Financial Data Analytics]</strong> Formulated data-informed UX strategies for the MyData asset management platform by analyzing generational asset management patterns, streamlining the product exploration journey to reduce cognitive load.</li>
-                </ul>
-            </div>
+                    <!-- M.S., UNIST: patents, publications, awards, case studies -->
+                    <text class="journey-station-label" x="160" y="70" text-anchor="middle">M.S.</text>
+                    <text class="journey-station-sublabel" x="160" y="84" text-anchor="middle">UNIST · 2019–2021</text>
+                    <circle class="journey-marker-bg" cx="160" cy="34" r="16"></circle>
+                    <a class="journey-tab-link" href="#pop-ms">
+                        <title>M.S., UNIST (2019–2021) — view details</title>
+                        <circle class="journey-segment patents" cx="160" cy="34" r="12" stroke-dasharray="15.85 59.55" stroke-dashoffset="-1.5"></circle>
+                        <circle class="journey-segment publications" cx="160" cy="34" r="12" stroke-dasharray="15.85 59.55" stroke-dashoffset="-20.35"></circle>
+                        <circle class="journey-segment awards" cx="160" cy="34" r="12" stroke-dasharray="15.85 59.55" stroke-dashoffset="-39.2"></circle>
+                        <circle class="journey-segment case-studies" cx="160" cy="34" r="12" stroke-dasharray="15.85 59.55" stroke-dashoffset="-58.05"></circle>
+                    </a>
 
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">Product Designer</span>
-                    <span class="item-date">Dec 2020 - May 2022</span>
-                </div>
-                <div class="item-subtitle">Thyroscope INC.</div>
-                <ul class="bullet-list">
-                    <li><strong>[Data-Driven Growth]</strong> Increased the user sign-up conversion rate by 18.6% (from 28.1% to 46.7%) by analyzing Google Analytics drop-off funnels and identifying a critical 45.8% post-download bounce rate.</li>
-                    <li><strong>[User-Centered Redesign]</strong> Spearheaded the end-to-end UX redesign of the predictive healthcare app, translating qualitative insights from 5 in-depth interviews and a 57-user survey into core feature reprioritization.</li>
-                </ul>
-            </div>
-        </section>
+                    <!-- Thyroscope: patents, awards, case studies -->
+                    <text class="journey-station-label" x="250" y="70" text-anchor="middle">Thyroscope</text>
+                    <text class="journey-station-sublabel" x="250" y="84" text-anchor="middle">2020–2022</text>
+                    <circle class="journey-marker-bg" cx="250" cy="34" r="16"></circle>
+                    <a class="journey-tab-link" href="#pop-thy">
+                        <title>Thyroscope (2020–2022) — view details</title>
+                        <circle class="journey-segment patents" cx="250" cy="34" r="12" stroke-dasharray="22.13 53.27" stroke-dashoffset="-1.5"></circle>
+                        <circle class="journey-segment awards" cx="250" cy="34" r="12" stroke-dasharray="22.13 53.27" stroke-dashoffset="-26.63"></circle>
+                        <circle class="journey-segment case-studies" cx="250" cy="34" r="12" stroke-dasharray="22.13 53.27" stroke-dashoffset="-51.77"></circle>
+                    </a>
 
-        <!-- EDUCATION -->
-        <section id="education">
-            <h2>Education</h2>
-            
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">M.S., Computer Science</span>
-                    <span class="item-date">Mar 2019 - Feb 2021</span>
-                </div>
-                <div class="item-subtitle">Ulsan National Institute of Science and Technology (UNIST)</div>
-                <ul class="bullet-list">
-                    <li><strong>Research Topic:</strong> Human-Computer Interaction, Visualization Thumbnails | <strong>Advisor:</strong> Sungahn Ko</li>
-                    <li><strong>[Quantitative HCI Research]</strong> Engineered large-scale user experiments (n=161) to evaluate cognitive load in data visualizations, utilizing Thurstonian modeling and A/B testing for statistical validation, resulting in 4 peer-reviewed publications in top-tier international venues (including IEEE TVCG and IEEE VIS) <a href="#publications" class="badge">J-1</a>, <a href="#publications" class="badge">J-2</a>, <a href="#publications" class="badge">C-1</a>, <a href="#publications" class="badge">C-2</a>.</li>
-                    <li><strong>[Technology Commercialization]</strong> Patented and successfully transferred a novel data-driven thumbnail generation algorithm to the commercial industry <a href="#patents" class="badge">PAT-1</a>.</li>
-                </ul>
-            </div>
+                    <!-- BNK Kyungnam Bank: case studies only -->
+                    <text class="journey-station-label" x="430" y="70" text-anchor="middle">BNK</text>
+                    <text class="journey-station-sublabel" x="430" y="84" text-anchor="middle">2022</text>
+                    <circle class="journey-marker-bg" cx="430" cy="34" r="16"></circle>
+                    <a class="journey-tab-link" href="#pop-bnk">
+                        <title>BNK Kyungnam Bank (2022) — view details</title>
+                        <circle class="journey-segment case-studies" cx="430" cy="34" r="12"></circle>
+                    </a>
 
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">B.S., Industrial Design and Computer Science</span>
-                    <span class="item-date">Mar 2014 - Feb 2019</span>
-                </div>
-                <div class="item-subtitle">Ulsan National Institute of Science and Technology (UNIST)</div>
-                <ul class="bullet-list">
-                    <li><strong>[UX Engineering & Applied Research]</strong> Designed and developed a mental health screening system for university freshmen (Funded Project), bridging qualitative user needs with functional software architecture.</li>
-                </ul>
-            </div>
-        </section>
+                    <!-- Upstage: case studies only -->
+                    <text class="journey-station-label" x="520" y="70" text-anchor="middle">Upstage</text>
+                    <text class="journey-station-sublabel" x="520" y="84" text-anchor="middle">2023–2024</text>
+                    <circle class="journey-marker-bg" cx="520" cy="34" r="16"></circle>
+                    <a class="journey-tab-link" href="#pop-ups">
+                        <title>Upstage INC. (2023–2024) — view details</title>
+                        <circle class="journey-segment case-studies" cx="520" cy="34" r="12"></circle>
+                    </a>
 
-        <!-- PATENTS -->
-        <section id="patents">
-            <h2>Patents</h2>
-            
-            <h3>Registered Patents & Technology Transfer</h3>
-            <div class="item" id="PAT-3">
-                <a class="badge" href="https://www.patentguru.com/KR102477699B1" target="_blank">PAT-3</a> <strong>A Method, an Imaging Device and a Recording Medium for Acquiring a Lateral Image for Eye Protrusion Analysis</strong><br>
-                <span class="item-meta">Inventors: Gyubo Shin, Jaemin Park, Jongchan Kim, Yoonwon Tak, Hwiyeon Kim, Eunyoung Shim | Assignee: Thyroscope INC. (No. 1024776990000)</span>
+                    <!-- Hyundai Motor Company: patents, publications, awards, case studies -->
+                    <text class="journey-station-label" x="610" y="70" text-anchor="middle">Hyundai</text>
+                    <text class="journey-station-sublabel" x="610" y="84" text-anchor="middle">2024–Present</text>
+                    <circle class="journey-marker-bg" cx="610" cy="34" r="16"></circle>
+                    <a class="journey-tab-link" href="#pop-hy">
+                        <title>Hyundai Motor Company (2024–Present) — view details</title>
+                        <circle class="journey-segment patents" cx="610" cy="34" r="12" stroke-dasharray="15.85 59.55" stroke-dashoffset="-1.5"></circle>
+                        <circle class="journey-segment publications" cx="610" cy="34" r="12" stroke-dasharray="15.85 59.55" stroke-dashoffset="-20.35"></circle>
+                        <circle class="journey-segment awards" cx="610" cy="34" r="12" stroke-dasharray="15.85 59.55" stroke-dashoffset="-39.2"></circle>
+                        <circle class="journey-segment case-studies" cx="610" cy="34" r="12" stroke-dasharray="15.85 59.55" stroke-dashoffset="-58.05"></circle>
+                    </a>
+                </svg>
             </div>
-            
-            <div class="item" id="PAT-2">
-                <a class="badge" href="https://patents.google.com/?q=(A+Method+for+Guiding+a+Visit+to+a+Hospital+for+Treatment+of+Active+Thyroid-Associated+Ophthalmopathy+and+Performing+the+Same)" target="_blank">PAT-2</a> <strong>A Method for Guiding a Visit to a Hospital for Treatment of Active Thyroid-Associated Ophthalmopathy and Performing the Same</strong><br>
-                <span class="item-meta">Inventors: Hwiyeon Kim, Yoonwon Tak, Eunyoung Sim, Gyubo Shin, Jaemin Park | Assignee: Thyroscope INC. (No. 1029214450000)</span>
-            </div>
-
-            <div class="item" id="PAT-1">
-                <a class="badge" href="https://patents.google.com/?q=(Method+and+apparatus+for+generating+thumbnail+images)&inventor=Sungahn+Ko" target="_blank">PAT-1</a> <strong>Method and apparatus for generating thumbnail images</strong><br>
-                <span class="item-meta">Inventors: Sungahn Ko, Hwiyeon Kim | Assignee: UNIST (No. 1024243420000)</span><br>
-                <span class="item-meta"><em>*Technology Transfer & Commercialization Success (Transferred to Upit Korea Co., Ltd. on November 10, 2025)</em></span>
-            </div>
-
-            <h3>Pending Patent Applications</h3>
-            <div class="item" id="PAT-7">
-                <span class="badge">PAT-7</span> <strong>Method and Apparatus for Route Management and Vehicle Interlocking Control to Support Scheduled Departure</strong><br>
-                <span class="item-meta">Inventor: Hwiyeon Kim | Assignee: Hyundai Motor Company (In Preparation for Filing)</span>
-            </div>
-
-            <div class="item" id="PAT-6">
-                <a class="badge" href="https://patents.google.com/?q=KR1020260116848" target="_blank">PAT-6</a> <strong>Method and Apparatus for Visualizing Destination Reachability Based on Electric Vehicle Battery Information During Route Search</strong><br>
-                <span class="item-meta">Inventor: Hwiyeon Kim | Assignee: Hyundai Motor Company (No. KR1020260116848)</span>
-            </div>
-
-            <div class="item" id="PAT-5">
-                <a class="badge" href="https://patents.google.com/?q=KR1020250192604" target="_blank">PAT-5</a> <strong>Method for Providing Guide for Managing Accident and Vehicle Implementing the Same</strong><br>
-                <span class="item-meta">Inventors: Yeonju Cho, Youngwang Park, Hwiyeon Kim | Assignee: Hyundai Motor Company (No. KR1020250192604)</span><br>
-                <span class="item-meta"><em>*Co-filed internationally with the U.S. Patent and Trademark Office (USPTO, Case No. 26-0480-US)</em></span>
-            </div>
-
-            <div class="item" id="PAT-4">
-                <a class="badge" href="https://patents.google.com/?q=KR1020260103550" target="_blank">PAT-4</a> <strong>Multimodal Route Guidance System</strong><br>
-                <span class="item-meta">Inventors: Yeonju Cho, Hwiyeon Kim | Assignee: Hyundai Motor Company (No. KR1020240197153, Public/Open No. 1020260103550)</span>
-            </div>
-        </section>
-
-        <!-- PUBLICATIONS -->
-        <section id="publications">
-            <h2>Publications</h2>
-            
-            <h3>Peer-Reviewed Journal Articles <span class="item-meta">| Total citation: 41</span></h3>
-            <div class="item" id="J-2">
-                <div class="publication-title"><a class="badge" href="https://pure.kaist.ac.kr/en/publications/towards-visualization-thumbnail-designs-that-entice-reading-data-" target="_blank">J-2</a> Towards visualization thumbnail designs that entice reading data-driven articles</div>
-                <div class="publication-authors">Hwiyeon Kim, Joohee Kim, Yunha Han, Hwajung Hong, Oh-Sang Kwon, Young-Woo Park, Niklas Elmqvist, Sungahn Ko, Bum Chul Kwon</div>
-                <div class="publication-venue">IEEE Transactions on Visualization and Computer Graphics (Invited & Presented at IEEE VIS 2024) | Citation: 9</div>
-                <div class="item-meta">Links: <a href="https://ieeexplore.ieee.org/document/10130316" target="_blank">DOI</a> · <a href="https://arxiv.org/pdf/2305.17051" target="_blank">PDF</a> · <a href="https://www.youtube.com/watch?v=0zHERZNI6NY" target="_blank">Video</a></div>
-            </div>
-
-            <div class="item" id="J-1">
-                <div class="publication-title"><a class="badge" href="https://www.semanticscholar.org/paper/HisVA%3A-A-Visual-Analytics-System-for-Studying-Han-Parsad/dc4902fafe27d24e8bc26a239a0dbc227b00bbbf" target="_blank">J-1</a> HisVA: A visual analytics system for studying history</div>
-                <div class="publication-authors">Dongyun Han, Gorakh Parsad, Hwiyeon Kim, Jaekyom Shim, Oh-Sang Kwon, Kyung A Son, Jooyoung Lee, Isaac Cho, Sungahn Ko</div>
-                <div class="publication-venue">IEEE Transactions on Visualization and Computer Graphics 2021 | Citation: 32</div>
-                <div class="item-meta">Links: <a href="https://ieeexplore.ieee.org/abstract/document/9447222" target="_blank">DOI</a> · <a href="https://arxiv.org/pdf/2106.00764" target="_blank">PDF</a></div>
-            </div>
-
-            <h3>Top-Tier Conference Proceedings <span class="item-meta">| Total citation: 24</span></h3>
-            <div class="item" id="C-2">
-                <div class="publication-title"><a class="badge" href="https://www.bckwon.com/pdf/purchase.pdf" target="_blank">C-2</a> Wait, let's think about your purchase again: A study on interventions for supporting self-controlled online purchases</div>
-                <div class="publication-authors">Yunha Han, Hwiyeon Kim, Hyeshin Chu, Joohee Kim, Hyunwook Lee, Seunghyeong Choe, Dooyoung Jung, Dongil Chung, Bum Chul Kwon, Sungahn Ko</div>
-                <div class="publication-venue">Proceedings of the Web Conference 2021 | Citation: 9</div>
-                <div class="item-meta">Links: <a href="https://dl.acm.org/doi/abs/10.1145/3442381.3450021" target="_blank">DOI</a> · <a href="https://dl.acm.org/doi/pdf/10.1145/3442381.3450021" target="_blank">PDF</a></div>
-            </div>
-
-            <div class="item" id="C-1">
-                <div class="publication-title"><a class="badge" href="https://www.semanticscholar.org/paper/Thumbnails-for-Data-Stories%3A-A-Survey-of-Current-Kim-Oh/25a3504ff7660800648caacaa6281311c58fa8e3" target="_blank">C-1</a> Thumbnails for data stories: A survey of current practices</div>
-                <div class="publication-authors">Hwiyeon Kim, Juyoung Oh, Yunha Han, Sungahn Ko, Matthew Brehmer, Bum Chul Kwon</div>
-                <div class="publication-venue">IEEE Visualization Conference (VIS) 2019 | Citation: 15</div>
-                <div class="item-meta">Links: <a href="https://arxiv.org/pdf/1908.06922" target="_blank">PDF</a> · <a href="https://www.bckwon.com/vid/thumbnails.mp4" target="_blank">Video</a></div>
-            </div>
-
-            <h3>Archived / Poster Papers</h3>
-            <div class="item" id="A-2">
-                <div class="publication-title"><a class="badge" href="https://scholar.google.com/scholar?q=Post-Crash+UX%3A+An+Empirical+Study+on+Multi-modal+Interfaces+for+Immediate+Driver+Response" target="_blank">A-2</a> Post-Crash UX: An Empirical Study on Multi-modal Interfaces for Immediate Driver Response</div>
-                <div class="publication-authors">Yeonju Cho, Hwiyeon Kim, Minseo Ku, Suyeon Yu, Jieun Lee</div>
-                <div class="publication-venue">Adjunct Proceedings of the 17th International Conference on Automotive User Interfaces and Interactive Vehicular Applications</div>
-                <div class="item-meta">Links: <a href="https://dl.acm.org/doi/full/10.1145/3744335.3758486" target="_blank">DOI</a> · <a href="https://dl.acm.org/doi/pdf/10.1145/3744335.3758486" target="_blank">PDF</a></div>
-            </div>
-
-            <div class="item" id="A-1">
-                <div class="publication-title"><a class="badge" href="https://arxiv.org/abs/2204.09524" target="_blank">A-1</a> An Empirical Study on the Relationship Between the Number of Coordinated Views and Visual Analysis</div>
-                <div class="publication-authors">Juyoung Oh, Chunggi Lee, Hwiyeon Kim, Kihwan Kim, Osang Kwon, Eric D Ragan, Bum Chul Kwon, Sungahn Ko</div>
-                <div class="publication-venue">arXiv preprint arXiv:2204.09524 | Citation: 2</div>
-                <div class="item-meta">Links: <a href="https://arxiv.org/pdf/2204.09524" target="_blank">PDF</a></div>
-            </div>
-        </section>
-
-        <!-- AWARDS -->
-        <section id="awards">
-            <h2>Awards & Recognitions</h2>
-            <ul class="bullet-list">
-                <li><strong>2026:</strong> Excellence Award, Corporate Safety & Quality Innovation Contest, Hyundai Motor Company. Recognized for developing an advanced app-user behavior data visualization tool that optimizes corporate decision-making.</li>
-                <li><strong>2025:</strong> Honorable Mention, Corporate Future Mobility Idea Contest, Hyundai Motor Company. Awarded for proposing a novel in-vehicle infotainment (IVI) system concept to support group driving and social interaction in autonomous vehicles.</li>
-                <li><strong>2022:</strong> International Design Award Finalist, Red Dot Design Award & IDEA Design Award (Thyroscope Inc.). Shortlisted globally for architecting the UX concept of a predictive digital healthcare solution for thyroid disease.</li>
-                <li><strong>2019-2021:</strong> Graduate Research & Teaching Assistantship Fellowship, UNIST. Awarded full tuition fellowship and monthly stipends for outstanding academic research and teaching contributions in the HCI & Visualization Lab.</li>
-                <li><strong>2014-2019:</strong> National Scholarship for Science and Engineering, Korea Student Aid Foundation. Awarded full tuition and academic grants funded by the South Korean Government for top-performing STEM talents.</li>
+            <ul class="journey-legend">
+                <li><span class="journey-legend-swatch patents"></span>Patents</li>
+                <li><span class="journey-legend-swatch publications"></span>Publications</li>
+                <li><span class="journey-legend-swatch awards"></span>Awards</li>
+                <li><span class="journey-legend-swatch case-studies"></span>Case Studies</li>
             </ul>
-            
-            <h3 style="margin-top:2rem;">Professional Service & Media</h3>
-            <ul class="bullet-list">
-                <li><strong>Invited Reviewer:</strong> IEEE Visualization Conference (IEEE VIS), Jul. 2020. Evaluated an academic manuscript for the top-tier international conference, demonstrating recognized expertise in Information Visualization.</li>
-                <li><strong>Presenter:</strong> IEEE VIS (Melbourne, Australia), Oct 2023 <a href="https://www.youtube.com/watch?v=0zHERZNI6NY" target="_blank" class="badge">Youtube</a>; IEEE VIS (Vancouver, Canada), Oct 2019.</li>
-                <li><strong>Invited Speaker:</strong> Woowa Bros (Delivery Hero) Tech Session, "Falling in Love with the Process of Writing, Twice", 2023 <a href="https://www.youtube.com/live/vub_peyogJY?t=2242s" target="_blank" class="badge">Youtube</a>.</li>
-                <li><strong>Press:</strong> Featured Article, "Thyroscope Shortlisted as a Finalist for Both Red Dot and IDEA International Design Awards", The Korea Economic Daily (2022) <a href="https://www.hankyung.com/article/202205185100h" target="_blank" class="badge">Link</a>.</li>
-            </ul>
+            <span id="journey-panel"></span>
+            <div class="journey-popups">
+                <div class="journey-popup" id="pop-bs">
+                    <div class="journey-popup-inner">
+                    <div class="journey-popup-body">
+                        <a class="journey-popup-close" href="#journey-panel" aria-label="Close">&times;</a>
+                        <h4 class="journey-popup-title">B.S. — UNIST · 2014–2019</h4>
+                        <div class="journey-popup-category">
+                            <p class="journey-popup-category-label"><span class="journey-legend-swatch awards"></span>Awards</p>
+                            <p class="journey-popup-category-text">National Scholarship for Science &amp; Engineering (2014–2019)</p>
+                            <a class="badge" href="#awards">View Awards &rarr;</a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="journey-popup" id="pop-ms">
+                    <div class="journey-popup-inner">
+                    <div class="journey-popup-body">
+                        <a class="journey-popup-close" href="#journey-panel" aria-label="Close">&times;</a>
+                        <h4 class="journey-popup-title">M.S. — UNIST · 2019–2021</h4>
+                        <div class="journey-popup-category">
+                            <p class="journey-popup-category-label"><span class="journey-legend-swatch patents"></span>Patents</p>
+                            <p class="journey-popup-category-text">Patent from M.S. research (PAT-1)</p>
+                            <a class="badge" href="#patents">View Patents &rarr;</a>
+                        </div>
+                        <div class="journey-popup-category">
+                            <p class="journey-popup-category-label"><span class="journey-legend-swatch publications"></span>Publications</p>
+                            <p class="journey-popup-category-text">Publications from M.S. research (J-1, J-2, C-1, C-2)</p>
+                            <a class="badge" href="#publications">View Publications &rarr;</a>
+                        </div>
+                        <div class="journey-popup-category">
+                            <p class="journey-popup-category-label"><span class="journey-legend-swatch awards"></span>Awards</p>
+                            <p class="journey-popup-category-text">Graduate Research &amp; Teaching Assistantship Fellowship (2019–2021)</p>
+                            <a class="badge" href="#awards">View Awards &rarr;</a>
+                        </div>
+                        <div class="journey-popup-category">
+                            <p class="journey-popup-category-label"><span class="journey-legend-swatch case-studies"></span>Case Studies</p>
+                            <p class="journey-popup-category-text">Case Study: UNIST Visualization Study</p>
+                            <a class="badge" href="projects/unist-visualization-study.html">View Case Study &rarr;</a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="journey-popup" id="pop-thy">
+                    <div class="journey-popup-inner">
+                    <div class="journey-popup-body">
+                        <a class="journey-popup-close" href="#journey-panel" aria-label="Close">&times;</a>
+                        <h4 class="journey-popup-title">Thyroscope · 2020–2022</h4>
+                        <div class="journey-popup-category">
+                            <p class="journey-popup-category-label"><span class="journey-legend-swatch patents"></span>Patents</p>
+                            <p class="journey-popup-category-text">Patents from Thyroscope R&amp;D (PAT-2, PAT-3)</p>
+                            <a class="badge" href="#patents">View Patents &rarr;</a>
+                        </div>
+                        <div class="journey-popup-category">
+                            <p class="journey-popup-category-label"><span class="journey-legend-swatch awards"></span>Awards</p>
+                            <p class="journey-popup-category-text">Red Dot &amp; IDEA Design Award Finalist (2022)</p>
+                            <a class="badge" href="#awards">View Awards &rarr;</a>
+                        </div>
+                        <div class="journey-popup-category">
+                            <p class="journey-popup-category-label"><span class="journey-legend-swatch case-studies"></span>Case Studies</p>
+                            <p class="journey-popup-category-text">Case Study: Thyroscope</p>
+                            <a class="badge" href="projects/thyroscope.html">View Case Study &rarr;</a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="journey-popup" id="pop-bnk">
+                    <div class="journey-popup-inner">
+                    <div class="journey-popup-body">
+                        <a class="journey-popup-close" href="#journey-panel" aria-label="Close">&times;</a>
+                        <h4 class="journey-popup-title">BNK Kyungnam Bank · 2022</h4>
+                        <div class="journey-popup-category">
+                            <p class="journey-popup-category-label"><span class="journey-legend-swatch case-studies"></span>Case Studies</p>
+                            <p class="journey-popup-category-text">Case Study: BNK MyData Redesign</p>
+                            <a class="badge" href="projects/bnk-mydata-redesign.html">View Case Study &rarr;</a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="journey-popup" id="pop-ups">
+                    <div class="journey-popup-inner">
+                    <div class="journey-popup-body">
+                        <a class="journey-popup-close" href="#journey-panel" aria-label="Close">&times;</a>
+                        <h4 class="journey-popup-title">Upstage INC. · 2023–2024</h4>
+                        <div class="journey-popup-category">
+                            <p class="journey-popup-category-label"><span class="journey-legend-swatch case-studies"></span>Case Studies</p>
+                            <p class="journey-popup-category-text">Case Study: Upstage IDP Demo</p>
+                            <a class="badge" href="projects/upstage-idp-demo.html">View Case Study &rarr;</a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="journey-popup" id="pop-hy">
+                    <div class="journey-popup-inner">
+                    <div class="journey-popup-body">
+                        <a class="journey-popup-close" href="#journey-panel" aria-label="Close">&times;</a>
+                        <h4 class="journey-popup-title">Hyundai Motor Company · 2024–Present</h4>
+                        <div class="journey-popup-category">
+                            <p class="journey-popup-category-label"><span class="journey-legend-swatch patents"></span>Patents</p>
+                            <p class="journey-popup-category-text">Patents from Hyundai R&amp;D (PAT-4 – PAT-7)</p>
+                            <a class="badge" href="#patents">View Patents &rarr;</a>
+                        </div>
+                        <div class="journey-popup-category">
+                            <p class="journey-popup-category-label"><span class="journey-legend-swatch publications"></span>Publications</p>
+                            <p class="journey-popup-category-text">Publication: AutomotiveUI 2025 (A-2)</p>
+                            <a class="badge" href="#publications">View Publications &rarr;</a>
+                        </div>
+                        <div class="journey-popup-category">
+                            <p class="journey-popup-category-label"><span class="journey-legend-swatch awards"></span>Awards</p>
+                            <p class="journey-popup-category-text">Excellence Award (2026) &amp; Honorable Mention (2025)</p>
+                            <a class="badge" href="#awards">View Awards &rarr;</a>
+                        </div>
+                        <div class="journey-popup-category">
+                            <p class="journey-popup-category-label"><span class="journey-legend-swatch case-studies"></span>Case Studies</p>
+                            <p class="journey-popup-category-text">Case Studies: Post-Crash UX &amp; HiMate</p>
+                            <a class="badge" href="#portfolio">View Portfolio &rarr;</a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- PORTFOLIO -->
@@ -510,6 +709,216 @@
                     </div>
                 </a>
             </div>
+        </section>
+
+        <!-- EMPLOYMENT -->
+        <section id="employment">
+            <h2>Employment</h2>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Product Designer & Data Analyst</span>
+                    <span class="item-date">May 2024 - Present</span>
+                </div>
+                <div class="item-subtitle">Hyundai Motor Company | Infotainment Mobile Development Team</div>
+                <p class="item-summary">Led empirical post-crash multimodal-interface research (co-filed USPTO patent <a href="#PAT-5" class="badge">PAT-5</a>, AutomotiveUI 2025 publication <a href="#A-2" class="badge">A-2</a>) and built an internal UX analytics dashboard that cut analysis time by over 99% (Excellence Award, 2026).</p>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Product Designer</span>
+                    <span class="item-date">Feb 2023 - Apr 2024</span>
+                </div>
+                <div class="item-subtitle">Upstage INC. | Document Intelligence Team</div>
+                <p class="item-summary">Designed and launched a GUI-based Intelligent Document Processing (IDP) API demo, converting 40.47% of homepage traffic into active trial users.</p>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Product Designer</span>
+                    <span class="item-date">Jun 2022 - Dec 2022</span>
+                </div>
+                <div class="item-subtitle">BNK Kyungnam Bank | Digital Strategy Department</div>
+                <p class="item-summary">Formulated data-informed UX strategies for the MyData asset management platform, redesigning the product exploration journey around generational asset management patterns to reduce cognitive load.</p>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Product Designer</span>
+                    <span class="item-date">Dec 2020 - May 2022</span>
+                </div>
+                <div class="item-subtitle">Thyroscope INC.</div>
+                <p class="item-summary">Increased user sign-up conversion by 18.6% (28.1% &rarr; 46.7%) via Google Analytics funnel analysis, and led an end-to-end redesign of the predictive healthcare app informed by 5 interviews and a 57-user survey.</p>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section id="education">
+            <h2>Education</h2>
+            
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">M.S., Computer Science</span>
+                    <span class="item-date">Mar 2019 - Feb 2021</span>
+                </div>
+                <div class="item-subtitle">Ulsan National Institute of Science and Technology (UNIST)</div>
+                <ul class="bullet-list">
+                    <li><strong>Research Topic:</strong> Human-Computer Interaction, Visualization Thumbnails | <strong>Advisor:</strong> Sungahn Ko</li>
+                    <li><strong>[Quantitative HCI Research]</strong> Engineered large-scale user experiments (n=161) to evaluate cognitive load in data visualizations, utilizing Thurstonian modeling and A/B testing for statistical validation, resulting in 4 peer-reviewed publications in top-tier international venues (including IEEE TVCG and IEEE VIS) <a href="#J-1" class="badge">J-1</a>, <a href="#J-2" class="badge">J-2</a>, <a href="#C-1" class="badge">C-1</a>, <a href="#C-2" class="badge">C-2</a>.</li>
+                    <li><strong>[Technology Commercialization]</strong> Patented and successfully transferred a novel data-driven thumbnail generation algorithm to the commercial industry <a href="#PAT-1" class="badge">PAT-1</a>.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">B.S., Industrial Design and Computer Science</span>
+                    <span class="item-date">Mar 2014 - Feb 2019</span>
+                </div>
+                <div class="item-subtitle">Ulsan National Institute of Science and Technology (UNIST)</div>
+                <ul class="bullet-list">
+                    <li><strong>[UX Engineering & Applied Research]</strong> Designed and developed a mental health screening system for university freshmen (Funded Project), bridging qualitative user needs with functional software architecture.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- PATENTS -->
+        <section id="patents">
+            <h2>Patents</h2>
+            
+            <h3>Registered Patents & Technology Transfer</h3>
+            <details class="item-accordion" id="PAT-3">
+                <summary><a class="badge" href="https://www.patentguru.com/KR102477699B1" target="_blank">PAT-3</a> <span class="accordion-title">A Method, an Imaging Device and a Recording Medium for Acquiring a Lateral Image for Eye Protrusion Analysis</span></summary>
+                <div class="accordion-body">
+                    <span class="item-meta">Inventors: Gyubo Shin, Jaemin Park, Jongchan Kim, Yoonwon Tak, Hwiyeon Kim, Eunyoung Shim | Assignee: Thyroscope INC. (No. 1024776990000)</span>
+                </div>
+            </details>
+
+            <details class="item-accordion" id="PAT-2">
+                <summary><a class="badge" href="https://patents.google.com/?q=(A+Method+for+Guiding+a+Visit+to+a+Hospital+for+Treatment+of+Active+Thyroid-Associated+Ophthalmopathy+and+Performing+the+Same)" target="_blank">PAT-2</a> <span class="accordion-title">A Method for Guiding a Visit to a Hospital for Treatment of Active Thyroid-Associated Ophthalmopathy and Performing the Same</span></summary>
+                <div class="accordion-body">
+                    <span class="item-meta">Inventors: Hwiyeon Kim, Yoonwon Tak, Eunyoung Sim, Gyubo Shin, Jaemin Park | Assignee: Thyroscope INC. (No. 1029214450000)</span>
+                </div>
+            </details>
+
+            <details class="item-accordion" id="PAT-1">
+                <summary><a class="badge" href="https://patents.google.com/?q=(Method+and+apparatus+for+generating+thumbnail+images)&inventor=Sungahn+Ko" target="_blank">PAT-1</a> <span class="accordion-title">Method and apparatus for generating thumbnail images</span></summary>
+                <div class="accordion-body">
+                    <span class="item-meta">Inventors: Sungahn Ko, Hwiyeon Kim | Assignee: UNIST (No. 1024243420000)</span><br>
+                    <span class="item-meta"><em>*Technology Transfer & Commercialization Success (Transferred to Upit Korea Co., Ltd. on November 10, 2025)</em></span>
+                </div>
+            </details>
+
+            <h3>Pending Patent Applications</h3>
+            <details class="item-accordion" id="PAT-7">
+                <summary><span class="badge">PAT-7</span> <span class="accordion-title">Method and Apparatus for Route Management and Vehicle Interlocking Control to Support Scheduled Departure</span></summary>
+                <div class="accordion-body">
+                    <span class="item-meta">Inventor: Hwiyeon Kim | Assignee: Hyundai Motor Company (In Preparation for Filing)</span>
+                </div>
+            </details>
+
+            <details class="item-accordion" id="PAT-6">
+                <summary><a class="badge" href="https://patents.google.com/?q=KR1020260116848" target="_blank">PAT-6</a> <span class="accordion-title">Method and Apparatus for Visualizing Destination Reachability Based on Electric Vehicle Battery Information During Route Search</span></summary>
+                <div class="accordion-body">
+                    <span class="item-meta">Inventor: Hwiyeon Kim | Assignee: Hyundai Motor Company (No. KR1020260116848)</span>
+                </div>
+            </details>
+
+            <details class="item-accordion" id="PAT-5">
+                <summary><a class="badge" href="https://patents.google.com/?q=KR1020250192604" target="_blank">PAT-5</a> <span class="accordion-title">Method for Providing Guide for Managing Accident and Vehicle Implementing the Same</span></summary>
+                <div class="accordion-body">
+                    <span class="item-meta">Inventors: Yeonju Cho, Youngwang Park, Hwiyeon Kim | Assignee: Hyundai Motor Company (No. KR1020250192604)</span><br>
+                    <span class="item-meta"><em>*Co-filed internationally with the U.S. Patent and Trademark Office (USPTO, Case No. 26-0480-US)</em></span>
+                </div>
+            </details>
+
+            <details class="item-accordion" id="PAT-4">
+                <summary><a class="badge" href="https://patents.google.com/?q=KR1020260103550" target="_blank">PAT-4</a> <span class="accordion-title">Multimodal Route Guidance System</span></summary>
+                <div class="accordion-body">
+                    <span class="item-meta">Inventors: Yeonju Cho, Hwiyeon Kim | Assignee: Hyundai Motor Company (No. KR1020240197153, Public/Open No. 1020260103550)</span>
+                </div>
+            </details>
+        </section>
+
+        <!-- PUBLICATIONS -->
+        <section id="publications">
+            <h2>Publications</h2>
+            
+            <h3>Peer-Reviewed Journal Articles <span class="item-meta">| Total citation: 41</span></h3>
+            <details class="item-accordion" id="J-2" open>
+                <summary><a class="badge" href="https://pure.kaist.ac.kr/en/publications/towards-visualization-thumbnail-designs-that-entice-reading-data-" target="_blank">J-2</a> <span class="accordion-title">Towards visualization thumbnail designs that entice reading data-driven articles</span></summary>
+                <div class="accordion-body">
+                    <div class="publication-authors">Hwiyeon Kim, Joohee Kim, Yunha Han, Hwajung Hong, Oh-Sang Kwon, Young-Woo Park, Niklas Elmqvist, Sungahn Ko, Bum Chul Kwon</div>
+                    <div class="publication-venue">IEEE Transactions on Visualization and Computer Graphics (Invited & Presented at IEEE VIS 2024) | Citation: 9</div>
+                    <div class="item-meta">Links: <a href="https://ieeexplore.ieee.org/document/10130316" target="_blank">DOI</a> · <a href="https://arxiv.org/pdf/2305.17051" target="_blank">PDF</a> · <a href="https://www.youtube.com/watch?v=0zHERZNI6NY" target="_blank">Video</a></div>
+                </div>
+            </details>
+
+            <details class="item-accordion" id="J-1" open>
+                <summary><a class="badge" href="https://www.semanticscholar.org/paper/HisVA%3A-A-Visual-Analytics-System-for-Studying-Han-Parsad/dc4902fafe27d24e8bc26a239a0dbc227b00bbbf" target="_blank">J-1</a> <span class="accordion-title">HisVA: A visual analytics system for studying history</span></summary>
+                <div class="accordion-body">
+                    <div class="publication-authors">Dongyun Han, Gorakh Parsad, Hwiyeon Kim, Jaekyom Shim, Oh-Sang Kwon, Kyung A Son, Jooyoung Lee, Isaac Cho, Sungahn Ko</div>
+                    <div class="publication-venue">IEEE Transactions on Visualization and Computer Graphics 2021 | Citation: 32</div>
+                    <div class="item-meta">Links: <a href="https://ieeexplore.ieee.org/abstract/document/9447222" target="_blank">DOI</a> · <a href="https://arxiv.org/pdf/2106.00764" target="_blank">PDF</a></div>
+                </div>
+            </details>
+
+            <h3>Top-Tier Conference Proceedings <span class="item-meta">| Total citation: 24</span></h3>
+            <details class="item-accordion" id="C-2" open>
+                <summary><a class="badge" href="https://www.bckwon.com/pdf/purchase.pdf" target="_blank">C-2</a> <span class="accordion-title">Wait, let's think about your purchase again: A study on interventions for supporting self-controlled online purchases</span></summary>
+                <div class="accordion-body">
+                    <div class="publication-authors">Yunha Han, Hwiyeon Kim, Hyeshin Chu, Joohee Kim, Hyunwook Lee, Seunghyeong Choe, Dooyoung Jung, Dongil Chung, Bum Chul Kwon, Sungahn Ko</div>
+                    <div class="publication-venue">Proceedings of the Web Conference 2021 | Citation: 9</div>
+                    <div class="item-meta">Links: <a href="https://dl.acm.org/doi/abs/10.1145/3442381.3450021" target="_blank">DOI</a> · <a href="https://dl.acm.org/doi/pdf/10.1145/3442381.3450021" target="_blank">PDF</a></div>
+                </div>
+            </details>
+
+            <details class="item-accordion" id="C-1" open>
+                <summary><a class="badge" href="https://www.semanticscholar.org/paper/Thumbnails-for-Data-Stories%3A-A-Survey-of-Current-Kim-Oh/25a3504ff7660800648caacaa6281311c58fa8e3" target="_blank">C-1</a> <span class="accordion-title">Thumbnails for data stories: A survey of current practices</span></summary>
+                <div class="accordion-body">
+                    <div class="publication-authors">Hwiyeon Kim, Juyoung Oh, Yunha Han, Sungahn Ko, Matthew Brehmer, Bum Chul Kwon</div>
+                    <div class="publication-venue">IEEE Visualization Conference (VIS) 2019 | Citation: 15</div>
+                    <div class="item-meta">Links: <a href="https://arxiv.org/pdf/1908.06922" target="_blank">PDF</a> · <a href="https://www.bckwon.com/vid/thumbnails.mp4" target="_blank">Video</a></div>
+                </div>
+            </details>
+
+            <h3>Archived / Poster Papers</h3>
+            <details class="item-accordion" id="A-2" open>
+                <summary><a class="badge" href="https://scholar.google.com/scholar?q=Post-Crash+UX%3A+An+Empirical+Study+on+Multi-modal+Interfaces+for+Immediate+Driver+Response" target="_blank">A-2</a> <span class="accordion-title">Post-Crash UX: An Empirical Study on Multi-modal Interfaces for Immediate Driver Response</span></summary>
+                <div class="accordion-body">
+                    <div class="publication-authors">Yeonju Cho, Hwiyeon Kim, Minseo Ku, Suyeon Yu, Jieun Lee</div>
+                    <div class="publication-venue">Adjunct Proceedings of the 17th International Conference on Automotive User Interfaces and Interactive Vehicular Applications</div>
+                    <div class="item-meta">Links: <a href="https://dl.acm.org/doi/full/10.1145/3744335.3758486" target="_blank">DOI</a> · <a href="https://dl.acm.org/doi/pdf/10.1145/3744335.3758486" target="_blank">PDF</a></div>
+                </div>
+            </details>
+
+            <details class="item-accordion" id="A-1" open>
+                <summary><a class="badge" href="https://arxiv.org/abs/2204.09524" target="_blank">A-1</a> <span class="accordion-title">An Empirical Study on the Relationship Between the Number of Coordinated Views and Visual Analysis</span></summary>
+                <div class="accordion-body">
+                    <div class="publication-authors">Juyoung Oh, Chunggi Lee, Hwiyeon Kim, Kihwan Kim, Osang Kwon, Eric D Ragan, Bum Chul Kwon, Sungahn Ko</div>
+                    <div class="publication-venue">arXiv preprint arXiv:2204.09524 | Citation: 2</div>
+                    <div class="item-meta">Links: <a href="https://arxiv.org/pdf/2204.09524" target="_blank">PDF</a></div>
+                </div>
+            </details>
+        </section>
+
+        <!-- AWARDS -->
+        <section id="awards">
+            <h2>Awards & Recognitions</h2>
+            <ul class="bullet-list">
+                <li><strong>2026:</strong> Excellence Award, Corporate Safety & Quality Innovation Contest, Hyundai Motor Company. Recognized for developing an advanced app-user behavior data visualization tool that optimizes corporate decision-making.</li>
+                <li><strong>2025:</strong> Honorable Mention, Corporate Future Mobility Idea Contest, Hyundai Motor Company. Awarded for proposing a novel in-vehicle infotainment (IVI) system concept to support group driving and social interaction in autonomous vehicles.</li>
+                <li><strong>2022:</strong> International Design Award Finalist, Red Dot Design Award & IDEA Design Award (Thyroscope Inc.). Shortlisted globally for architecting the UX concept of a predictive digital healthcare solution for thyroid disease.</li>
+                <li><strong>2019-2021:</strong> Graduate Research & Teaching Assistantship Fellowship, UNIST. Awarded full tuition fellowship and monthly stipends for outstanding academic research and teaching contributions in the HCI & Visualization Lab.</li>
+                <li><strong>2014-2019:</strong> National Scholarship for Science and Engineering, Korea Student Aid Foundation. Awarded full tuition and academic grants funded by the South Korean Government for top-performing STEM talents.</li>
+            </ul>
+            
+            <h3 style="margin-top:2rem;">Professional Service & Media</h3>
+            <ul class="bullet-list">
+                <li><strong>Invited Reviewer:</strong> IEEE Visualization Conference (IEEE VIS), Jul. 2020. Evaluated an academic manuscript for the top-tier international conference, demonstrating recognized expertise in Information Visualization.</li>
+                <li><strong>Presenter:</strong> IEEE VIS (Melbourne, Australia), Oct 2023 <a href="https://www.youtube.com/watch?v=0zHERZNI6NY" target="_blank" class="badge">Youtube</a>; IEEE VIS (Vancouver, Canada), Oct 2019.</li>
+                <li><strong>Invited Speaker:</strong> Woowa Bros (Delivery Hero) Tech Session, "Falling in Love with the Process of Writing, Twice", 2023 <a href="https://www.youtube.com/live/vub_peyogJY?t=2242s" target="_blank" class="badge">Youtube</a>.</li>
+                <li><strong>Press:</strong> Featured Article, "Thyroscope Shortlisted as a Finalist for Both Red Dot and IDEA International Design Awards", The Korea Economic Daily (2022) <a href="https://www.hankyung.com/article/202205185100h" target="_blank" class="badge">Link</a>.</li>
+            </ul>
         </section>
 
     </main>
