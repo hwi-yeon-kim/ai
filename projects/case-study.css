@@ -1243,6 +1243,12 @@ a.badge:hover {
     min-height: 1.2em;
 }
 
+.password-gate-contact {
+    margin-top: 1.25rem;
+    color: var(--meta-color);
+    font-size: 0.85rem;
+}
+
 .gated-content {
     display: none;
 }
