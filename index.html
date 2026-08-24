@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hwiyeon Kim | Portfolio</title>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="4d39ab3d-21ab-4a51-aa59-9d996b50e921"></script>
     <style>
         :root {
             --primary-color: #0056b3;
@@ -223,7 +224,7 @@
         .journey-svg {
             display: block;
             width: 100%;
-            min-width: 700px;
+            min-width: 800px;
             height: auto;
         }
         .journey-line {
@@ -244,6 +245,11 @@
             font-family: inherit;
         }
         .journey-station-sublabel {
+            fill: var(--meta-color);
+            font-size: 10px;
+            font-family: inherit;
+        }
+        .journey-station-year {
             fill: var(--meta-color);
             font-size: 10px;
             font-family: inherit;
@@ -451,28 +457,36 @@
             <h3>My Multidisciplinary Journey</h3>
             <p class="journey-caption">An interactive map of my career timeline — each stop's ring is divided among the kinds of output it produced (patents, publications, awards, case studies), in that fixed order. Select a stop to see a summary of each below, with links to view the full detail.</p>
             <div class="journey-diagram-scroll">
-                <svg class="journey-svg" viewBox="0 0 820 100" role="group" aria-label="Career journey diagram, positioned to scale by year">
+                <svg class="journey-svg" viewBox="0 0 930 105" role="group" aria-label="Career journey diagram, positioned to scale by year">
                     <line class="journey-line" x1="70" y1="34" x2="108" y2="34"></line>
                     <line class="journey-axis-break" x1="112" y1="26" x2="104" y2="42"></line>
                     <line class="journey-axis-break" x1="124" y1="26" x2="116" y2="42"></line>
-                    <line class="journey-line" x1="120" y1="34" x2="790" y2="34"></line>
-                    <polygon class="journey-arrow" points="790,28 802,34 790,40"></polygon>
+                    <line class="journey-line" x1="120" y1="34" x2="900" y2="34"></line>
+                    <polygon class="journey-arrow" points="900,28 912,34 900,40"></polygon>
 
                     <!-- B.S., UNIST: awards -->
-                    <text class="journey-station-label" x="70" y="70" text-anchor="middle">B.S.</text>
-                    <text class="journey-station-sublabel" x="70" y="84" text-anchor="middle">UNIST · 2014–2019</text>
+                    <text class="journey-station-year" x="70" y="16" text-anchor="middle">2014–2019</text>
+                    <text class="journey-station-label" x="70" y="68" text-anchor="middle">
+                        <tspan x="70" dy="0">Industrial</tspan>
+                        <tspan x="70" dy="13">Design</tspan>
+                    </text>
+                    <text class="journey-station-sublabel" x="70" y="95" text-anchor="middle">UNIST</text>
                     <circle class="journey-marker-bg" cx="70" cy="34" r="16"></circle>
                     <a class="journey-tab-link" href="#pop-bs">
-                        <title>B.S., UNIST (2014–2019) — view details</title>
+                        <title>Industrial Design — UNIST (2014–2019) — view details</title>
                         <circle class="journey-segment awards" cx="70" cy="34" r="12"></circle>
                     </a>
 
                     <!-- M.S., UNIST: patents, publications, awards, case studies -->
-                    <text class="journey-station-label" x="160" y="70" text-anchor="middle">M.S.</text>
-                    <text class="journey-station-sublabel" x="160" y="84" text-anchor="middle">UNIST · 2019–2021</text>
+                    <text class="journey-station-year" x="160" y="16" text-anchor="middle">2019–2021</text>
+                    <text class="journey-station-label" x="160" y="68" text-anchor="middle">
+                        <tspan x="160" dy="0">Computer</tspan>
+                        <tspan x="160" dy="13">Science</tspan>
+                    </text>
+                    <text class="journey-station-sublabel" x="160" y="95" text-anchor="middle">UNIST</text>
                     <circle class="journey-marker-bg" cx="160" cy="34" r="16"></circle>
                     <a class="journey-tab-link" href="#pop-ms">
-                        <title>M.S., UNIST (2019–2021) — view details</title>
+                        <title>Computer Science — UNIST (2019–2021) — view details</title>
                         <circle class="journey-segment patents" cx="160" cy="34" r="12" stroke-dasharray="15.85 59.55" stroke-dashoffset="-1.5"></circle>
                         <circle class="journey-segment publications" cx="160" cy="34" r="12" stroke-dasharray="15.85 59.55" stroke-dashoffset="-20.35"></circle>
                         <circle class="journey-segment awards" cx="160" cy="34" r="12" stroke-dasharray="15.85 59.55" stroke-dashoffset="-39.2"></circle>
@@ -480,44 +494,56 @@
                     </a>
 
                     <!-- Thyroscope: patents, awards, case studies -->
-                    <text class="journey-station-label" x="250" y="70" text-anchor="middle">Thyroscope</text>
-                    <text class="journey-station-sublabel" x="250" y="84" text-anchor="middle">2020–2022</text>
-                    <circle class="journey-marker-bg" cx="250" cy="34" r="16"></circle>
+                    <text class="journey-station-year" x="280" y="16" text-anchor="middle">2020–2022</text>
+                    <text class="journey-station-label" x="280" y="68" text-anchor="middle">
+                        <tspan x="280" dy="0">Product Designer</tspan>
+                        <tspan x="280" dy="13">(Healthcare)</tspan>
+                    </text>
+                    <circle class="journey-marker-bg" cx="280" cy="34" r="16"></circle>
                     <a class="journey-tab-link" href="#pop-thy">
-                        <title>Thyroscope (2020–2022) — view details</title>
-                        <circle class="journey-segment patents" cx="250" cy="34" r="12" stroke-dasharray="22.13 53.27" stroke-dashoffset="-1.5"></circle>
-                        <circle class="journey-segment awards" cx="250" cy="34" r="12" stroke-dasharray="22.13 53.27" stroke-dashoffset="-26.63"></circle>
-                        <circle class="journey-segment case-studies" cx="250" cy="34" r="12" stroke-dasharray="22.13 53.27" stroke-dashoffset="-51.77"></circle>
+                        <title>Product Designer (Healthcare) — Thyroscope (2020–2022) — view details</title>
+                        <circle class="journey-segment patents" cx="280" cy="34" r="12" stroke-dasharray="22.13 53.27" stroke-dashoffset="-1.5"></circle>
+                        <circle class="journey-segment awards" cx="280" cy="34" r="12" stroke-dasharray="22.13 53.27" stroke-dashoffset="-26.63"></circle>
+                        <circle class="journey-segment case-studies" cx="280" cy="34" r="12" stroke-dasharray="22.13 53.27" stroke-dashoffset="-51.77"></circle>
                     </a>
 
                     <!-- BNK Kyungnam Bank: case studies only -->
-                    <text class="journey-station-label" x="430" y="70" text-anchor="middle">BNK</text>
-                    <text class="journey-station-sublabel" x="430" y="84" text-anchor="middle">2022</text>
+                    <text class="journey-station-year" x="430" y="16" text-anchor="middle">2022</text>
+                    <text class="journey-station-label" x="430" y="68" text-anchor="middle">
+                        <tspan x="430" dy="0">Product Designer</tspan>
+                        <tspan x="430" dy="13">(Bank)</tspan>
+                    </text>
                     <circle class="journey-marker-bg" cx="430" cy="34" r="16"></circle>
                     <a class="journey-tab-link" href="#pop-bnk">
-                        <title>BNK Kyungnam Bank (2022) — view details</title>
+                        <title>Product Designer (Bank) — BNK Kyungnam Bank (2022) — view details</title>
                         <circle class="journey-segment case-studies" cx="430" cy="34" r="12"></circle>
                     </a>
 
                     <!-- Upstage: case studies only -->
-                    <text class="journey-station-label" x="520" y="70" text-anchor="middle">Upstage</text>
-                    <text class="journey-station-sublabel" x="520" y="84" text-anchor="middle">2023–2024</text>
-                    <circle class="journey-marker-bg" cx="520" cy="34" r="16"></circle>
+                    <text class="journey-station-year" x="575" y="16" text-anchor="middle">2023–2024</text>
+                    <text class="journey-station-label" x="575" y="68" text-anchor="middle">
+                        <tspan x="575" dy="0">Product Designer</tspan>
+                        <tspan x="575" dy="13">(IDP)</tspan>
+                    </text>
+                    <circle class="journey-marker-bg" cx="575" cy="34" r="16"></circle>
                     <a class="journey-tab-link" href="#pop-ups">
-                        <title>Upstage INC. (2023–2024) — view details</title>
-                        <circle class="journey-segment case-studies" cx="520" cy="34" r="12"></circle>
+                        <title>Product Designer (IDP) — Upstage INC. (2023–2024) — view details</title>
+                        <circle class="journey-segment case-studies" cx="575" cy="34" r="12"></circle>
                     </a>
 
                     <!-- Hyundai Motor Company: patents, publications, awards, case studies -->
-                    <text class="journey-station-label" x="610" y="70" text-anchor="middle">Hyundai</text>
-                    <text class="journey-station-sublabel" x="610" y="84" text-anchor="middle">2024–Present</text>
-                    <circle class="journey-marker-bg" cx="610" cy="34" r="16"></circle>
+                    <text class="journey-station-year" x="720" y="16" text-anchor="middle">2024–Present</text>
+                    <text class="journey-station-label" x="720" y="68" text-anchor="middle">
+                        <tspan x="720" dy="0">Product Designer</tspan>
+                        <tspan x="720" dy="13">(Mobility)</tspan>
+                    </text>
+                    <circle class="journey-marker-bg" cx="720" cy="34" r="16"></circle>
                     <a class="journey-tab-link" href="#pop-hy">
-                        <title>Hyundai Motor Company (2024–Present) — view details</title>
-                        <circle class="journey-segment patents" cx="610" cy="34" r="12" stroke-dasharray="15.85 59.55" stroke-dashoffset="-1.5"></circle>
-                        <circle class="journey-segment publications" cx="610" cy="34" r="12" stroke-dasharray="15.85 59.55" stroke-dashoffset="-20.35"></circle>
-                        <circle class="journey-segment awards" cx="610" cy="34" r="12" stroke-dasharray="15.85 59.55" stroke-dashoffset="-39.2"></circle>
-                        <circle class="journey-segment case-studies" cx="610" cy="34" r="12" stroke-dasharray="15.85 59.55" stroke-dashoffset="-58.05"></circle>
+                        <title>Product Designer (Mobility) — Hyundai Motor Company (2024–Present) — view details</title>
+                        <circle class="journey-segment patents" cx="720" cy="34" r="12" stroke-dasharray="15.85 59.55" stroke-dashoffset="-1.5"></circle>
+                        <circle class="journey-segment publications" cx="720" cy="34" r="12" stroke-dasharray="15.85 59.55" stroke-dashoffset="-20.35"></circle>
+                        <circle class="journey-segment awards" cx="720" cy="34" r="12" stroke-dasharray="15.85 59.55" stroke-dashoffset="-39.2"></circle>
+                        <circle class="journey-segment case-studies" cx="720" cy="34" r="12" stroke-dasharray="15.85 59.55" stroke-dashoffset="-58.05"></circle>
                     </a>
                 </svg>
             </div>
@@ -533,7 +559,7 @@
                     <div class="journey-popup-inner">
                     <div class="journey-popup-body">
                         <a class="journey-popup-close" href="#journey-panel" aria-label="Close">&times;</a>
-                        <h4 class="journey-popup-title">B.S. — UNIST · 2014–2019</h4>
+                        <h4 class="journey-popup-title">Industrial Design — UNIST · 2014–2019</h4>
                         <div class="journey-popup-category">
                             <p class="journey-popup-category-label"><span class="journey-legend-swatch awards"></span>Awards</p>
                             <p class="journey-popup-category-text">National Scholarship for Science &amp; Engineering (2014–2019)</p>
@@ -546,7 +572,7 @@
                     <div class="journey-popup-inner">
                     <div class="journey-popup-body">
                         <a class="journey-popup-close" href="#journey-panel" aria-label="Close">&times;</a>
-                        <h4 class="journey-popup-title">M.S. — UNIST · 2019–2021</h4>
+                        <h4 class="journey-popup-title">Computer Science — UNIST · 2019–2021</h4>
                         <div class="journey-popup-category">
                             <p class="journey-popup-category-label"><span class="journey-legend-swatch patents"></span>Patents</p>
                             <p class="journey-popup-category-text">Patent from M.S. research (PAT-1)</p>
@@ -574,7 +600,7 @@
                     <div class="journey-popup-inner">
                     <div class="journey-popup-body">
                         <a class="journey-popup-close" href="#journey-panel" aria-label="Close">&times;</a>
-                        <h4 class="journey-popup-title">Thyroscope · 2020–2022</h4>
+                        <h4 class="journey-popup-title">Product Designer (Healthcare) — Thyroscope · 2020–2022</h4>
                         <div class="journey-popup-category">
                             <p class="journey-popup-category-label"><span class="journey-legend-swatch patents"></span>Patents</p>
                             <p class="journey-popup-category-text">Patents from Thyroscope R&amp;D (PAT-2, PAT-3)</p>
@@ -597,7 +623,7 @@
                     <div class="journey-popup-inner">
                     <div class="journey-popup-body">
                         <a class="journey-popup-close" href="#journey-panel" aria-label="Close">&times;</a>
-                        <h4 class="journey-popup-title">BNK Kyungnam Bank · 2022</h4>
+                        <h4 class="journey-popup-title">Product Designer (Bank) — BNK Kyungnam Bank · 2022</h4>
                         <div class="journey-popup-category">
                             <p class="journey-popup-category-label"><span class="journey-legend-swatch case-studies"></span>Case Studies</p>
                             <p class="journey-popup-category-text">Case Study: BNK MyData Redesign</p>
@@ -610,7 +636,7 @@
                     <div class="journey-popup-inner">
                     <div class="journey-popup-body">
                         <a class="journey-popup-close" href="#journey-panel" aria-label="Close">&times;</a>
-                        <h4 class="journey-popup-title">Upstage INC. · 2023–2024</h4>
+                        <h4 class="journey-popup-title">Product Designer (IDP) — Upstage INC. · 2023–2024</h4>
                         <div class="journey-popup-category">
                             <p class="journey-popup-category-label"><span class="journey-legend-swatch case-studies"></span>Case Studies</p>
                             <p class="journey-popup-category-text">Case Study: Upstage IDP Demo</p>
@@ -623,7 +649,7 @@
                     <div class="journey-popup-inner">
                     <div class="journey-popup-body">
                         <a class="journey-popup-close" href="#journey-panel" aria-label="Close">&times;</a>
-                        <h4 class="journey-popup-title">Hyundai Motor Company · 2024–Present</h4>
+                        <h4 class="journey-popup-title">Product Designer (Mobility) — Hyundai Motor Company · 2024–Present</h4>
                         <div class="journey-popup-category">
                             <p class="journey-popup-category-label"><span class="journey-legend-swatch patents"></span>Patents</p>
                             <p class="journey-popup-category-text">Patents from Hyundai R&amp;D (PAT-4 – PAT-7)</p>
