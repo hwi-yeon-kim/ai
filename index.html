@@ -307,7 +307,10 @@
             display: grid;
             grid-template-rows: 0fr;
             transition: grid-template-rows 0.25s ease;
-            scroll-margin-top: 9999px;
+            scroll-margin: 9999px 0;
+        }
+        #journey-panel {
+            scroll-margin: 9999px 0;
         }
         .journey-popup:target {
             grid-template-rows: 1fr;
@@ -323,11 +326,19 @@
             padding: 1rem 1.25rem;
         }
         .journey-popup-title {
+            display: block;
             margin: 0 0 1.1rem;
             padding: 0 1.5rem 0.85rem 0;
             font-size: 1.2rem;
             font-weight: 700;
             border-bottom: 1px solid var(--border-color);
+        }
+        .journey-popup-meta {
+            display: block;
+            margin-top: 0.3rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--meta-color);
         }
         .journey-popup-category {
             padding: 1.1rem 0;
@@ -567,7 +578,7 @@
                     <div class="journey-popup-inner">
                     <div class="journey-popup-body">
                         <a class="journey-popup-close" href="#journey-panel" aria-label="Close">&times;</a>
-                        <h4 class="journey-popup-title">Industrial Design — UNIST · 2014–2019</h4>
+                        <h4 class="journey-popup-title">Industrial Design<span class="journey-popup-meta">UNIST · 2014–2019</span></h4>
                         <div class="journey-popup-category">
                             <p class="journey-popup-category-label"><span class="journey-legend-swatch awards"></span>Awards</p>
                             <p class="journey-popup-category-text">National Scholarship for Science &amp; Engineering (2014–2019)</p>
@@ -580,7 +591,7 @@
                     <div class="journey-popup-inner">
                     <div class="journey-popup-body">
                         <a class="journey-popup-close" href="#journey-panel" aria-label="Close">&times;</a>
-                        <h4 class="journey-popup-title">Computer Science — UNIST · 2019–2021</h4>
+                        <h4 class="journey-popup-title">Computer Science<span class="journey-popup-meta">UNIST · 2019–2021</span></h4>
                         <div class="journey-popup-category">
                             <p class="journey-popup-category-label"><span class="journey-legend-swatch patents"></span>Patents</p>
                             <p class="journey-popup-category-text">Patent from M.S. research (PAT-1)</p>
@@ -608,7 +619,7 @@
                     <div class="journey-popup-inner">
                     <div class="journey-popup-body">
                         <a class="journey-popup-close" href="#journey-panel" aria-label="Close">&times;</a>
-                        <h4 class="journey-popup-title">Product Designer (Healthcare) — Thyroscope · 2020–2022</h4>
+                        <h4 class="journey-popup-title">Product Designer (Healthcare)<span class="journey-popup-meta">Thyroscope · 2020–2022</span></h4>
                         <div class="journey-popup-category">
                             <p class="journey-popup-category-label"><span class="journey-legend-swatch patents"></span>Patents</p>
                             <p class="journey-popup-category-text">Patents from Thyroscope R&amp;D (PAT-2, PAT-3)</p>
@@ -631,7 +642,7 @@
                     <div class="journey-popup-inner">
                     <div class="journey-popup-body">
                         <a class="journey-popup-close" href="#journey-panel" aria-label="Close">&times;</a>
-                        <h4 class="journey-popup-title">Product Designer (Bank) — BNK Kyungnam Bank · 2022</h4>
+                        <h4 class="journey-popup-title">Product Designer (Bank)<span class="journey-popup-meta">BNK Kyungnam Bank · 2022</span></h4>
                         <div class="journey-popup-category">
                             <p class="journey-popup-category-label"><span class="journey-legend-swatch case-studies"></span>Case Studies</p>
                             <p class="journey-popup-category-text">Case Study: BNK MyData Redesign</p>
@@ -644,7 +655,7 @@
                     <div class="journey-popup-inner">
                     <div class="journey-popup-body">
                         <a class="journey-popup-close" href="#journey-panel" aria-label="Close">&times;</a>
-                        <h4 class="journey-popup-title">Product Designer (IDP) — Upstage INC. · 2023–2024</h4>
+                        <h4 class="journey-popup-title">Product Designer (IDP)<span class="journey-popup-meta">Upstage INC. · 2023–2024</span></h4>
                         <div class="journey-popup-category">
                             <p class="journey-popup-category-label"><span class="journey-legend-swatch case-studies"></span>Case Studies</p>
                             <p class="journey-popup-category-text">Case Study: Upstage IDP Demo</p>
@@ -657,7 +668,7 @@
                     <div class="journey-popup-inner">
                     <div class="journey-popup-body">
                         <a class="journey-popup-close" href="#journey-panel" aria-label="Close">&times;</a>
-                        <h4 class="journey-popup-title">Product Designer (Mobility) — Hyundai Motor Company · 2024–Present</h4>
+                        <h4 class="journey-popup-title">Product Designer (Mobility)<span class="journey-popup-meta">Hyundai Motor Company · 2024–Present</span></h4>
                         <div class="journey-popup-category">
                             <p class="journey-popup-category-label"><span class="journey-legend-swatch patents"></span>Patents</p>
                             <p class="journey-popup-category-text">Patents from Hyundai R&amp;D (PAT-4 – PAT-7)</p>
