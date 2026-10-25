@@ -1,60 +1,71 @@
 :root {
     color-scheme: light dark;
-    --primary-color: #0056b3;
-    --text-color: #333;
-    --bg: #fff;
-    --light-bg: #f8f9fa;
-    --border-color: #e9ecef;
-    --meta-color: #6c757d;
+    --primary-color: light-dark(#0056b3, #6cb2ff);
+    --text-color: light-dark(#333, #e4e6ea);
+    --bg: light-dark(#fff, #121417);
+    --light-bg: light-dark(#f8f9fa, #1b1e22);
+    --border-color: light-dark(#e9ecef, #2c3138);
+    --meta-color: light-dark(#6c757d, #9aa3ad);
     --accent-blue: #1a6fd4;
-    --accent-light: #e8f2ff;
+    --accent-light: light-dark(#e8f2ff, #1c3552);
     --section-gap: 4rem;
-    --placeholder-bg: #dee2e6;
-    --badge-bg: #e9ecef;
-    --badge-link-bg: #e1f0ff;
-    --badge-link-hover-bg: #cce5ff;
-    --role-pill-border: #b8d4f5;
-    --danger: #c0392b;
-    --seg-a-bg: #d7e8dd;
-    --seg-b-bg: #dcdcf5;
-    --mark-bg: #fff2a8;
-    --pain: #b23b3b;
-    --positive: #2f5fa8;
-    --opp-bg: #fef9e7;
-    --opp-border: #f5e2a0;
-    --opp-text: #a67c00;
-    --hyp-bg: #eef7ee;
-    --hyp-border: #bfe0bf;
-    --hyp-text: #3f7d3f;
+    --shadow: 0 2px 8px light-dark(rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.5));
+    --placeholder-bg: light-dark(#dee2e6, #2a2f36);
+    --badge-bg: light-dark(#e9ecef, #2a2f36);
+    --badge-link-bg: light-dark(#e1f0ff, #1c3552);
+    --badge-link-hover-bg: light-dark(#cce5ff, #24476e);
+    --role-pill-border: light-dark(#b8d4f5, #2d4f7c);
+    --danger: light-dark(#c0392b, #ff7b6e);
+    --seg-a-bg: light-dark(#d7e8dd, #24382c);
+    --seg-b-bg: light-dark(#dcdcf5, #2b2b4a);
+    --mark-bg: light-dark(#fff2a8, #5c5200);
+    --pain: light-dark(#b23b3b, #ff8a8a);
+    --positive: light-dark(#2f5fa8, #8fb8f5);
+    --opp-bg: light-dark(#fef9e7, #2e2a14);
+    --opp-border: light-dark(#f5e2a0, #5a4d1c);
+    --opp-text: light-dark(#a67c00, #e0b84a);
+    --hyp-bg: light-dark(#eef7ee, #1a2d1d);
+    --hyp-border: light-dark(#bfe0bf, #2f5a36);
+    --hyp-text: light-dark(#3f7d3f, #7cc98a);
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --primary-color: #6cb2ff;
-        --text-color: #e4e6ea;
-        --bg: #121417;
-        --light-bg: #1b1e22;
-        --border-color: #2c3138;
-        --meta-color: #9aa3ad;
-        --accent-light: #1c3552;
-        --placeholder-bg: #2a2f36;
-        --badge-bg: #2a2f36;
-        --badge-link-bg: #1c3552;
-        --badge-link-hover-bg: #24476e;
-        --role-pill-border: #2d4f7c;
-        --danger: #ff7b6e;
-        --seg-a-bg: #24382c;
-        --seg-b-bg: #2b2b4a;
-        --mark-bg: #5c5200;
-        --pain: #ff8a8a;
-        --positive: #8fb8f5;
-        --opp-bg: #2e2a14;
-        --opp-border: #5a4d1c;
-        --opp-text: #e0b84a;
-        --hyp-bg: #1a2d1d;
-        --hyp-border: #2f5a36;
-        --hyp-text: #7cc98a;
-    }
+:root[data-theme="light"] {
+    color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+    color-scheme: dark;
+}
+
+.theme-toggle {
+    position: fixed;
+    left: 1rem;
+    bottom: 1rem;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    background: var(--bg);
+    color: var(--text-color);
+    box-shadow: var(--shadow);
+    cursor: pointer;
+}
+.theme-toggle:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+.theme-toggle:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+.theme-toggle svg {
+    width: 1.25rem;
+    height: 1.25rem;
 }
 
 a:focus-visible,
@@ -96,7 +107,7 @@ a:hover {
     position: fixed;
     height: 100vh;
     background: var(--light-bg);
-    padding: 3rem 2rem;
+    padding: 3rem 2rem 5rem;
     box-sizing: border-box;
     border-right: 1px solid var(--border-color);
     overflow-y: auto;
@@ -1621,6 +1632,14 @@ mark.hl {
     .conversion-visual { flex-wrap: wrap; }
 
     .project-header h1 { font-size: 1.8rem; }
+
+    .theme-toggle {
+        left: 0.5rem;
+        bottom: 0.5rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        opacity: 0.9;
+    }
 }
 
 @media (max-width: 480px) {

@@ -10,10 +10,10 @@ This is a **static HTML portfolio website** (GitHub Pages) showcasing profession
 - `index.html` (~55KB) holds the main page with all of its HTML and CSS embedded
 - `projects/` holds six case-study pages that share `projects/case-study.css`
 - Responsive design with fixed sidebar navigation (280px on desktop, stacked on mobile)
-- Automatic light/dark mode via `prefers-color-scheme` (no toggle)
+- Light/dark mode that follows the system setting, plus a bottom-left toggle that remembers the visitor's choice
 - Anchor-based navigation with seven main sections
 - CSS custom properties for all colors
-- JavaScript is limited to the Umami analytics tag and the HiMate password gate; the career-journey diagram uses CSS `:target`, not JS
+- JavaScript is limited to the Umami analytics tag, the theme toggle (`theme.js`), and the HiMate password gate; the career-journey diagram uses CSS `:target`, not JS
 - No package.json and no build process. The one dev helper, `tools/encrypt-gated.mjs`, needs only Node
 
 ## Local Development
@@ -110,7 +110,9 @@ npm i -g html-validate
 - `--meta-color: #6c757d` (secondary text like dates)
 - Badge, placeholder, and shadow variables (`--badge-bg`, `--badge-link-bg`, `--shadow`, ...), plus `--c-patents`, `--c-publications`, `--c-awards`, `--c-case-studies` for the journey diagram
 
-**Dark mode:** a `@media (prefers-color-scheme: dark)` block right after `:root` redefines the same variables. Do both themes whenever you add a color, and check text contrast (4.5:1) in each. `index.html` and `projects/case-study.css` each define their own tokens, so keep them in sync. The CV (`cv/cv.html`) is deliberately light-only because it is printed.
+**Dark mode:** each color variable holds both themes in one value, `--bg: light-dark(#fff, #121417)`, and `:root` sets `color-scheme: light dark` so the system setting decides by default. When you add a color, give it both values and check text contrast (4.5:1) in each. `index.html` and `projects/case-study.css` each define their own tokens, so keep them in sync.
+
+**Theme toggle:** `theme.js` (loaded synchronously in `<head>` on every page, `../theme.js` from `projects/`) adds a round button at the bottom-left. Clicking it sets `<html data-theme="light|dark">`, which overrides `color-scheme` through `:root[data-theme=...]`, and saves the choice in `localStorage` (guarded, since storage can be blocked). Until a visitor chooses, no attribute is set and the system setting applies. The button is created by JS, so new pages only need the script tag and the `.theme-toggle` CSS already in each stylesheet. The sidebar keeps `padding-bottom: 5rem` so the button never hides its last link. The CV (`cv/cv.html`) is deliberately light-only because it is printed.
 
 **Typography:**
 - System font stack: `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif`
@@ -151,7 +153,16 @@ Key mobile adjustments:
 1. Use the existing `.item` div structure
 2. Include `.item-header` with title and date
 3. Add `.item-subtitle` for organization/context
-4. Use `.bullet-list` for descriptions, one bullet per theme, each starting with a `<strong>[Category]</strong>` label
+4. Employment items use the company as `.item-title` and "Role | Team" as `.item-subtitle`. Group the work under `.item-group`, each with a `<p class="group-label">` (small uppercase theme name) followed by a `.bullet-list`:
+   ```html
+   <div class="item-group">
+       <p class="group-label">Theme name</p>
+       <ul class="bullet-list">
+           <li>One sentence with the key figure in <strong>bold</strong>.</li>
+       </ul>
+   </div>
+   ```
+   Write one sentence per bullet; a second sentence becomes a second bullet. Bold one key figure per bullet at most.
 5. Employment content is taken from the CV; change `cv/cv.html` and regenerate the PDF whenever employment, patents, publications, or awards change
 
 ### Updating the CV
@@ -253,7 +264,7 @@ The site uses modern CSS (flexbox, CSS custom properties) and targets:
 - Safari (latest 2 versions)
 - Firefox (latest 2 versions)
 
-Avoid CSS that requires polyfills or very recent browser features.
+Avoid CSS that requires polyfills or very recent browser features. The one exception is `light-dark()` (Chrome 123+, Safari 17.5+, Firefox 120+), which the color tokens depend on.
 
 ## File Structure
 
@@ -261,6 +272,7 @@ Avoid CSS that requires polyfills or very recent browser features.
 .
 ├── index.html                  # Main page (HTML + embedded CSS)
 ├── profile.jpg                 # Profile image (150px circular in sidebar)
+├── theme.js                    # Light/dark toggle, shared by every page
 ├── cv/
 │   ├── cv.html                 # CV source (print layout, A4)
 │   └── Hwiyeon-Kim-CV.pdf      # Generated from cv.html; linked from the sidebar
@@ -284,7 +296,7 @@ No build artifacts. `.gitignore` excludes `projects/drafts/` and `.DS_Store`.
 This portfolio emphasizes:
 - **Clarity:** Clean typography and generous whitespace
 - **Accessibility:** Semantic HTML, keyboard navigation, contrast compliance
-- **Simplicity:** Minimal JavaScript (analytics and the password gate only), no dependencies, no build step
+- **Simplicity:** Minimal JavaScript (analytics, theme toggle, and the password gate only), no dependencies, no build step
 - **Responsiveness:** Works beautifully on mobile and desktop
 - **Professionalism:** Academic styling appropriate for research/product design portfolios
 

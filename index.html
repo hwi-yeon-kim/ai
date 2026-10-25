@@ -6,47 +6,34 @@
     <meta name="color-scheme" content="light dark">
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#121417" media="(prefers-color-scheme: dark)">
+    <script src="theme.js"></script>
     <title>Hwiyeon Kim | Portfolio</title>
     <script defer src="https://cloud.umami.is/script.js" data-website-id="4d39ab3d-21ab-4a51-aa59-9d996b50e921"></script>
     <style>
         :root {
             color-scheme: light dark;
-            --primary-color: #0056b3;
-            --text-color: #333;
-            --bg: #fff;
-            --light-bg: #f8f9fa;
-            --border-color: #e9ecef;
-            --divider: #d8dce1;
-            --meta-color: #6c757d;
-            --placeholder-bg: #dee2e6;
-            --badge-bg: #e9ecef;
-            --badge-link-bg: #e1f0ff;
-            --badge-link-hover-bg: #cce5ff;
-            --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            --c-patents: #b8860b;
-            --c-publications: #0f7a7a;
-            --c-awards: #b23a7a;
-            --c-case-studies: #2f8f5b;
+            --primary-color: light-dark(#0056b3, #6cb2ff);
+            --text-color: light-dark(#333, #e4e6ea);
+            --bg: light-dark(#fff, #121417);
+            --light-bg: light-dark(#f8f9fa, #1b1e22);
+            --border-color: light-dark(#e9ecef, #2c3138);
+            --divider: light-dark(#d8dce1, #353b43);
+            --meta-color: light-dark(#6c757d, #9aa3ad);
+            --placeholder-bg: light-dark(#dee2e6, #2a2f36);
+            --badge-bg: light-dark(#e9ecef, #2a2f36);
+            --badge-link-bg: light-dark(#e1f0ff, #1c3552);
+            --badge-link-hover-bg: light-dark(#cce5ff, #24476e);
+            --shadow: 0 2px 8px light-dark(rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.5));
+            --c-patents: light-dark(#b8860b, #e0b84a);
+            --c-publications: light-dark(#0f7a7a, #3fb8b8);
+            --c-awards: light-dark(#b23a7a, #e06aa8);
+            --c-case-studies: light-dark(#2f8f5b, #4cc486);
         }
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --primary-color: #6cb2ff;
-                --text-color: #e4e6ea;
-                --bg: #121417;
-                --light-bg: #1b1e22;
-                --border-color: #2c3138;
-                --divider: #353b43;
-                --meta-color: #9aa3ad;
-                --placeholder-bg: #2a2f36;
-                --badge-bg: #2a2f36;
-                --badge-link-bg: #1c3552;
-                --badge-link-hover-bg: #24476e;
-                --shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-                --c-patents: #e0b84a;
-                --c-publications: #3fb8b8;
-                --c-awards: #e06aa8;
-                --c-case-studies: #4cc486;
-            }
+        :root[data-theme="light"] {
+            color-scheme: light;
+        }
+        :root[data-theme="dark"] {
+            color-scheme: dark;
         }
         html {
             scroll-behavior: smooth;
@@ -68,6 +55,36 @@
         a:hover {
             text-decoration: underline;
         }
+        .theme-toggle {
+            position: fixed;
+            left: 1rem;
+            bottom: 1rem;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.75rem;
+            height: 2.75rem;
+            padding: 0;
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            background: var(--bg);
+            color: var(--text-color);
+            box-shadow: var(--shadow);
+            cursor: pointer;
+        }
+        .theme-toggle:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        .theme-toggle:focus-visible {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+        .theme-toggle svg {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
         a:focus-visible,
         summary:focus-visible {
             outline: 2px solid var(--primary-color);
@@ -86,7 +103,7 @@
             position: fixed;
             height: 100vh;
             background: var(--light-bg);
-            padding: 3rem 2rem;
+            padding: 3rem 2rem 5rem;
             box-sizing: border-box;
             border-right: 1px solid var(--border-color);
             overflow-y: auto;
@@ -543,6 +560,13 @@
                 right: 0.3rem;
                 padding: 0.5rem 0.7rem;
                 font-size: 1.5rem;
+            }
+            .theme-toggle {
+                left: 0.5rem;
+                bottom: 0.5rem;
+                width: 2.5rem;
+                height: 2.5rem;
+                opacity: 0.9;
             }
         }
         @media (max-width: 480px) {
