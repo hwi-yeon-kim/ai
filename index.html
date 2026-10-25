@@ -429,6 +429,28 @@
             color: var(--text-color);
         }
 
+        .item-group {
+            margin-top: 1.1rem;
+        }
+        .group-label {
+            margin: 0;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .item-group ul.bullet-list {
+            margin-top: 0.35rem;
+            margin-bottom: 0;
+        }
+        .item-group ul.bullet-list li {
+            margin-bottom: 0.3rem;
+        }
+        ul.bullet-list .badge {
+            margin-right: 0;
+            margin-left: 0.15rem;
+        }
+
         /* Patents / Publications accordions */
         details.item-accordion {
             border-bottom: 1px solid var(--border-color);
@@ -861,52 +883,109 @@
 
             <div class="item">
                 <div class="item-header">
-                    <span class="item-title">Product Designer & Data Analyst</span>
+                    <span class="item-title">Hyundai Motor Company</span>
                     <span class="item-date">May 2024 - Present</span>
                 </div>
-                <div class="item-subtitle">Hyundai Motor Company | Infotainment Mobile Development Team</div>
-                <ul class="bullet-list">
-                    <li><strong>[Internal Product Leadership]</strong> Built an internal hypothesis-verification tool integrating Google Analytics and Figma, cutting data validation turnaround from 20 days to 7 minutes for 56 active squad members (Excellence Award, 2026). Analyzed 320,000+ users' 3D asset engagement to provide core data validation for the HMG Tech Summit 2026.</li>
-                    <li><strong>[Multi-Brand Shared SDK &amp; Global Map Discovery]</strong> Led UX/UI for the unified Map &amp; Search tabs across three flagship apps (MyHyundai, MyGenesis, Kia) on a shared SDK architecture. Launched localized discovery experiences for Japan, Canada, and Europe, and ran A/B tests on search layouts and rating-filter interactions.</li>
-                    <li><strong>[Stress-Resilient Self-Service &amp; Hardware UX]</strong> Prototyped the in-vehicle emergency flow (&ldquo;Accident Management Mode&rdquo;) as a step-by-step Wizard vs. an AI Chat concept and tested both in a 25-driver simulator study (co-filed USPTO patent <a href="#PAT-5" class="badge">PAT-5</a>, AutomotiveUI 2025 publication <a href="#A-2" class="badge">A-2</a>). Designed spatial Top-View flows for Remote Smart Parking Assist (RSPA) to support multi-directional remote exit maneuvers.</li>
-                </ul>
+                <div class="item-subtitle">Product Designer &amp; Data Analyst | Infotainment Mobile Development Team</div>
+                <div class="item-group">
+                    <p class="group-label">Internal Product Leadership</p>
+                    <ul class="bullet-list">
+                        <li>Built an internal hypothesis-verification tool (Google Analytics + Figma) that cut data validation from <strong>20 days to 7 minutes</strong> for 56 active squad members (Excellence Award, 2026).</li>
+                        <li>Analyzed <strong>320,000+ users&rsquo;</strong> 3D asset engagement as core data validation for the HMG Tech Summit 2026.</li>
+                    </ul>
+                </div>
+                <div class="item-group">
+                    <p class="group-label">Multi-Brand Shared SDK &amp; Global Map Discovery</p>
+                    <ul class="bullet-list">
+                        <li>Led UX/UI for the unified Map &amp; Search tabs across <strong>3 flagship apps</strong> (MyHyundai, MyGenesis, Kia) on a shared SDK.</li>
+                        <li>Launched localized discovery experiences for Japan, Canada, and Europe.</li>
+                        <li>Ran A/B tests on search layouts and rating-filter interactions.</li>
+                    </ul>
+                </div>
+                <div class="item-group">
+                    <p class="group-label">Stress-Resilient Self-Service &amp; Hardware UX</p>
+                    <ul class="bullet-list">
+                        <li>Prototyped the in-vehicle &ldquo;Accident Management Mode&rdquo; as a Wizard vs. an AI Chat concept and tested both in a <strong>25-driver</strong> simulator study.</li>
+                        <li>The study led to a co-filed USPTO patent <a href="#PAT-5" class="badge">PAT-5</a> and an AutomotiveUI 2025 publication <a href="#A-2" class="badge">A-2</a>.</li>
+                        <li>Designed spatial Top-View flows for Remote Smart Parking Assist (RSPA) to support multi-directional remote exit maneuvers.</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="item">
                 <div class="item-header">
-                    <span class="item-title">Product Designer</span>
+                    <span class="item-title">Upstage INC.</span>
                     <span class="item-date">Jan 2023 - Apr 2024</span>
                 </div>
-                <div class="item-subtitle">Upstage INC. | Document Intelligence Team</div>
-                <ul class="bullet-list">
-                    <li><strong>[Self-Serve Enterprise Demo Funnel]</strong> Redesigned the Intelligent Document Processing (IDP) API demo as a self-service GUI on the homepage, streamlining the path to purchase from a 4-step sales flow to 2 steps and shortening the sales cycle by up to 2 weeks. Converted 40.47% of homepage demo visitors into active trial users.</li>
-                    <li><strong>[Enterprise Discovery &amp; Roadmap]</strong> Interviewed 5 enterprise clients in finance and insurance to map document-processing workflows and resolve UX gaps between internal tools and the customer-facing platform, shaping the 0-to-1 Document AI roadmap.</li>
-                </ul>
+                <div class="item-subtitle">Product Designer | Document Intelligence Team</div>
+                <div class="item-group">
+                    <p class="group-label">Self-Serve Enterprise Demo Funnel</p>
+                    <ul class="bullet-list">
+                        <li>Redesigned the Intelligent Document Processing (IDP) API demo as a self-service GUI on the homepage.</li>
+                        <li>Cut the path to purchase from a 4-step sales flow to <strong>2 steps</strong>, shortening the sales cycle by up to 2 weeks.</li>
+                        <li>Converted <strong>40.47%</strong> of homepage demo visitors into active trial users.</li>
+                    </ul>
+                </div>
+                <div class="item-group">
+                    <p class="group-label">Enterprise Discovery &amp; Roadmap</p>
+                    <ul class="bullet-list">
+                        <li>Interviewed <strong>5 enterprise clients</strong> in finance and insurance to map their document-processing workflows.</li>
+                        <li>Used the findings to close UX gaps between internal tools and the customer-facing platform and to shape the 0-to-1 Document AI roadmap.</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="item">
                 <div class="item-header">
-                    <span class="item-title">UI/UX Designer</span>
+                    <span class="item-title">BNK Kyungnam Bank</span>
                     <span class="item-date">Jun 2022 - Dec 2022</span>
                 </div>
-                <div class="item-subtitle">BNK Kyungnam Bank | Digital Strategy Department</div>
-                <ul class="bullet-list">
-                    <li><strong>[MyData Redesign]</strong> Redesigned the MyData asset management app around an asset overview, a spending report, and a savings-goal challenge, guided by personas and journey maps built around generational asset management patterns.</li>
-                    <li><strong>[E-Commerce Discovery &amp; Navigation]</strong> Benchmarked 21 banking and e-commerce platforms to redesign financial product discovery with themed recommendations, interest previews, and side-by-side comparison filters, clarifying the path to conversion.</li>
-                </ul>
+                <div class="item-subtitle">UI/UX Designer | Digital Strategy Department</div>
+                <div class="item-group">
+                    <p class="group-label">MyData Redesign</p>
+                    <ul class="bullet-list">
+                        <li>Redesigned the MyData asset management app around an asset overview, a spending report, and a savings-goal challenge.</li>
+                        <li>Guided the redesign with personas and journey maps built around generational asset management patterns.</li>
+                    </ul>
+                </div>
+                <div class="item-group">
+                    <p class="group-label">E-Commerce Discovery &amp; Navigation</p>
+                    <ul class="bullet-list">
+                        <li>Benchmarked <strong>21 banking and e-commerce platforms</strong> to redesign financial product discovery.</li>
+                        <li>Added themed recommendations, interest previews, and side-by-side comparison filters to clarify the path to conversion.</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="item">
                 <div class="item-header">
-                    <span class="item-title">Founding Product Designer</span>
+                    <span class="item-title">Thyroscope INC.</span>
                     <span class="item-date">Dec 2020 - May 2022</span>
                 </div>
-                <div class="item-subtitle">Thyroscope INC. | Product &amp; Design Team</div>
-                <ul class="bullet-list">
-                    <li><strong>[Onboarding Funnel &amp; Design System]</strong> Diagnosed sign-up friction through Google Analytics and simplified the onboarding flow, raising download-to-signup conversion from 28.1% to 46.7% (+18.6 pp, +66.2% relative). Established a cross-platform design system from scratch.</li>
-                    <li><strong>[End-to-End App Redesign]</strong> Led the redesign of the predictive healthcare app, informed by 5 interviews and a 57-user survey, restructuring it around three areas: daily routines, health records, and long-term trends.</li>
-                    <li><strong>[Biomedical Interaction &amp; Clinical Guidance]</strong> Designed camera-guided positioning for thyroid-eye self-screening and refined it through usability testing, resulting in 2 registered patents <a href="#PAT-2" class="badge">PAT-2</a> <a href="#PAT-3" class="badge">PAT-3</a> and recognition as a Red Dot &amp; IDEA Design Award Finalist (2022).</li>
-                </ul>
+                <div class="item-subtitle">Founding Product Designer | Product &amp; Design Team</div>
+                <div class="item-group">
+                    <p class="group-label">Onboarding Funnel &amp; Design System</p>
+                    <ul class="bullet-list">
+                        <li>Diagnosed sign-up friction in Google Analytics and simplified the onboarding flow.</li>
+                        <li>Raised download-to-signup conversion from 28.1% to <strong>46.7%</strong> (+18.6 pp, +66.2% relative).</li>
+                        <li>Established a cross-platform design system from scratch.</li>
+                    </ul>
+                </div>
+                <div class="item-group">
+                    <p class="group-label">End-to-End App Redesign</p>
+                    <ul class="bullet-list">
+                        <li>Led the redesign of the predictive healthcare app, informed by <strong>5 interviews and a 57-user survey</strong>.</li>
+                        <li>Restructured the app around three areas: daily routines, health records, and long-term trends.</li>
+                    </ul>
+                </div>
+                <div class="item-group">
+                    <p class="group-label">Biomedical Interaction &amp; Clinical Guidance</p>
+                    <ul class="bullet-list">
+                        <li>Designed camera-guided positioning for thyroid-eye self-screening and refined it through usability testing.</li>
+                        <li>The work resulted in <strong>2 registered patents</strong> <a href="#PAT-2" class="badge">PAT-2</a> <a href="#PAT-3" class="badge">PAT-3</a>.</li>
+                        <li>It also earned recognition as a Red Dot &amp; IDEA Design Award Finalist (2022).</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
