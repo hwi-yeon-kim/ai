@@ -4,14 +4,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a **static HTML portfolio website** showcasing professional achievements, research, patents, and publications. It's a single-page application with no build tools, JavaScript frameworks, or dependencies—just semantic HTML with embedded CSS.
+This is a **static HTML portfolio website** (GitHub Pages) showcasing professional achievements, research, patents, and publications. There are no JavaScript frameworks, bundlers, or npm dependencies—just semantic HTML and CSS.
 
 **Key characteristics:**
-- Single `index.html` file (~22KB) containing all HTML and CSS
-- Responsive design with fixed sidebar navigation (280px on desktop, full-width on mobile)
-- Anchor-based navigation with six main sections
-- CSS custom properties for theming and easy color/typography adjustments
-- No package.json, no build process, no npm dependencies
+- `index.html` (~55KB) holds the main page with all of its HTML and CSS embedded
+- `projects/` holds six case-study pages that share `projects/case-study.css`
+- Responsive design with fixed sidebar navigation (280px on desktop, stacked on mobile)
+- Automatic light/dark mode via `prefers-color-scheme` (no toggle)
+- Anchor-based navigation with seven main sections
+- CSS custom properties for all colors
+- JavaScript is limited to the Umami analytics tag and the HiMate password gate; the career-journey diagram uses CSS `:target`, not JS
+- No package.json and no build process. The one dev helper, `tools/encrypt-gated.mjs`, needs only Node
 
 ## Local Development
 
@@ -50,12 +53,19 @@ npm i -g html-validate
 ## Architecture & Content Structure
 
 ### Page Layout
-- **Sidebar (280px):** Fixed on desktop, collapsible on mobile (breakpoint at 768px)
-  - Profile image (circular, 150px)
-  - Name and contact info
-  - Navigation links to sections
+- **Sidebar (280px):** Fixed on desktop, stacked on top on mobile (breakpoint at 768px)
+  - Profile image (circular, 150px; 96px on mobile)
+  - Name, contact info, and the "Download CV (PDF)" link
+  - Navigation links to sections (pill buttons on mobile)
 - **Main content:** Flexible width, max-width for readability
 - **Sections:** Anchor-based navigation with consistent structure
+
+### Sections of `index.html`
+
+`#about` (summary plus the interactive career-journey diagram), `#portfolio` (Projects grid linking to `projects/*.html`), `#employment`, `#education`, `#patents`, `#publications`, `#awards`.
+
+- **Career-journey diagram:** one inline SVG. Each stop's ring is split by `stroke-dasharray`/`stroke-dashoffset` among patents, publications, awards, and case studies, in that fixed order. Each stop links to a `.journey-popup` (`#pop-bs`, `#pop-ms`, `#pop-thy`, `#pop-bnk`, `#pop-ups`, `#pop-hy`) that opens via `:target`; the close link returns to `#journey-panel`. When adding or removing an output at a stop, update both the ring segments and the popup.
+- **Patents and publications:** `<details class="item-accordion">` with ids `PAT-n`, `J-n`, `C-n`, `A-n`. Employment and the journey popups cross-reference them with `.badge` links, so keep ids stable.
 
 ### HTML Content Patterns
 
@@ -92,12 +102,15 @@ npm i -g html-validate
 
 ### CSS Design System
 
-**Color Palette** (defined as CSS custom properties in `:root`):
+**Color Palette** (CSS custom properties in `:root`; light values shown). Never hardcode a color in a rule; add or reuse a variable so the dark theme can override it:
 - `--primary-color: #0056b3` (blue, used for links)
 - `--text-color: #333` (dark gray, body text)
-- `--light-bg: #f8f9fa` (light gray, sidebar background)
-- `--border-color: #e9ecef` (borders)
+- `--bg: #fff` (page background; `--light-bg: #f8f9fa` is the sidebar/panel background)
+- `--border-color: #e9ecef` (borders; `--divider` for darker rules)
 - `--meta-color: #6c757d` (secondary text like dates)
+- Badge, placeholder, and shadow variables (`--badge-bg`, `--badge-link-bg`, `--shadow`, ...), plus `--c-patents`, `--c-publications`, `--c-awards`, `--c-case-studies` for the journey diagram
+
+**Dark mode:** a `@media (prefers-color-scheme: dark)` block right after `:root` redefines the same variables. Do both themes whenever you add a color, and check text contrast (4.5:1) in each. `index.html` and `projects/case-study.css` each define their own tokens, so keep them in sync. The CV (`cv/cv.html`) is deliberately light-only because it is printed.
 
 **Typography:**
 - System font stack: `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif`
@@ -111,8 +124,9 @@ npm i -g html-validate
 - Item margin-bottom: 2rem
 
 **Responsive Design:**
-- Single breakpoint at 768px (mobile/tablet cutoff)
+- Main breakpoint at 768px (mobile/tablet cutoff); the Projects grid also drops from 3 to 2 columns at 1100px, and padding tightens at 480px
 - Below 768px: sidebar becomes full-width, content flex-direction changes
+- Wide components (timelines, tables) keep a `min-width` inside an `overflow-x: auto` wrapper instead of letting the page scroll sideways
 - Use relative units (`rem`, percentages) for scalability
 
 ### Mobile Responsiveness
@@ -137,7 +151,32 @@ Key mobile adjustments:
 1. Use the existing `.item` div structure
 2. Include `.item-header` with title and date
 3. Add `.item-subtitle` for organization/context
-4. Use `.bullet-list` for descriptions (optional strong tags for categories)
+4. Use `.bullet-list` for descriptions, one bullet per theme, each starting with a `<strong>[Category]</strong>` label
+5. Employment content is taken from the CV; change `cv/cv.html` and regenerate the PDF whenever employment, patents, publications, or awards change
+
+### Updating the CV
+`cv/cv.html` is the source and `cv/Hwiyeon-Kim-CV.pdf` is what the sidebar link downloads. Regenerate the PDF after every edit:
+
+```bash
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --no-pdf-header-footer \
+  --print-to-pdf="$PWD/cv/Hwiyeon-Kim-CV.pdf" "file://$PWD/cv/cv.html"
+```
+
+Keep it to 2 A4 pages and check that no section heading is stranded at the bottom of page 1. Do not put a phone number in it; the file is public.
+
+### Case Studies (`projects/`)
+Each page uses the shared `projects/case-study.css` (sidebar, `.stats-row`, `.comparison-grid`, `.case-figure`, tables, etc.), so a new component belongs there with both light and dark values. Images live in `projects/images/`. `projects/drafts/` holds working notes, is git-ignored, and must stay out of the repo.
+
+### The HiMate Password Gate (`projects/hyundai-competition-award.html`)
+The page body is AES-GCM ciphertext in `<script id="gated-payload">`; `case-study-crypto.js` decrypts it in the browser. It is a deterrent, not security, and the images it references (`projects/images/hyundai-competition-award-*.png`) are publicly reachable.
+
+- **The plaintext is not in this repo.** The source lives outside it, in `~/Documents/work/himate-private/gated-content.html`. Edit that file, then re-encrypt:
+
+  ```bash
+  HIMATE_PW='the password' node tools/encrypt-gated.mjs ~/Documents/work/himate-private/gated-content.html
+  ```
+- **The password is not stored anywhere in the repo.** If it is lost it cannot be recovered; set a new one with the command above, rebuilding the plaintext from the page content if the source file is also gone.
+- Never commit the plaintext, the password, or a draft of the gated content.
 
 ### Creating Badge References
 Use the `.badge` class for all references. Make href values match section IDs for internal links:
@@ -168,7 +207,9 @@ All modifications must maintain WCAG 2.2 AA compliance:
 
 - **Headings:** Sequential levels (h1 → h2 → h3), no skipped levels, exactly one h1 per page
 - **Images:** Every `<img>` must have descriptive `alt` text (or `alt=""` if decorative)
-- **Links:** All links must have visible focus outline and meaningful link text
+- **Links:** All links must have visible focus outline and meaningful link text (`:focus-visible` outlines are defined for links and `<summary>`)
+- **Motion:** Transitions and smooth scrolling are disabled under `prefers-reduced-motion`
+- **Themes:** Check contrast in both light and dark mode
 - **Color contrast:** Text must have 4.5:1 contrast ratio against background (check with WebAIM tool)
 - **Semantic HTML:** Use `<section>`, `<nav>`, `<article>` landmarks appropriately
 - **Focus order:** Tab navigation should follow logical reading order
@@ -189,7 +230,7 @@ All modifications must maintain WCAG 2.2 AA compliance:
 
 The site is very lightweight by design. Keep it that way:
 - Profile image should be under 1MB (currently ~1MB)
-- No external JavaScript dependencies
+- No external JavaScript dependencies, apart from the deferred Umami analytics tag already on every page
 - CSS is embedded (no external stylesheets to reduce HTTP requests)
 - Fonts use system font stack (no web font downloads)
 - Keep HTML semantic and semantic HTML parsing is fast
@@ -218,20 +259,32 @@ Avoid CSS that requires polyfills or very recent browser features.
 
 ```
 .
-├── index.html          # Complete website (HTML + CSS)
-├── profile.jpg         # Profile image (150px circular in sidebar)
-├── README.md           # Project description
-└── CLAUDE.md           # This file
+├── index.html                  # Main page (HTML + embedded CSS)
+├── profile.jpg                 # Profile image (150px circular in sidebar)
+├── cv/
+│   ├── cv.html                 # CV source (print layout, A4)
+│   └── Hwiyeon-Kim-CV.pdf      # Generated from cv.html; linked from the sidebar
+├── projects/
+│   ├── case-study.css          # Shared styles for all case-study pages
+│   ├── case-study-crypto.js    # Password gate (HiMate page only)
+│   ├── *.html                  # Six case-study pages
+│   ├── images/                 # Case-study images
+│   └── drafts/                 # Local working notes (git-ignored)
+├── portfolio/                  # Project-grid thumbnails and PDF portfolios
+├── tools/encrypt-gated.mjs     # Re-encrypts the HiMate page body
+├── docs/superpowers/           # Planning specs and plans
+├── README.md                   # Project description
+└── CLAUDE.md                   # This file
 ```
 
-No hidden config files or build artifacts. Everything is visible and editable.
+No build artifacts. `.gitignore` excludes `projects/drafts/` and `.DS_Store`.
 
 ## Design Philosophy
 
 This portfolio emphasizes:
 - **Clarity:** Clean typography and generous whitespace
 - **Accessibility:** Semantic HTML, keyboard navigation, contrast compliance
-- **Simplicity:** No JavaScript, no dependencies, single file
+- **Simplicity:** Minimal JavaScript (analytics and the password gate only), no dependencies, no build step
 - **Responsiveness:** Works beautifully on mobile and desktop
 - **Professionalism:** Academic styling appropriate for research/product design portfolios
 
