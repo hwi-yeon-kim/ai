@@ -1,12 +1,71 @@
 :root {
+    color-scheme: light dark;
     --primary-color: #0056b3;
     --text-color: #333;
+    --bg: #fff;
     --light-bg: #f8f9fa;
     --border-color: #e9ecef;
     --meta-color: #6c757d;
     --accent-blue: #1a6fd4;
     --accent-light: #e8f2ff;
     --section-gap: 4rem;
+    --placeholder-bg: #dee2e6;
+    --badge-bg: #e9ecef;
+    --badge-link-bg: #e1f0ff;
+    --badge-link-hover-bg: #cce5ff;
+    --role-pill-border: #b8d4f5;
+    --danger: #c0392b;
+    --seg-a-bg: #d7e8dd;
+    --seg-b-bg: #dcdcf5;
+    --mark-bg: #fff2a8;
+    --pain: #b23b3b;
+    --positive: #2f5fa8;
+    --opp-bg: #fef9e7;
+    --opp-border: #f5e2a0;
+    --opp-text: #a67c00;
+    --hyp-bg: #eef7ee;
+    --hyp-border: #bfe0bf;
+    --hyp-text: #3f7d3f;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #6cb2ff;
+        --text-color: #e4e6ea;
+        --bg: #121417;
+        --light-bg: #1b1e22;
+        --border-color: #2c3138;
+        --meta-color: #9aa3ad;
+        --accent-light: #1c3552;
+        --placeholder-bg: #2a2f36;
+        --badge-bg: #2a2f36;
+        --badge-link-bg: #1c3552;
+        --badge-link-hover-bg: #24476e;
+        --role-pill-border: #2d4f7c;
+        --danger: #ff7b6e;
+        --seg-a-bg: #24382c;
+        --seg-b-bg: #2b2b4a;
+        --mark-bg: #5c5200;
+        --pain: #ff8a8a;
+        --positive: #8fb8f5;
+        --opp-bg: #2e2a14;
+        --opp-border: #5a4d1c;
+        --opp-text: #e0b84a;
+        --hyp-bg: #1a2d1d;
+        --hyp-border: #2f5a36;
+        --hyp-text: #7cc98a;
+    }
+}
+
+a:focus-visible,
+summary:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
 }
 
 * {
@@ -19,7 +78,7 @@ body {
     color: var(--text-color);
     margin: 0;
     display: flex;
-    background-color: #fff;
+    background-color: var(--bg);
 }
 
 a {
@@ -324,7 +383,7 @@ ul.bullet-list li {
 .role-pill {
     background: var(--accent-light);
     color: var(--accent-blue);
-    border: 1px solid #b8d4f5;
+    border: 1px solid var(--role-pill-border);
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
     font-size: 0.82rem;
@@ -344,7 +403,7 @@ ul.bullet-list li {
 }
 
 .ps-cell {
-    background: #fff;
+    background: var(--bg);
     padding: 1.2rem;
 }
 
@@ -418,7 +477,7 @@ ul.bullet-list li {
 }
 
 .data-table .drop-rate {
-    color: #c0392b;
+    color: var(--danger);
     font-weight: 600;
 }
 
@@ -490,8 +549,8 @@ ul.bullet-list li {
 }
 
 .conv-circle.before {
-    background: #dee2e6;
-    color: #6c757d;
+    background: var(--placeholder-bg);
+    color: var(--meta-color);
 }
 
 .conv-circle.after {
@@ -518,7 +577,7 @@ ul.bullet-list li {
 
 /* ── Achievement / badge items ── */
 .badge {
-    background: #e9ecef;
+    background: var(--badge-bg);
     color: var(--text-color);
     padding: 0.2rem 0.5rem;
     border-radius: 4px;
@@ -529,14 +588,14 @@ ul.bullet-list li {
 }
 
 a.badge {
-    background: #e1f0ff;
+    background: var(--badge-link-bg);
     color: var(--primary-color);
     cursor: pointer;
     transition: background 0.2s;
 }
 
 a.badge:hover {
-    background: #cce5ff;
+    background: var(--badge-link-hover-bg);
     text-decoration: none;
 }
 
@@ -747,7 +806,7 @@ a.badge:hover {
     width: 12px;
     height: 12px;
     background: var(--accent-blue);
-    border: 2px solid #fff;
+    border: 2px solid var(--bg);
     box-shadow: 0 0 0 1px var(--accent-blue);
 }
 
@@ -873,7 +932,7 @@ a.badge:hover {
     width: 12px;
     height: 12px;
     background: var(--accent-blue);
-    border: 2px solid #fff;
+    border: 2px solid var(--bg);
     box-shadow: 0 0 0 1px var(--accent-blue);
 }
 
@@ -993,7 +1052,7 @@ a.badge:hover {
 }
 
 .matrix-cell {
-    background: #fff;
+    background: var(--bg);
     padding: 1rem;
     text-align: center;
     font-size: 0.85rem;
@@ -1014,7 +1073,7 @@ a.badge:hover {
 }
 
 .comparison-cell {
-    background: #fff;
+    background: var(--bg);
     padding: 1rem 1.2rem;
 }
 
@@ -1171,7 +1230,7 @@ a.badge:hover {
 .password-gate {
     position: fixed;
     inset: 0;
-    background: #fff;
+    background: var(--bg);
     z-index: 1000;
     display: flex;
     align-items: center;
@@ -1238,7 +1297,7 @@ a.badge:hover {
 }
 
 .password-gate-error {
-    color: #c0392b;
+    color: var(--danger);
     font-size: 0.85rem;
     min-height: 1.2em;
 }
@@ -1290,13 +1349,13 @@ a.badge:hover {
 }
 
 .segment-table thead .segment-col-a {
-    background: #d7e8dd;
+    background: var(--seg-a-bg);
     font-size: 0.85rem;
     font-weight: 700;
 }
 
 .segment-table thead .segment-col-b {
-    background: #dcdcf5;
+    background: var(--seg-b-bg);
     font-size: 0.85rem;
     font-weight: 700;
 }
@@ -1323,7 +1382,7 @@ a.badge:hover {
 }
 
 mark.hl {
-    background: #fff2a8;
+    background: var(--mark-bg);
     color: inherit;
     padding: 0.05rem 0.2rem;
     border-radius: 3px;
@@ -1406,7 +1465,7 @@ mark.hl {
 }
 
 .persona-journey-table thead th {
-    background: #fff;
+    background: var(--bg);
     font-weight: 700;
     font-size: 0.82rem;
     text-align: center;
@@ -1439,11 +1498,11 @@ mark.hl {
 }
 
 .persona-journey-table .quote-pain {
-    color: #b23b3b;
+    color: var(--pain);
 }
 
 .persona-journey-table .quote-positive {
-    color: #2f5fa8;
+    color: var(--positive);
 }
 
 /* ── Opportunity / hypothesis insight board ── */
@@ -1483,21 +1542,21 @@ mark.hl {
 }
 
 .note-card.opportunity {
-    background: #fef9e7;
-    border: 1px solid #f5e2a0;
+    background: var(--opp-bg);
+    border: 1px solid var(--opp-border);
 }
 
 .note-card.opportunity .note-label {
-    color: #a67c00;
+    color: var(--opp-text);
 }
 
 .note-card.hypothesis {
-    background: #eef7ee;
-    border: 1px solid #bfe0bf;
+    background: var(--hyp-bg);
+    border: 1px solid var(--hyp-border);
 }
 
 .note-card.hypothesis .note-label {
-    color: #3f7d3f;
+    color: var(--hyp-text);
 }
 
 /* ── Responsive ── */
@@ -1562,4 +1621,9 @@ mark.hl {
     .conversion-visual { flex-wrap: wrap; }
 
     .project-header h1 { font-size: 1.8rem; }
+}
+
+@media (max-width: 480px) {
+    .sidebar { padding: 1.5rem 1.25rem; }
+    .content { padding: 1.5rem 1.25rem; }
 }

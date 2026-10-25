@@ -3,18 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#121417" media="(prefers-color-scheme: dark)">
     <title>Hwiyeon Kim | Portfolio</title>
     <script defer src="https://cloud.umami.is/script.js" data-website-id="4d39ab3d-21ab-4a51-aa59-9d996b50e921"></script>
     <style>
         :root {
+            color-scheme: light dark;
             --primary-color: #0056b3;
             --text-color: #333;
+            --bg: #fff;
             --light-bg: #f8f9fa;
             --border-color: #e9ecef;
+            --divider: #d8dce1;
             --meta-color: #6c757d;
+            --placeholder-bg: #dee2e6;
+            --badge-bg: #e9ecef;
+            --badge-link-bg: #e1f0ff;
+            --badge-link-hover-bg: #cce5ff;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --c-patents: #b8860b;
+            --c-publications: #0f7a7a;
+            --c-awards: #b23a7a;
+            --c-case-studies: #2f8f5b;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary-color: #6cb2ff;
+                --text-color: #e4e6ea;
+                --bg: #121417;
+                --light-bg: #1b1e22;
+                --border-color: #2c3138;
+                --divider: #353b43;
+                --meta-color: #9aa3ad;
+                --placeholder-bg: #2a2f36;
+                --badge-bg: #2a2f36;
+                --badge-link-bg: #1c3552;
+                --badge-link-hover-bg: #24476e;
+                --shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+                --c-patents: #e0b84a;
+                --c-publications: #3fb8b8;
+                --c-awards: #e06aa8;
+                --c-case-studies: #4cc486;
+            }
         }
         html {
             scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -22,7 +58,8 @@
             color: var(--text-color);
             margin: 0;
             display: flex;
-            background-color: #fff;
+            background-color: var(--bg);
+            overflow-wrap: anywhere;
         }
         a {
             color: var(--primary-color);
@@ -30,6 +67,19 @@
         }
         a:hover {
             text-decoration: underline;
+        }
+        a:focus-visible,
+        summary:focus-visible {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            * {
+                transition: none !important;
+            }
         }
         .sidebar {
             width: 280px;
@@ -45,12 +95,12 @@
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            background-color: #dee2e6;
+            background-color: var(--placeholder-bg);
             margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #adb5bd;
+            color: var(--meta-color);
             font-size: 0.9rem;
             overflow: hidden; /* 추가: 이미지가 둥근 테두리를 벗어나지 않게 함 */
         }
@@ -126,7 +176,7 @@
             margin-bottom: 0.5rem;
         }
         .badge {
-            background: #e9ecef;
+            background: var(--badge-bg);
             color: var(--text-color);
             padding: 0.2rem 0.5rem;
             border-radius: 4px;
@@ -138,13 +188,13 @@
             flex-shrink: 0;
         }
         a.badge {
-            background: #e1f0ff;
+            background: var(--badge-link-bg);
             color: var(--primary-color);
             cursor: pointer;
             transition: background 0.2s;
         }
         a.badge:hover {
-            background: #cce5ff;
+            background: var(--badge-link-hover-bg);
             text-decoration: none;
         }
         .publication-title {
@@ -174,7 +224,7 @@
         }
         .portfolio-tile:hover {
             border-color: var(--primary-color);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            box-shadow: var(--shadow);
             text-decoration: none;
         }
         .portfolio-thumb {
@@ -255,7 +305,7 @@
             font-family: inherit;
         }
         .journey-marker-bg {
-            fill: #fff;
+            fill: var(--bg);
         }
         .journey-segment {
             fill: none;
@@ -264,10 +314,10 @@
             transform-box: fill-box;
             transform-origin: center;
         }
-        .journey-segment.patents { stroke: #b8860b; }
-        .journey-segment.publications { stroke: #0f7a7a; }
-        .journey-segment.awards { stroke: #b23a7a; }
-        .journey-segment.case-studies { stroke: #2f8f5b; }
+        .journey-segment.patents { stroke: var(--c-patents); }
+        .journey-segment.publications { stroke: var(--c-publications); }
+        .journey-segment.awards { stroke: var(--c-awards); }
+        .journey-segment.case-studies { stroke: var(--c-case-studies); }
         .journey-tab-link {
             cursor: pointer;
         }
@@ -296,10 +346,10 @@
             border-radius: 50%;
             display: inline-block;
         }
-        .journey-legend-swatch.patents { background: #b8860b; }
-        .journey-legend-swatch.publications { background: #0f7a7a; }
-        .journey-legend-swatch.awards { background: #b23a7a; }
-        .journey-legend-swatch.case-studies { background: #2f8f5b; }
+        .journey-legend-swatch.patents { background: var(--c-patents); }
+        .journey-legend-swatch.publications { background: var(--c-publications); }
+        .journey-legend-swatch.awards { background: var(--c-awards); }
+        .journey-legend-swatch.case-studies { background: var(--c-case-studies); }
         .journey-popups {
             position: relative;
         }
@@ -342,7 +392,7 @@
         }
         .journey-popup-category {
             padding: 1.1rem 0;
-            border-top: 1px solid #d8dce1;
+            border-top: 1px solid var(--divider);
         }
         .journey-popup-category:first-of-type {
             padding-top: 0;
@@ -410,6 +460,11 @@
         .accordion-body {
             margin-top: 0.6rem;
         }
+        @media (max-width: 1100px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
         @media (max-width: 768px) {
             body {
                 flex-direction: column;
@@ -434,6 +489,49 @@
             }
             .portfolio-grid {
                 grid-template-columns: 1fr;
+            }
+            .profile-img {
+                width: 96px;
+                height: 96px;
+                margin-bottom: 1rem;
+            }
+            .sidebar p {
+                margin-bottom: 1.25rem;
+            }
+            .nav-links {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            .nav-links li {
+                margin-bottom: 0;
+            }
+            .nav-links a {
+                display: inline-block;
+                padding: 0.5rem 0.9rem;
+                border: 1px solid var(--border-color);
+                border-radius: 999px;
+                font-size: 0.9rem;
+            }
+            section h2 {
+                font-size: 1.5rem;
+            }
+            .journey-popup-close {
+                top: 0.2rem;
+                right: 0.3rem;
+                padding: 0.5rem 0.7rem;
+                font-size: 1.5rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .sidebar {
+                padding: 1.5rem 1.25rem;
+            }
+            .content {
+                padding: 1.5rem 1.25rem;
+            }
+            section {
+                margin-bottom: 3rem;
             }
         }
     </style>
@@ -766,34 +864,48 @@
                     <span class="item-date">May 2024 - Present</span>
                 </div>
                 <div class="item-subtitle">Hyundai Motor Company | Infotainment Mobile Development Team</div>
-                <p class="item-summary">Led empirical post-crash multimodal-interface research (co-filed USPTO patent <a href="#PAT-5" class="badge">PAT-5</a>, AutomotiveUI 2025 publication <a href="#A-2" class="badge">A-2</a>) and built an internal UX analytics dashboard that cut analysis time by over 99% (Excellence Award, 2026).</p>
+                <ul class="bullet-list">
+                    <li><strong>[Internal Product Leadership]</strong> Built an internal hypothesis-verification tool integrating Google Analytics and Figma, cutting data validation turnaround from 20 days to 7 minutes for 56 active squad members (Excellence Award, 2026). Analyzed 320,000+ users' 3D asset engagement to provide core data validation for the HMG Tech Summit 2026.</li>
+                    <li><strong>[Multi-Brand Shared SDK &amp; Global Map Discovery]</strong> Led UX/UI for the unified Map &amp; Search tabs across three flagship apps (MyHyundai, MyGenesis, Kia) on a shared SDK architecture. Launched localized discovery experiences for Japan, Canada, and Europe, and ran A/B tests on search layouts and rating-filter interactions.</li>
+                    <li><strong>[Stress-Resilient Self-Service &amp; Hardware UX]</strong> Prototyped the in-vehicle emergency flow (&ldquo;Accident Management Mode&rdquo;) as a step-by-step Wizard vs. an AI Chat concept and tested both in a 25-driver simulator study (co-filed USPTO patent <a href="#PAT-5" class="badge">PAT-5</a>, AutomotiveUI 2025 publication <a href="#A-2" class="badge">A-2</a>). Designed spatial Top-View flows for Remote Smart Parking Assist (RSPA) to support multi-directional remote exit maneuvers.</li>
+                </ul>
             </div>
 
             <div class="item">
                 <div class="item-header">
                     <span class="item-title">Product Designer</span>
-                    <span class="item-date">Feb 2023 - Apr 2024</span>
+                    <span class="item-date">Jan 2023 - Apr 2024</span>
                 </div>
                 <div class="item-subtitle">Upstage INC. | Document Intelligence Team</div>
-                <p class="item-summary">Designed and launched a GUI-based Intelligent Document Processing (IDP) API demo, converting 40.47% of homepage traffic into active trial users.</p>
+                <ul class="bullet-list">
+                    <li><strong>[Self-Serve Enterprise Demo Funnel]</strong> Redesigned the Intelligent Document Processing (IDP) API demo as a self-service GUI on the homepage, streamlining the path to purchase from a 4-step sales flow to 2 steps and shortening the sales cycle by up to 2 weeks. Converted 40.47% of homepage demo visitors into active trial users.</li>
+                    <li><strong>[Enterprise Discovery &amp; Roadmap]</strong> Interviewed 5 enterprise clients in finance and insurance to map document-processing workflows and resolve UX gaps between internal tools and the customer-facing platform, shaping the 0-to-1 Document AI roadmap.</li>
+                </ul>
             </div>
 
             <div class="item">
                 <div class="item-header">
-                    <span class="item-title">Product Designer</span>
+                    <span class="item-title">UI/UX Designer</span>
                     <span class="item-date">Jun 2022 - Dec 2022</span>
                 </div>
                 <div class="item-subtitle">BNK Kyungnam Bank | Digital Strategy Department</div>
-                <p class="item-summary">Formulated data-informed UX strategies for the MyData asset management platform, redesigning the product exploration journey around generational asset management patterns to reduce cognitive load.</p>
+                <ul class="bullet-list">
+                    <li><strong>[MyData Redesign]</strong> Redesigned the MyData asset management app around an asset overview, a spending report, and a savings-goal challenge, guided by personas and journey maps built around generational asset management patterns.</li>
+                    <li><strong>[E-Commerce Discovery &amp; Navigation]</strong> Benchmarked 21 banking and e-commerce platforms to redesign financial product discovery with themed recommendations, interest previews, and side-by-side comparison filters, clarifying the path to conversion.</li>
+                </ul>
             </div>
 
             <div class="item">
                 <div class="item-header">
-                    <span class="item-title">Product Designer</span>
+                    <span class="item-title">Founding Product Designer</span>
                     <span class="item-date">Dec 2020 - May 2022</span>
                 </div>
-                <div class="item-subtitle">Thyroscope INC.</div>
-                <p class="item-summary">Increased user sign-up conversion by 18.6% (28.1% &rarr; 46.7%) via Google Analytics funnel analysis, and led an end-to-end redesign of the predictive healthcare app informed by 5 interviews and a 57-user survey.</p>
+                <div class="item-subtitle">Thyroscope INC. | Product &amp; Design Team</div>
+                <ul class="bullet-list">
+                    <li><strong>[Onboarding Funnel &amp; Design System]</strong> Diagnosed sign-up friction through Google Analytics and simplified the onboarding flow, raising download-to-signup conversion from 28.1% to 46.7% (+18.6 pp, +66.2% relative). Established a cross-platform design system from scratch.</li>
+                    <li><strong>[End-to-End App Redesign]</strong> Led the redesign of the predictive healthcare app, informed by 5 interviews and a 57-user survey, restructuring it around three areas: daily routines, health records, and long-term trends.</li>
+                    <li><strong>[Biomedical Interaction &amp; Clinical Guidance]</strong> Designed camera-guided positioning for thyroid-eye self-screening and refined it through usability testing, resulting in 2 registered patents <a href="#PAT-2" class="badge">PAT-2</a> <a href="#PAT-3" class="badge">PAT-3</a> and recognition as a Red Dot &amp; IDEA Design Award Finalist (2022).</li>
+                </ul>
             </div>
         </section>
 
