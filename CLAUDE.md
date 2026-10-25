@@ -55,7 +55,7 @@ npm i -g html-validate
 ### Page Layout
 - **Sidebar (280px):** Fixed on desktop, stacked on top on mobile (breakpoint at 768px)
   - Profile image (circular, 150px; 96px on mobile)
-  - Name, contact info, and the "Download CV (PDF)" link
+  - Name, contact links (email, LinkedIn, Google Scholar), and a "CV" link that downloads the PDF; the CV link carries `data-umami-event="cv-download"`, so Umami records each click as a `cv-download` event
   - Navigation links to sections (pill buttons on mobile)
 - **Main content:** Flexible width, max-width for readability
 - **Sections:** Anchor-based navigation with consistent structure
